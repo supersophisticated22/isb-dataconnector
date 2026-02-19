@@ -20,4 +20,11 @@ return [
         'missing_tenant_token' => 'Tenant-token is verplicht.',
         'invalid_tenant_token' => 'De tenant-token is ongeldig.',
     ],
+    'typesense' => [
+        'reindex' => [
+            'started' => 'TypeSense tenant product-herindexering gestart voor tenant :tenant_id.',
+            'completed' => 'TypeSense tenant product-herindexering voltooid voor tenant :tenant_id.',
+            'failed' => 'TypeSense tenant product-herindexering mislukt voor tenant :tenant_id. Fout: :message',
+        ],
+    ],
 ];

@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'typesense' => [
+        'url' => env('TYPESENSE_URL'),
+        'key' => env('TYPESENSE_API_KEY'),
+        'timeout' => env('TYPESENSE_TIMEOUT', 10),
+    ],
+
 ];

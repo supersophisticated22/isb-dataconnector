@@ -20,4 +20,11 @@ return [
         'missing_tenant_token' => 'Tenant token is required.',
         'invalid_tenant_token' => 'The tenant token is invalid.',
     ],
+    'typesense' => [
+        'reindex' => [
+            'started' => 'TypeSense tenant product reindex started for tenant :tenant_id.',
+            'completed' => 'TypeSense tenant product reindex completed for tenant :tenant_id.',
+            'failed' => 'TypeSense tenant product reindex failed for tenant :tenant_id. Error: :message',
+        ],
+    ],
 ];
