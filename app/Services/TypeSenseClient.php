@@ -76,9 +76,107 @@ class TypeSenseClient
         }
     }
 
+    /**
+     * @param  array<string, mixed>  $filters
+     * @return array{data: array<int, array<string, mixed>>, total: int}
+     */
+    public function searchProductDocs(int $tenantId, string $query, int $page, int $perPage, array $filters = []): array
+    {
+        $collectionName = $this->collectionName($tenantId);
+
+        $response = $this->http()->get("/collections/{$collectionName}/documents/search", [
+            'q' => trim($query) !== '' ? $query : '*',
+            'query_by' => 'name,reference,manufacturer_name',
+            'page' => $page,
+            'per_page' => $perPage,
+            'filter_by' => $this->buildProductFilterBy($filters),
+            'sort_by' => 'updated_at:desc',
+        ]);
+
+        if (! $response->successful()) {
+            $this->throwUnexpectedResponse('Failed searching TypeSense products.', $response);
+        }
+
+        $payload = $response->json();
+        $hits = is_array($payload['hits'] ?? null) ? $payload['hits'] : [];
+        $documents = [];
+
+        foreach ($hits as $hit) {
+            if (is_array($hit) && is_array($hit['document'] ?? null)) {
+                $documents[] = $hit['document'];
+            }
+        }
+
+        return [
+            'data' => $documents,
+            'total' => (int) ($payload['found'] ?? count($documents)),
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
+    public function getProductDoc(int $tenantId, int|string $productId): ?array
+    {
+        $collectionName = $this->collectionName($tenantId);
+        $encodedProductId = rawurlencode((string) $productId);
+
+        $response = $this->http()
+            ->get("/collections/{$collectionName}/documents/{$encodedProductId}");
+
+        if ($response->status() === 404) {
+            return null;
+        }
+
+        if (! $response->successful()) {
+            $this->throwUnexpectedResponse('Failed fetching TypeSense product document.', $response);
+        }
+
+        $payload = $response->json();
+
+        return is_array($payload) ? $payload : null;
+    }
+
     private function collectionName(int $tenantId): string
     {
         return 'products__'.$tenantId;
+    }
+
+    /**
+     * @param  array<string, mixed>  $filters
+     */
+    private function buildProductFilterBy(array $filters): string
+    {
+        $segments = ['active:=true'];
+
+        if (isset($filters['category']) && is_string($filters['category']) && $filters['category'] !== '') {
+            $segments[] = 'category_ids:='.$this->escapeFilterValue($filters['category']);
+        }
+
+        if (isset($filters['manufacturer']) && is_string($filters['manufacturer']) && $filters['manufacturer'] !== '') {
+            $segments[] = 'manufacturer_name:='.$this->escapeFilterValue($filters['manufacturer']);
+        }
+
+        if (isset($filters['min_price']) && is_numeric($filters['min_price'])) {
+            $segments[] = 'current_price_tax_excl:>='.(float) $filters['min_price'];
+        }
+
+        if (isset($filters['max_price']) && is_numeric($filters['max_price'])) {
+            $segments[] = 'current_price_tax_excl:<='.(float) $filters['max_price'];
+        }
+
+        if (array_key_exists('has_discount', $filters)) {
+            $segments[] = filter_var($filters['has_discount'], FILTER_VALIDATE_BOOLEAN)
+                ? 'discount_amount_tax_excl:>0'
+                : 'discount_amount_tax_excl:<=0';
+        }
+
+        return implode(' && ', $segments);
+    }
+
+    private function escapeFilterValue(string $value): string
+    {
+        return '`'.str_replace('`', '\`', trim($value)).'`';
     }
 
     private function http(): PendingRequest

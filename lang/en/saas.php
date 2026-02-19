@@ -27,4 +27,43 @@ return [
             'failed' => 'TypeSense tenant product reindex failed for tenant :tenant_id. Error: :message',
         ],
     ],
+    'api' => [
+        'products' => [
+            'not_found' => 'Product not found.',
+            'validation' => [
+                'q' => [
+                    'string' => 'Search query must be a string.',
+                    'max' => 'Search query may not be greater than 255 characters.',
+                ],
+                'category' => [
+                    'string' => 'Category filter must be a string.',
+                    'max' => 'Category filter may not be greater than 255 characters.',
+                ],
+                'manufacturer' => [
+                    'string' => 'Manufacturer filter must be a string.',
+                    'max' => 'Manufacturer filter may not be greater than 255 characters.',
+                ],
+                'min_price' => [
+                    'numeric' => 'Minimum price must be a number.',
+                    'min' => 'Minimum price must be at least 0.',
+                ],
+                'max_price' => [
+                    'numeric' => 'Maximum price must be a number.',
+                    'gte' => 'Maximum price must be greater than or equal to minimum price.',
+                ],
+                'has_discount' => [
+                    'boolean' => 'Discount filter must be true or false.',
+                ],
+                'page' => [
+                    'integer' => 'Page must be an integer.',
+                    'min' => 'Page must be at least 1.',
+                ],
+                'per_page' => [
+                    'integer' => 'Per-page must be an integer.',
+                    'min' => 'Per-page must be at least 1.',
+                    'max' => 'Per-page may not be greater than 100.',
+                ],
+            ],
+        ],
+    ],
 ];
