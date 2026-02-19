@@ -21,6 +21,7 @@ class TenantUser extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -53,5 +54,10 @@ class TenantUser extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         return $panel->getId() === 'saas' && $this->tenant()->exists();
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }

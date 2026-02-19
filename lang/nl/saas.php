@@ -9,6 +9,33 @@ return [
             'navigation_label' => 'Dashboard',
             'title' => 'SaaS-dashboard',
         ],
+        'tenant_settings' => [
+            'navigation_label' => 'Tenantinstellingen',
+            'title' => 'Tenantinstellingen',
+            'password_hint' => 'Laat leeg om het huidige wachtwoord te behouden.',
+            'fields' => [
+                'db_host' => 'DB-host',
+                'db_port' => 'DB-poort',
+                'db_name' => 'DB-naam',
+                'db_user' => 'DB-gebruiker',
+                'db_password' => 'DB-wachtwoord',
+                'db_prefix' => 'DB-prefix',
+                'base_shop_url' => 'Basis shop-URL',
+            ],
+            'actions' => [
+                'save' => 'Opslaan',
+                'test_connection' => 'Verbinding testen',
+                'sync_shop_url' => 'Shop-URL synchroniseren',
+            ],
+            'notifications' => [
+                'no_tenant' => 'Tenantcontext ontbreekt.',
+                'saved' => 'Instellingen opgeslagen.',
+                'connection_success' => 'Verbinding gelukt.',
+                'connection_failed' => 'Verbinding mislukt.',
+                'sync_success' => 'Shop-URL gesynchroniseerd.',
+                'sync_failed' => 'Shop-URL kon niet worden gesynchroniseerd.',
+            ],
+        ],
     ],
     'seeders' => [
         'tenant_created' => 'Tenant aangemaakt: :name',

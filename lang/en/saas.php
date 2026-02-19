@@ -9,6 +9,33 @@ return [
             'navigation_label' => 'Dashboard',
             'title' => 'SaaS Dashboard',
         ],
+        'tenant_settings' => [
+            'navigation_label' => 'Tenant Settings',
+            'title' => 'Tenant Settings',
+            'password_hint' => 'Leave empty to keep the current password.',
+            'fields' => [
+                'db_host' => 'DB Host',
+                'db_port' => 'DB Port',
+                'db_name' => 'DB Name',
+                'db_user' => 'DB User',
+                'db_password' => 'DB Password',
+                'db_prefix' => 'DB Prefix',
+                'base_shop_url' => 'Base Shop URL',
+            ],
+            'actions' => [
+                'save' => 'Save',
+                'test_connection' => 'Test connection',
+                'sync_shop_url' => 'Sync shop URL',
+            ],
+            'notifications' => [
+                'no_tenant' => 'Tenant context is missing.',
+                'saved' => 'Settings saved.',
+                'connection_success' => 'Connection successful.',
+                'connection_failed' => 'Connection failed.',
+                'sync_success' => 'Shop URL synced.',
+                'sync_failed' => 'Unable to sync shop URL.',
+            ],
+        ],
     ],
     'seeders' => [
         'tenant_created' => 'Tenant created: :name',

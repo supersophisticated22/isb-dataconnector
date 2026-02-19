@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\TenantUser;
 use App\Services\TenantContext;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Gate::define('manage-tenant-settings', function (TenantUser $tenantUser): bool {
+            return $tenantUser->isAdmin();
+        });
+
         RateLimiter::for('tenant-token', function (Request $request): Limit {
             $plainTextToken = $request->bearerToken();
 
