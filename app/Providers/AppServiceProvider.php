@@ -29,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
             return $tenantUser->isAdmin();
         });
 
+        Gate::define('view-tenant-products', function (TenantUser $tenantUser): bool {
+            return $tenantUser->tenant()->exists();
+        });
+
         RateLimiter::for('tenant-token', function (Request $request): Limit {
             $plainTextToken = $request->bearerToken();
 

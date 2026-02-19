@@ -37,6 +37,42 @@ return [
             ],
         ],
     ],
+    'resources' => [
+        'products' => [
+            'navigation_label' => 'Producten',
+            'model_label' => 'Product',
+            'plural_model_label' => 'Producten',
+            'states' => [
+                'active' => 'Actief',
+                'inactive' => 'Inactief',
+            ],
+            'table' => [
+                'search_placeholder' => 'Zoek producten',
+                'empty_state_heading' => 'Geen producten gevonden.',
+                'actions' => [
+                    'view' => 'Bekijken',
+                ],
+                'columns' => [
+                    'id' => 'ID',
+                    'name' => 'Naam',
+                    'reference' => 'Referentie',
+                    'manufacturer' => 'Fabrikant',
+                    'active' => 'Actief',
+                    'stock_qty' => 'Voorraad',
+                    'original_price_tax_excl' => 'Oorspr. prijs (excl.)',
+                    'current_price_tax_excl' => 'Huidige prijs (excl.)',
+                    'original_price_tax_incl' => 'Oorspr. prijs (incl.)',
+                    'current_price_tax_incl' => 'Huidige prijs (incl.)',
+                ],
+            ],
+            'infolist' => [
+                'sections' => [
+                    'general' => 'Algemeen',
+                    'pricing' => 'Prijzen',
+                ],
+            ],
+        ],
+    ],
     'seeders' => [
         'tenant_created' => 'Tenant aangemaakt: :name',
         'user_created' => 'Tenant-gebruiker aangemaakt: :email (:role)',

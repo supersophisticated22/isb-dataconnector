@@ -37,6 +37,42 @@ return [
             ],
         ],
     ],
+    'resources' => [
+        'products' => [
+            'navigation_label' => 'Products',
+            'model_label' => 'Product',
+            'plural_model_label' => 'Products',
+            'states' => [
+                'active' => 'Active',
+                'inactive' => 'Inactive',
+            ],
+            'table' => [
+                'search_placeholder' => 'Search products',
+                'empty_state_heading' => 'No products found.',
+                'actions' => [
+                    'view' => 'View',
+                ],
+                'columns' => [
+                    'id' => 'ID',
+                    'name' => 'Name',
+                    'reference' => 'Reference',
+                    'manufacturer' => 'Manufacturer',
+                    'active' => 'Active',
+                    'stock_qty' => 'Stock qty',
+                    'original_price_tax_excl' => 'Original price (excl.)',
+                    'current_price_tax_excl' => 'Current price (excl.)',
+                    'original_price_tax_incl' => 'Original price (incl.)',
+                    'current_price_tax_incl' => 'Current price (incl.)',
+                ],
+            ],
+            'infolist' => [
+                'sections' => [
+                    'general' => 'General',
+                    'pricing' => 'Pricing',
+                ],
+            ],
+        ],
+    ],
     'seeders' => [
         'tenant_created' => 'Tenant created: :name',
         'user_created' => 'Tenant user created: :email (:role)',

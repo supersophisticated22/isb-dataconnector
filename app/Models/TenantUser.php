@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use Filament\Models\Contracts\FilamentUser;
-use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class TenantUser extends Authenticatable implements FilamentUser
+class TenantUser extends Authenticatable
 {
+    /** @use HasFactory<\Database\Factories\TenantUserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -51,9 +50,12 @@ class TenantUser extends Authenticatable implements FilamentUser
         return $this->belongsTo(Tenant::class);
     }
 
-    public function canAccessPanel(Panel $panel): bool
+    public function canAccessPanel(mixed $panel): bool
     {
-        return $panel->getId() === 'saas' && $this->tenant()->exists();
+        return is_object($panel)
+            && method_exists($panel, 'getId')
+            && $panel->getId() === 'saas'
+            && $this->tenant()->exists();
     }
 
     public function isAdmin(): bool
