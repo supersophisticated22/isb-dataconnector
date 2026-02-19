@@ -29,7 +29,7 @@ class UserForm
                     ->required()
                     ->options([
                         'admin' => 'Admin',
-                        'viewer' => 'Viewer',
+                        'user' => 'User',
                     ]),
             ])
             ->columns(2);

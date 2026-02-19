@@ -12,15 +12,15 @@ it('allows only platform admins to access the admin panel according to panel acc
         'role' => 'admin',
     ]);
 
-    $viewer = User::factory()->create([
-        'role' => 'viewer',
+    $user = User::factory()->create([
+        'role' => 'user',
     ]);
 
     $adminPanel = mock(Panel::class);
     $adminPanel->shouldReceive('getId')->andReturn('admin');
 
     expect($admin->canAccessPanel($adminPanel))->toBeTrue()
-        ->and($viewer->canAccessPanel($adminPanel))->toBeFalse();
+        ->and($user->canAccessPanel($adminPanel))->toBeFalse();
 });
 
 it('allows tenant users with active memberships to access the app panel', function (): void {
@@ -35,4 +35,20 @@ it('allows tenant users with active memberships to access the app panel', functi
     $appPanel->shouldReceive('getId')->andReturn('app');
 
     expect($tenantUser->canAccessPanel($appPanel))->toBeTrue();
+});
+
+it('does not allow tenant-linked admin-role users to access admin panel', function (): void {
+    $tenant = Tenant::factory()->create();
+    $tenantAdmin = User::factory()->create([
+        'role' => 'admin',
+    ]);
+    $tenantAdmin->tenants()->attach($tenant->id, [
+        'role' => 'admin',
+        'status' => 'active',
+    ]);
+
+    $adminPanel = mock(Panel::class);
+    $adminPanel->shouldReceive('getId')->andReturn('admin');
+
+    expect($tenantAdmin->canAccessPanel($adminPanel))->toBeFalse();
 });

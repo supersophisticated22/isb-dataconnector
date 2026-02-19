@@ -420,11 +420,7 @@ class ProductWriteService
 
     private function resolveTenantId(): int
     {
-        $tenantId = $this->tenantContext->tenantId() ?? request()->attributes->get('tenant_id');
-
-        if (is_string($tenantId) && ctype_digit($tenantId)) {
-            $tenantId = (int) $tenantId;
-        }
+        $tenantId = $this->tenantContext->tenantId();
 
         if (! is_int($tenantId) || $tenantId < 1) {
             throw new RuntimeException('Tenant context is missing.');

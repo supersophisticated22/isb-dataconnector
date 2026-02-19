@@ -7,6 +7,7 @@ use App\Http\Requests\Api\V1\ListProductsRequest;
 use App\Services\TenantContext;
 use App\Services\TypeSenseClient;
 use Illuminate\Http\JsonResponse;
+use RuntimeException;
 
 class ProductController extends Controller
 {
@@ -68,7 +69,13 @@ class ProductController extends Controller
 
     private function resolveTenantId(): int
     {
-        return $this->tenantContext->tenantId() ?? (int) request()->attributes->get('tenant_id');
+        $tenantId = $this->tenantContext->tenantId();
+
+        if (! is_int($tenantId) || $tenantId < 1) {
+            throw new RuntimeException('Tenant context is missing.');
+        }
+
+        return $tenantId;
     }
 
     /**

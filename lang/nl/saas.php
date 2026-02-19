@@ -105,6 +105,11 @@ return [
                 'actions' => [
                     'view' => 'Bekijken',
                 ],
+                'filters' => [
+                    'active' => 'Actief',
+                    'in_stock' => 'Voorraad > 0',
+                    'manufacturer' => 'Fabrikant',
+                ],
                 'columns' => [
                     'id' => 'ID',
                     'name' => 'Naam',
@@ -122,6 +127,16 @@ return [
                 'sections' => [
                     'general' => 'Algemeen',
                     'pricing' => 'Prijzen',
+                    'specific_price' => 'Specifieke prijs',
+                ],
+                'labels' => [
+                    'formatted_price' => 'Geformatteerde prijs',
+                    'specific_price' => 'Specifieke prijsstatus',
+                    'discounted' => 'Afgeprijsd',
+                ],
+                'stock' => [
+                    'in_stock' => 'op voorraad',
+                    'out_of_stock' => 'niet op voorraad',
                 ],
             ],
             'view' => [

@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Tenant Admin',
             'email' => 'tenant-admin@example.test',
             'password' => 'password',
-            'role' => 'viewer',
+            'role' => 'user',
         ]);
 
         $tenantAdmin->tenants()->attach($tenant->id, [

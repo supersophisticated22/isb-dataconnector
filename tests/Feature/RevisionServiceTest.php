@@ -3,6 +3,7 @@
 use App\Models\Tenant;
 use App\Models\User;
 use App\Services\RevisionService;
+use App\Services\TenantContext;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
@@ -55,9 +56,9 @@ it('scopes revision lookup by tenant context', function () {
         reason: null,
     );
 
-    request()->attributes->set('tenant_id', $tenantA->id);
+    app(TenantContext::class)->setTenant($tenantA);
     expect($service->getRevision($revision->id)?->id)->toBe($revision->id);
 
-    request()->attributes->set('tenant_id', $tenantB->id);
+    app(TenantContext::class)->setTenant($tenantB);
     expect($service->getRevision($revision->id))->toBeNull();
 });

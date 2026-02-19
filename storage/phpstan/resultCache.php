@@ -2895,77 +2895,6 @@ return [
        'fixedErrorDiff' => NULL,
     )),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Models\\Tenant uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'line' => 13,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 13,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\TraitUse',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Models\\Tenant::dbPasswordEncrypted() return type with generic class Illuminate\\Database\\Eloquent\\Casts\\Attribute does not specify its types: TGet, TSet',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'line' => 51,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 51,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Type array<string, int|string|null> in generic type Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany<App\\Models\\User, $this(App\\Models\\Tenant), array<string, int|string|null>, string> in PHPDoc tag @return is not subtype of template type TPivotModel of Illuminate\\Database\\Eloquent\\Relations\\Pivot = Illuminate\\Database\\Eloquent\\Relations\\Pivot of class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'line' => 62,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 62,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\ClassMethod',
-       'identifier' => 'generics.notSubtype',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Models\\Tenant::users() should return Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany<App\\Models\\User, $this(App\\Models\\Tenant), array{role: string, status: string, invited_by: int|null, last_seen_at: string|null}, \'pivot\'> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany<App\\Models\\User, $this(App\\Models\\Tenant), Illuminate\\Database\\Eloquent\\Relations\\Pivot, \'pivot\'>.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'line' => 64,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantPrestaShopProduct.php' => 
   array (
     0 => 
@@ -2980,128 +2909,6 @@ return [
        'nodeLine' => 26,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Type array<string, int|string|null> in generic type Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany<App\\Models\\Tenant, $this(App\\Models\\User), array<string, int|string|null>, string> in PHPDoc tag @return is not subtype of template type TPivotModel of Illuminate\\Database\\Eloquent\\Relations\\Pivot = Illuminate\\Database\\Eloquent\\Relations\\Pivot of class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'line' => 76,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 76,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\ClassMethod',
-       'identifier' => 'generics.notSubtype',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Models\\User::tenants() should return Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany<App\\Models\\Tenant, $this(App\\Models\\User), array{role: string, status: string, invited_by: int|null, last_seen_at: string|null}, \'pivot\'> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany<App\\Models\\Tenant, $this(App\\Models\\User), Illuminate\\Database\\Eloquent\\Relations\\Pivot, \'pivot\'>.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'line' => 78,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 78,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access property $role on array<string, int|string|null>.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'line' => 194,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 194,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.nonObject',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access property $status on array<string, int|string|null>.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'line' => 195,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 195,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.nonObject',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access property $invited_by on array<string, int|string|null>.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'line' => 196,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 196,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.nonObject',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access property $invited_by on array<string, int|string|null>.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'line' => 196,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 196,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.nonObject',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access property $last_seen_at on array<string, int|string|null>.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'line' => 197,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 197,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.nonObject',
        'metadata' => 
       array (
       ),
@@ -3385,6 +3192,23 @@ return [
       ),
        'fixedErrorDiff' => NULL,
     )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function is_string() with string will always evaluate to true.',
+       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php',
+       'line' => 143,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 143,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.alreadyNarrowedType',
+       'metadata' => 
+      array (
+      ),
+       'fixedErrorDiff' => NULL,
+    )),
   ),
 ); },
 	'locallyIgnoredErrorsCallback' => static function (): array { return array (
@@ -3394,6 +3218,13 @@ return [
 	'unmatchedLineIgnores' => array (
 ),
 	'collectedDataCallback' => static function (): array { return array (
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/DTO/ProductViewData.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\DTO\\ProductViewData',
+    ),
+  ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/BulkPriceUpdate.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
@@ -3749,17 +3580,17 @@ return [
       0 => 
       array (
         0 => 'saas.resources.products.navigation_label',
-        1 => 44,
+        1 => 47,
       ),
       1 => 
       array (
         0 => 'saas.resources.products.model_label',
-        1 => 49,
+        1 => 52,
       ),
       2 => 
       array (
         0 => 'saas.resources.products.plural_model_label',
-        1 => 54,
+        1 => 57,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
@@ -3918,72 +3749,102 @@ return [
       0 => 
       array (
         0 => 'saas.resources.products.infolist.sections.general',
-        1 => 15,
+        1 => 18,
       ),
       1 => 
       array (
         0 => 'saas.resources.products.table.columns.id',
-        1 => 19,
+        1 => 22,
       ),
       2 => 
       array (
         0 => 'saas.resources.products.table.columns.name',
-        1 => 21,
+        1 => 24,
       ),
       3 => 
       array (
         0 => 'saas.resources.products.table.columns.reference',
-        1 => 23,
+        1 => 26,
       ),
       4 => 
       array (
         0 => 'saas.resources.products.table.columns.manufacturer',
-        1 => 25,
+        1 => 28,
       ),
       5 => 
       array (
         0 => 'saas.resources.products.table.columns.active',
-        1 => 27,
+        1 => 30,
       ),
       6 => 
       array (
         0 => 'saas.resources.products.states.active',
-        1 => 31,
+        1 => 34,
       ),
       7 => 
       array (
         0 => 'saas.resources.products.states.inactive',
-        1 => 32,
+        1 => 35,
       ),
       8 => 
       array (
         0 => 'saas.resources.products.table.columns.stock_qty',
-        1 => 36,
+        1 => 39,
       ),
       9 => 
       array (
-        0 => 'saas.resources.products.infolist.sections.pricing',
-        1 => 39,
+        0 => 'saas.resources.products.infolist.stock.in_stock',
+        1 => 47,
       ),
       10 => 
       array (
-        0 => 'saas.resources.products.table.columns.original_price_tax_excl',
-        1 => 43,
+        0 => 'saas.resources.products.infolist.stock.out_of_stock',
+        1 => 48,
       ),
       11 => 
       array (
-        0 => 'saas.resources.products.table.columns.current_price_tax_excl',
-        1 => 46,
+        0 => 'saas.resources.products.infolist.sections.pricing',
+        1 => 52,
       ),
       12 => 
       array (
-        0 => 'saas.resources.products.table.columns.original_price_tax_incl',
-        1 => 49,
+        0 => 'saas.resources.products.table.columns.original_price_tax_excl',
+        1 => 56,
       ),
       13 => 
       array (
+        0 => 'saas.resources.products.table.columns.current_price_tax_excl',
+        1 => 59,
+      ),
+      14 => 
+      array (
+        0 => 'saas.resources.products.table.columns.original_price_tax_incl',
+        1 => 64,
+      ),
+      15 => 
+      array (
         0 => 'saas.resources.products.table.columns.current_price_tax_incl',
-        1 => 52,
+        1 => 67,
+      ),
+      16 => 
+      array (
+        0 => 'saas.resources.products.infolist.labels.formatted_price',
+        1 => 72,
+      ),
+      17 => 
+      array (
+        0 => 'saas.resources.products.infolist.sections.specific_price',
+        1 => 75,
+      ),
+      18 => 
+      array (
+        0 => 'saas.resources.products.infolist.labels.specific_price',
+        1 => 79,
+      ),
+      19 => 
+      array (
+        0 => 'saas.resources.products.infolist.labels.discounted',
+        1 => 81,
       ),
     ),
   ),
@@ -3994,67 +3855,92 @@ return [
       0 => 
       array (
         0 => 'saas.resources.products.table.search_placeholder',
-        1 => 16,
+        1 => 25,
       ),
       1 => 
       array (
         0 => 'saas.resources.products.table.columns.id',
-        1 => 19,
+        1 => 31,
       ),
       2 => 
       array (
         0 => 'saas.resources.products.table.columns.name',
-        1 => 22,
+        1 => 34,
       ),
       3 => 
       array (
         0 => 'saas.resources.products.table.columns.reference',
-        1 => 26,
+        1 => 38,
       ),
       4 => 
       array (
         0 => 'saas.resources.products.table.columns.manufacturer',
-        1 => 29,
+        1 => 42,
       ),
       5 => 
       array (
         0 => 'saas.resources.products.table.columns.active',
-        1 => 32,
+        1 => 46,
       ),
       6 => 
       array (
-        0 => 'saas.resources.products.table.columns.stock_qty',
-        1 => 35,
+        0 => 'saas.resources.products.states.active',
+        1 => 50,
       ),
       7 => 
       array (
-        0 => 'saas.resources.products.table.columns.original_price_tax_excl',
-        1 => 40,
+        0 => 'saas.resources.products.states.inactive',
+        1 => 51,
       ),
       8 => 
       array (
-        0 => 'saas.resources.products.table.columns.current_price_tax_excl',
-        1 => 45,
+        0 => 'saas.resources.products.table.columns.stock_qty',
+        1 => 53,
       ),
       9 => 
       array (
-        0 => 'saas.resources.products.table.columns.original_price_tax_incl',
-        1 => 50,
+        0 => 'saas.resources.products.table.columns.original_price_tax_excl',
+        1 => 58,
       ),
       10 => 
       array (
-        0 => 'saas.resources.products.table.columns.current_price_tax_incl',
-        1 => 56,
+        0 => 'saas.resources.products.table.columns.current_price_tax_excl',
+        1 => 63,
       ),
       11 => 
       array (
-        0 => 'saas.resources.products.table.actions.view',
-        1 => 64,
+        0 => 'saas.resources.products.table.columns.original_price_tax_incl',
+        1 => 68,
       ),
       12 => 
       array (
+        0 => 'saas.resources.products.table.columns.current_price_tax_incl',
+        1 => 74,
+      ),
+      13 => 
+      array (
+        0 => 'saas.resources.products.table.filters.active',
+        1 => 82,
+      ),
+      14 => 
+      array (
+        0 => 'saas.resources.products.table.filters.in_stock',
+        1 => 88,
+      ),
+      15 => 
+      array (
+        0 => 'saas.resources.products.table.filters.manufacturer',
+        1 => 91,
+      ),
+      16 => 
+      array (
+        0 => 'saas.resources.products.table.actions.view',
+        1 => 106,
+      ),
+      17 => 
+      array (
         0 => 'saas.resources.products.table.empty_state_heading',
-        1 => 67,
+        1 => 109,
       ),
     ),
   ),
@@ -4065,7 +3951,7 @@ return [
       0 => 
       array (
         0 => 'saas.api.products.not_found',
-        1 => 60,
+        1 => 61,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
@@ -4486,6 +4372,13 @@ return [
       0 => 'App\\Services\\ProductWriteService',
     ),
   ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/RevisionService.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\Services\\RevisionService',
+    ),
+  ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantContext.php' => 
   array (
     'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
@@ -4520,6 +4413,13 @@ return [
       ),
     ),
   ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopProductQueryBuilder.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\Services\\TenantPrestaShopProductQueryBuilder',
+    ),
+  ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TypeSenseClient.php' => 
   array (
     'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
@@ -4534,6 +4434,14 @@ return [
   ),
 ); },
 	'dependencies' => array (
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/DTO/ProductViewData.php' => 
+  array (
+    'fileHash' => 'daf40fd4cbde3b023c8f12b41b767a128371bebc16459956cf753a41aa92b0a2',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Schemas/ProductInfolist.php',
+    ),
+  ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/BulkPriceUpdate.php' => 
   array (
     'fileHash' => '3a8577bf580128713abaae48e527a6d675061d42a0c3f3ce0363d100cbbdf918',
@@ -4574,11 +4482,12 @@ return [
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php' => 
   array (
-    'fileHash' => '539802c509fe777e957b5bbc554b00b924b4ab67f307e85057c53083de99eaa2',
+    'fileHash' => 'bd2b2da3d3dc812ef5fdf82990b9a1d07c00544f9c7b60902ca9d8a14c3514ff',
     'dependentFiles' => 
     array (
       0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ListProducts.php',
       1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ViewProduct.php',
+      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Tables/ProductsTable.php',
     ),
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/RelationManagers/SpecificPricesRelationManager.php' => 
@@ -4591,7 +4500,7 @@ return [
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Schemas/ProductInfolist.php' => 
   array (
-    'fileHash' => 'd53be30097a3d3d20dcaa72973d82ec3c61a99e95e450fb6a51b7678d4299436',
+    'fileHash' => '7b82e2c546091ca3ad5b5af5628a5a9742591c80da2c1a335a9f3d7b1b607068',
     'dependentFiles' => 
     array (
       0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
@@ -4599,7 +4508,7 @@ return [
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Tables/ProductsTable.php' => 
   array (
-    'fileHash' => '6cb71dcb6dea2fa94aa8b5a3cbd45fbdb0bf5552a6952dcb22a0160acb987aef',
+    'fileHash' => '5be2a8fc02d80f05167912e651a95fa9d615fa3ea924715848eefcd3232fec50',
     'dependentFiles' => 
     array (
       0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
@@ -4707,7 +4616,7 @@ return [
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php' => 
   array (
-    'fileHash' => '8e6dff3feaf1acd4154b958e0f6100fde4928aebbd50bfe1d3177967245a11b6',
+    'fileHash' => '273adf948d98f248b10f6ff3f470835a5675e0f4d80f11d8444b233399c87643',
     'dependentFiles' => 
     array (
     ),
@@ -4809,7 +4718,7 @@ return [
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php' => 
   array (
-    'fileHash' => '5312a986ba89adb105d134b02b07d3a309179e20a1c7024807c1d6f19f71bdf6',
+    'fileHash' => '682174e398e6187b8457c94a98e5b015ad4251b6e8244c372c2780a2f0b7045e',
     'dependentFiles' => 
     array (
       0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/BulkPriceUpdate.php',
@@ -4849,19 +4758,20 @@ return [
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php' => 
   array (
-    'fileHash' => 'd9615c5a87835d7f35e82987dba5c474267f2f4c8a5a01d84ddf61e5eda504f1',
+    'fileHash' => '3f49d56ee7a952b2ef2bc4443e48b70e38a8b98ce1d145bd3cee1d45cd22e482',
     'dependentFiles' => 
     array (
       0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/BulkPriceUpdate.php',
       1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/TenantSettings.php',
-      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php',
-      3 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php',
-      4 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php',
-      5 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php',
-      6 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php',
-      7 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-      8 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php',
-      9 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
+      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
+      3 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php',
+      4 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php',
+      5 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php',
+      6 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php',
+      7 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php',
+      8 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
+      9 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php',
+      10 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
     ),
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php' => 
@@ -4907,7 +4817,7 @@ return [
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php' => 
   array (
-    'fileHash' => '498f98e8474d8f998d0b43b89240a08926e6ecc5f9c1a93685e1490fd096419a',
+    'fileHash' => '5a9493ed287688f20aa74f5f5049954987982fe598e871e3e5a6b0edc0a2585c',
     'dependentFiles' => 
     array (
       0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ViewProduct.php',
@@ -4917,7 +4827,7 @@ return [
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/RevisionService.php' => 
   array (
-    'fileHash' => 'c4ad4afaa35a7482388d5d6cde215d170f38b90f950a39637ca6f13dfbc5bd51',
+    'fileHash' => '8fa41f79149fc451f7f4795fbbcefc446f6a596c1d2ade3614e8c799cb827428',
     'dependentFiles' => 
     array (
     ),
@@ -4935,7 +4845,8 @@ return [
       5 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php',
       6 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/BulkPriceUpdateService.php',
       7 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
-      8 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php',
+      8 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/RevisionService.php',
+      9 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php',
     ),
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php' => 
@@ -4952,6 +4863,15 @@ return [
       6 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/BulkPriceUpdateService.php',
       7 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/PricingService.php',
       8 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
+      9 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopProductQueryBuilder.php',
+    ),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopProductQueryBuilder.php' => 
+  array (
+    'fileHash' => '2b1b43dfe3967b64a1239765e30b2b6703017740fc9848a73859d83c74ed6bf0',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
     ),
   ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TypeSenseClient.php' => 
@@ -4968,6 +4888,137 @@ return [
   ),
 ),
 	'exportedNodesCallback' => static function (): array { return array (
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/DTO/ProductViewData.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\DTO\\ProductViewData',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'formattedPrice',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'discounted',
+               'type' => 'bool',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'stockStatus',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            3 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'isActive',
+               'type' => 'bool',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fromRecord',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param  Model|array<string, mixed>  $record
+     */',
+             'namespace' => 'App\\DTO',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'number' => 'Illuminate\\Support\\Number',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'self',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'record',
+               'type' => 'Illuminate\\Database\\Eloquent\\Model|array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/BulkPriceUpdate.php' => 
   array (
     0 => 
@@ -6414,8 +6465,10 @@ return [
               'productinfolist' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
               'productstable' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
               'tenantprestashopproduct' => 'App\\Models\\TenantPrestaShopProduct',
+              'user' => 'App\\Models\\User',
               'tenantcontext' => 'App\\Services\\TenantContext',
               'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
+              'tenantprestashopproductquerybuilder' => 'App\\Services\\TenantPrestaShopProductQueryBuilder',
               'typesenseclient' => 'App\\Services\\TypeSenseClient',
               'backedenum' => 'BackedEnum',
               'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
@@ -6423,6 +6476,7 @@ return [
               'schema' => 'Filament\\Schemas\\Schema',
               'table' => 'Filament\\Tables\\Table',
               'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'gate' => 'Illuminate\\Support\\Facades\\Gate',
               'throwable' => 'Throwable',
@@ -6462,8 +6516,10 @@ return [
               'productinfolist' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
               'productstable' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
               'tenantprestashopproduct' => 'App\\Models\\TenantPrestaShopProduct',
+              'user' => 'App\\Models\\User',
               'tenantcontext' => 'App\\Services\\TenantContext',
               'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
+              'tenantprestashopproductquerybuilder' => 'App\\Services\\TenantPrestaShopProductQueryBuilder',
               'typesenseclient' => 'App\\Services\\TypeSenseClient',
               'backedenum' => 'BackedEnum',
               'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
@@ -6471,6 +6527,7 @@ return [
               'schema' => 'Filament\\Schemas\\Schema',
               'table' => 'Filament\\Tables\\Table',
               'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'gate' => 'Illuminate\\Support\\Facades\\Gate',
               'throwable' => 'Throwable',
@@ -6510,8 +6567,10 @@ return [
               'productinfolist' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
               'productstable' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
               'tenantprestashopproduct' => 'App\\Models\\TenantPrestaShopProduct',
+              'user' => 'App\\Models\\User',
               'tenantcontext' => 'App\\Services\\TenantContext',
               'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
+              'tenantprestashopproductquerybuilder' => 'App\\Services\\TenantPrestaShopProductQueryBuilder',
               'typesenseclient' => 'App\\Services\\TypeSenseClient',
               'backedenum' => 'BackedEnum',
               'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
@@ -6519,6 +6578,7 @@ return [
               'schema' => 'Filament\\Schemas\\Schema',
               'table' => 'Filament\\Tables\\Table',
               'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
               'db' => 'Illuminate\\Support\\Facades\\DB',
               'gate' => 'Illuminate\\Support\\Facades\\Gate',
               'throwable' => 'Throwable',
@@ -6534,6 +6594,130 @@ return [
            'final' => false,
            'static' => true,
            'returnType' => 'Illuminate\\Database\\Eloquent\\Builder',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        16 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'applyTypeSenseSearch',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param  Builder<\\Illuminate\\Database\\Eloquent\\Model>  $query
+     */',
+             'namespace' => 'App\\Filament\\App\\Resources\\Products',
+             'uses' => 
+            array (
+              'listproducts' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ListProducts',
+              'viewproduct' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ViewProduct',
+              'specificpricesrelationmanager' => 'App\\Filament\\App\\Resources\\Products\\RelationManagers\\SpecificPricesRelationManager',
+              'productinfolist' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
+              'productstable' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
+              'tenantprestashopproduct' => 'App\\Models\\TenantPrestaShopProduct',
+              'user' => 'App\\Models\\User',
+              'tenantcontext' => 'App\\Services\\TenantContext',
+              'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
+              'tenantprestashopproductquerybuilder' => 'App\\Services\\TenantPrestaShopProductQueryBuilder',
+              'typesenseclient' => 'App\\Services\\TypeSenseClient',
+              'backedenum' => 'BackedEnum',
+              'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
+              'resource' => 'Filament\\Resources\\Resource',
+              'schema' => 'Filament\\Schemas\\Schema',
+              'table' => 'Filament\\Tables\\Table',
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'gate' => 'Illuminate\\Support\\Facades\\Gate',
+              'throwable' => 'Throwable',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'query',
+               'type' => 'Illuminate\\Database\\Eloquent\\Builder',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'search',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        17 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'manufacturerFilterOptions',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<int, string>
+     */',
+             'namespace' => 'App\\Filament\\App\\Resources\\Products',
+             'uses' => 
+            array (
+              'listproducts' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ListProducts',
+              'viewproduct' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ViewProduct',
+              'specificpricesrelationmanager' => 'App\\Filament\\App\\Resources\\Products\\RelationManagers\\SpecificPricesRelationManager',
+              'productinfolist' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
+              'productstable' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
+              'tenantprestashopproduct' => 'App\\Models\\TenantPrestaShopProduct',
+              'user' => 'App\\Models\\User',
+              'tenantcontext' => 'App\\Services\\TenantContext',
+              'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
+              'tenantprestashopproductquerybuilder' => 'App\\Services\\TenantPrestaShopProductQueryBuilder',
+              'typesenseclient' => 'App\\Services\\TypeSenseClient',
+              'backedenum' => 'BackedEnum',
+              'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
+              'resource' => 'Filament\\Resources\\Resource',
+              'schema' => 'Filament\\Schemas\\Schema',
+              'table' => 'Filament\\Tables\\Table',
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'gate' => 'Illuminate\\Support\\Facades\\Gate',
+              'throwable' => 'Throwable',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'array',
            'parameters' => 
           array (
           ),
@@ -9838,7 +10022,24 @@ return [
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'dbPasswordEncrypted',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return Attribute<?string, ?string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'attribute' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'belongstomany' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany',
+              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => false,
            'private' => false,
@@ -9859,7 +10060,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @return BelongsToMany<User, $this, array{role:string,status:string,invited_by:?int,last_seen_at:?string}>
+     * @return BelongsToMany<User, $this>
      */',
              'namespace' => 'App\\Models',
              'uses' => 
@@ -10644,7 +10845,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @return BelongsToMany<Tenant, $this, array{role:string,status:string,invited_by:?int,last_seen_at:?string}>
+     * @return BelongsToMany<Tenant, $this>
      */',
              'namespace' => 'App\\Models',
              'uses' => 
@@ -12351,6 +12552,35 @@ return [
       array (
         0 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tenantContext',
+               'type' => 'App\\Services\\TenantContext',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'recordRevision',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
@@ -12492,7 +12722,7 @@ return [
           array (
           ),
         )),
-        1 => 
+        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getRevision',
            'phpDoc' => NULL,
@@ -12803,6 +13033,111 @@ return [
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopProductQueryBuilder.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\TenantPrestaShopProductQueryBuilder',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tenantPrestaShopConnection',
+               'type' => 'App\\Services\\TenantPrestaShopConnection',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'buildBaseQuery',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Index requirements (PrestaShop tenant DB, not managed by our migrations):
+     * - product: PRIMARY(id_product), INDEX(id_manufacturer), INDEX(active)
+     * - product_lang: INDEX(id_product, id_lang)
+     * - stock_available: INDEX(id_product, id_product_attribute)
+     * - specific_price: INDEX(id_product, id_product_attribute), INDEX(`from`), INDEX(`to`)
+     *
+     * @param  Builder<\\Illuminate\\Database\\Eloquent\\Model>  $baseQuery
+     * @return Builder<\\Illuminate\\Database\\Eloquent\\Model>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Builder',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'baseQuery',
+               'type' => 'Illuminate\\Database\\Eloquent\\Builder',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
                'attributes' => 
               array (
               ),

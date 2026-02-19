@@ -33,3 +33,15 @@ it('returns only active memberships in getTenants', function (): void {
 
     expect($user->getTenants($appPanel)->pluck('id')->all())->toBe([$tenantA->id]);
 });
+
+it('allows tenant management permissions for any active tenant membership', function (): void {
+    $tenantA = Tenant::factory()->create();
+    $tenantB = Tenant::factory()->create();
+    $user = User::factory()->create();
+
+    $user->tenants()->attach($tenantA->id, ['role' => 'member', 'status' => 'active']);
+    $user->tenants()->attach($tenantB->id, ['role' => 'member', 'status' => 'invited']);
+
+    expect($user->isTenantAdmin($tenantA->id))->toBeTrue()
+        ->and($user->isTenantAdmin($tenantB->id))->toBeFalse();
+});

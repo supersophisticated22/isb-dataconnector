@@ -105,6 +105,11 @@ return [
                 'actions' => [
                     'view' => 'View',
                 ],
+                'filters' => [
+                    'active' => 'Active',
+                    'in_stock' => 'Stock > 0',
+                    'manufacturer' => 'Manufacturer',
+                ],
                 'columns' => [
                     'id' => 'ID',
                     'name' => 'Name',
@@ -122,6 +127,16 @@ return [
                 'sections' => [
                     'general' => 'General',
                     'pricing' => 'Pricing',
+                    'specific_price' => 'Specific price',
+                ],
+                'labels' => [
+                    'formatted_price' => 'Formatted price',
+                    'specific_price' => 'Specific price status',
+                    'discounted' => 'Discounted',
+                ],
+                'stock' => [
+                    'in_stock' => 'in stock',
+                    'out_of_stock' => 'out of stock',
                 ],
             ],
             'view' => [

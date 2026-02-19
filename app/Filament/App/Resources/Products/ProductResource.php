@@ -8,8 +8,10 @@ use App\Filament\App\Resources\Products\RelationManagers\SpecificPricesRelationM
 use App\Filament\App\Resources\Products\Schemas\ProductInfolist;
 use App\Filament\App\Resources\Products\Tables\ProductsTable;
 use App\Models\TenantPrestaShopProduct;
+use App\Models\User;
 use App\Services\TenantContext;
 use App\Services\TenantPrestaShopConnection;
+use App\Services\TenantPrestaShopProductQueryBuilder;
 use App\Services\TypeSenseClient;
 use BackedEnum;
 use Filament\Resources\Pages\PageRegistration;
@@ -17,6 +19,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Throwable;
@@ -56,12 +59,24 @@ class ProductResource extends Resource
 
     public static function canViewAny(): bool
     {
-        return Gate::allows('view-tenant-products');
+        $user = self::resolveGateUser();
+
+        if (! $user instanceof User) {
+            return false;
+        }
+
+        return Gate::forUser($user)->allows('view-tenant-products');
     }
 
     public static function canView(mixed $record): bool
     {
-        return Gate::allows('view-tenant-products');
+        $user = self::resolveGateUser();
+
+        if (! $user instanceof User) {
+            return false;
+        }
+
+        return Gate::forUser($user)->allows('view-tenant-products');
     }
 
     public static function canCreate(): bool
@@ -105,92 +120,71 @@ class ProductResource extends Resource
      */
     public static function getEloquentQuery(): Builder
     {
-        $connection = app(TenantPrestaShopConnection::class);
-        $productTable = $connection->table('product');
-        $productLangTable = $connection->table('product_lang');
-        $manufacturerTable = $connection->table('manufacturer');
-        $stockAvailableTable = $connection->table('stock_available');
-        $specificPriceTable = $connection->table('specific_price');
-
-        $nameSubquery = DB::connection('tenant_ps')
-            ->table($productLangTable.' as pl')
-            ->select('pl.name')
-            ->whereColumn('pl.id_product', 'p.id_product')
-            ->orderBy('pl.id_lang')
-            ->limit(1);
-
-        $stockSubquery = DB::connection('tenant_ps')
-            ->table($stockAvailableTable.' as sa')
-            ->selectRaw('COALESCE(SUM(sa.quantity), 0)')
-            ->whereColumn('sa.id_product', 'p.id_product')
-            ->where('sa.id_product_attribute', 0);
-
-        $currentPriceSubquery = DB::connection('tenant_ps')
-            ->table($specificPriceTable.' as sp')
-            ->selectRaw(
-                "ROUND(IFNULL(MIN(CASE
-                    WHEN sp.reduction_type = 'percentage' THEN GREATEST(p.price * (1 - sp.reduction), 0)
-                    WHEN sp.reduction_type = 'amount' THEN GREATEST(p.price - sp.reduction, 0)
-                    ELSE p.price
-                END), p.price), 6)"
-            )
-            ->whereColumn('sp.id_product', 'p.id_product')
-            ->where('sp.id_product_attribute', 0)
-            ->where(function ($query): void {
-                $query->where('sp.from', '0000-00-00 00:00:00')
-                    ->orWhere('sp.from', '<=', now()->format('Y-m-d H:i:s'));
-            })
-            ->where(function ($query): void {
-                $query->where('sp.to', '0000-00-00 00:00:00')
-                    ->orWhere('sp.to', '>=', now()->format('Y-m-d H:i:s'));
-            });
-
-        $query = parent::getEloquentQuery()
-            ->from($productTable.' as p')
-            ->leftJoin($manufacturerTable.' as m', 'm.id_manufacturer', '=', 'p.id_manufacturer')
-            ->select([
-                'p.id_product',
-                'p.reference',
-                'p.active',
-                DB::raw("COALESCE(m.name, '') as manufacturer"),
-                DB::raw('ROUND(p.price, 6) as original_price_tax_excl'),
-                DB::raw('ROUND(p.price, 6) as original_price_tax_incl'),
-            ])
-            ->selectSub($nameSubquery, 'name')
-            ->selectSub($stockSubquery, 'stock_qty')
-            ->selectSub(clone $currentPriceSubquery, 'current_price_tax_excl')
-            ->selectSub($currentPriceSubquery, 'current_price_tax_incl');
-
-        $searchQuery = self::resolveSearchQuery();
-
-        if ($searchQuery === null) {
-            return $query->orderByDesc('p.id_product');
+        if (! self::hasValidTenantContext()) {
+            return parent::getEloquentQuery()->whereRaw('1 = 0');
         }
 
-        $productIds = self::resolveTypeSenseProductIds($searchQuery);
-
-        if ($productIds === []) {
-            return $query->whereRaw('1 = 0');
-        }
-
-        return $query
-            ->whereIn('p.id_product', $productIds)
-            ->orderByRaw('FIELD(p.id_product, '.implode(',', $productIds).')');
+        return app(TenantPrestaShopProductQueryBuilder::class)->buildBaseQuery(parent::getEloquentQuery());
     }
 
-    private static function resolveSearchQuery(): ?string
+    /**
+     * @param  Builder<\Illuminate\Database\Eloquent\Model>  $query
+     */
+    public static function applyTypeSenseSearch(Builder $query, string $search): void
     {
-        $query = request()->query('q');
+        $search = trim($search);
 
-        if (! is_string($query) || trim($query) === '') {
-            $query = request()->query('tableSearch');
+        if ($search === '') {
+            return;
         }
 
-        if (! is_string($query) || trim($query) === '') {
-            return null;
+        $productIds = self::resolveTypeSenseProductIds($search);
+
+        if ($productIds === []) {
+            $query->whereRaw('1 = 0');
+
+            return;
         }
 
-        return trim($query);
+        $query->whereIn('p.id_product', $productIds);
+
+        $driver = DB::connection('tenant_ps')->getDriverName();
+
+        if (in_array($driver, ['mysql', 'mariadb'], true)) {
+            $placeholders = implode(',', array_fill(0, count($productIds), '?'));
+            $query->orderByRaw("FIELD(p.id_product, {$placeholders})", $productIds);
+
+            return;
+        }
+
+        $query->orderByDesc('p.id_product');
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public static function manufacturerFilterOptions(): array
+    {
+        if (! self::hasValidTenantContext()) {
+            return [];
+        }
+
+        $manufacturerTable = app(TenantPrestaShopConnection::class)->table('manufacturer');
+
+        try {
+            /** @var array<int, string> $options */
+            $options = DB::connection('tenant_ps')
+                ->table($manufacturerTable)
+                ->whereNotNull('name')
+                ->orderBy('name')
+                ->pluck('name', 'id_manufacturer')
+                ->mapWithKeys(fn (mixed $name, mixed $id): array => [(int) $id => (string) $name])
+                ->all();
+        } catch (Throwable) {
+            return [];
+        }
+
+        return $options;
     }
 
     /**
@@ -198,9 +192,9 @@ class ProductResource extends Resource
      */
     private static function resolveTypeSenseProductIds(string $query): array
     {
-        $tenantId = app(TenantContext::class)->tenantId() ?? (int) request()->attributes->get('tenant_id');
+        $tenantId = app(TenantContext::class)->tenantId();
 
-        if ($tenantId < 1) {
+        if (! is_int($tenantId) || $tenantId < 1) {
             return [];
         }
 
@@ -224,5 +218,25 @@ class ProductResource extends Resource
             ->all();
 
         return $productIds;
+    }
+
+    private static function hasValidTenantContext(): bool
+    {
+        $tenantId = app(TenantContext::class)->tenantId();
+
+        return is_int($tenantId) && $tenantId > 0;
+    }
+
+    private static function resolveGateUser(): ?User
+    {
+        $tenantUser = Auth::guard('tenant')->user();
+
+        if ($tenantUser instanceof User) {
+            return $tenantUser;
+        }
+
+        $webUser = Auth::guard('web')->user();
+
+        return $webUser instanceof User ? $webUser : null;
     }
 }

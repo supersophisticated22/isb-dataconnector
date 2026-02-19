@@ -87,7 +87,11 @@ class User extends Authenticatable implements FilamentUser, HasTenants
 
     public function hasPlatformAccess(): bool
     {
-        return $this->isSuperAdmin();
+        if (! $this->isSuperAdmin()) {
+            return false;
+        }
+
+        return ! $this->hasActiveTenantMembership();
     }
 
     public function canAccessPanel(Panel $panel): bool
@@ -166,8 +170,7 @@ class User extends Authenticatable implements FilamentUser, HasTenants
         }
 
         $query = $this->tenants()
-            ->wherePivot('status', 'active')
-            ->wherePivotIn('role', ['owner', 'admin']);
+            ->wherePivot('status', 'active');
 
         if (is_int($tenantId)) {
             $query->where('tenants.id', $tenantId);
@@ -209,6 +212,6 @@ class User extends Authenticatable implements FilamentUser, HasTenants
 
     public function canBeImpersonated(): bool
     {
-        return ! $this->hasPlatformAccess();
+        return $this->hasActiveTenantMembership();
     }
 }
