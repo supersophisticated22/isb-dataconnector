@@ -108,6 +108,7 @@ SaaS should function without this module in V1.
     - tenant settings (prefix, base_shop_url)
     - API tokens and scopes
     - job execution and audit logs
+    - immutable revisions for entity-level history and rollback lineage
 
 ---
 
@@ -127,5 +128,10 @@ SaaS should function without this module in V1.
 - TypeSense isolation: separate collection per tenant
 - Bulk pricing: queued jobs, chunked updates, progress tracking
 
-## Implementation Plan (Next)
-- Add audit trails to relevant models so each change records actor, changed fields, and timestamp.
+## Revisions
+- A WordPress-style revisions system is implemented in SaaS DB (`revisions` table).
+- One entity change produces one revision row with `before_json` and `after_json`.
+- Supported actions: `create`, `update`, `delete`, `rollback`.
+- Supported sources: `filament`, `api`, `job`.
+- Read and write through `RevisionService` for consistent tenant scoping.
+- See `docs/revisions.md` for implementation and usage details.

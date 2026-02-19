@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tenant_users', function (Blueprint $table): void {
+        Schema::create('api_tokens', function (Blueprint $table): void {
             $table->id();
-            $table->foreignId('tenant_id');
+            $table->foreignId('tenant_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('token_hash', 64)->unique();
+            $table->json('abilities')->nullable();
+            $table->timestamp('last_used_at')->nullable();
             $table->timestamps();
+
+            $table->index('tenant_id');
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tenant_users');
+        Schema::dropIfExists('api_tokens');
     }
 };

@@ -63,6 +63,21 @@ Immutable log for critical operations
 - payload (json)
 - created_at
 
+### revisions
+Immutable entity revision history (WordPress-style, one entity change per row)
+- id (PK)
+- tenant_id (FK)
+- actor_user_id (FK -> users.id, nullable)
+- entity_type (string)
+- entity_id (string)
+- action (update/create/delete/rollback)
+- source (filament/api/job)
+- reason (nullable string)
+- before_json (json)
+- after_json (json)
+- rollback_of_revision_id (nullable FK -> revisions.id)
+- created_at
+
 ### tenant_settings (optional if not in tenants)
 Only if you prefer a flexible settings table
 - id (PK)
@@ -80,6 +95,9 @@ Only if you prefer a flexible settings table
 - users 1—N jobs (created_by_user_id)
 - tenants 1—N audit_logs
 - users 1—N audit_logs (actor_user_id)
+- tenants 1—N revisions
+- users 1—N revisions (actor_user_id)
+- revisions 1—N revisions (rollback_of_revision_id)
 
 ---
 
@@ -93,6 +111,9 @@ erDiagram
   USERS ||--o{ JOBS : created
   TENANTS ||--o{ AUDIT_LOGS : records
   USERS ||--o{ AUDIT_LOGS : performs
+  TENANTS ||--o{ REVISIONS : stores
+  USERS ||--o{ REVISIONS : performs
+  REVISIONS ||--o{ REVISIONS : rolls_back
 
   TENANTS {
     int id PK
@@ -156,5 +177,20 @@ erDiagram
     string entity_type
     string entity_id
     text payload_json
+    datetime created_at
+  }
+
+  REVISIONS {
+    int id PK
+    int tenant_id FK
+    int actor_user_id FK
+    string entity_type
+    string entity_id
+    string action
+    string source
+    string reason
+    text before_json
+    text after_json
+    int rollback_of_revision_id FK
     datetime created_at
   }

@@ -13,6 +13,23 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tenant_id');
+            $table->foreignId('created_by_user_id')->constrained('users')->cascadeOnDelete();
+            $table->string('type');
+            $table->string('status')->default('queued');
+            $table->unsignedInteger('progress_current')->default(0);
+            $table->unsignedInteger('progress_total')->default(0);
+            $table->json('summary')->nullable();
+            $table->text('error_message')->nullable();
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('finished_at')->nullable();
+            $table->timestamps();
+
+            $table->index(['tenant_id', 'status']);
+        });
+
+        Schema::create('queue_jobs', function (Blueprint $table) {
+            $table->id();
             $table->string('queue')->index();
             $table->longText('payload');
             $table->unsignedTinyInteger('attempts');
@@ -50,6 +67,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('queue_jobs');
         Schema::dropIfExists('jobs');
         Schema::dropIfExists('job_batches');
         Schema::dropIfExists('failed_jobs');

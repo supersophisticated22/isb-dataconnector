@@ -10,4 +10,10 @@ return [
             'title' => 'SaaS-dashboard',
         ],
     ],
+    'seeders' => [
+        'tenant_created' => 'Tenant aangemaakt: :name',
+        'user_created' => 'Tenant-gebruiker aangemaakt: :email (:role)',
+        'api_token_plaintext' => 'Platte API-token voor ":name" (eenmalig getoond): :token',
+        'api_token_stored_hash' => 'Opgeslagen gehashte API-token record-ID: :id',
+    ],
 ];
