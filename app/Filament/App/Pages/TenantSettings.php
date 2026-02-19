@@ -3,7 +3,7 @@
 namespace App\Filament\App\Pages;
 
 use App\Models\Tenant;
-use App\Models\TenantUser;
+use App\Models\User;
 use App\Services\TenantContext;
 use App\Services\TenantPrestaShopConnection;
 use BackedEnum;
@@ -51,7 +51,7 @@ class TenantSettings extends Page implements HasForms
     {
         $tenantUser = Auth::guard('tenant')->user();
 
-        return $tenantUser instanceof TenantUser && $tenantUser->can('manage-tenant-settings');
+        return $tenantUser instanceof User && $tenantUser->can('manage-tenant-settings');
     }
 
     public static function getNavigationLabel(): string
@@ -287,10 +287,12 @@ class TenantSettings extends Page implements HasForms
 
         $tenantUser = Auth::guard('tenant')->user();
 
-        if (! $tenantUser instanceof TenantUser) {
+        if (! $tenantUser instanceof User) {
             return null;
         }
 
-        return $tenantUser->tenant()->first();
+        return $tenantUser->tenants()
+            ->wherePivot('status', 'active')
+            ->first();
     }
 }

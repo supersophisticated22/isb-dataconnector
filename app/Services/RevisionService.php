@@ -14,6 +14,7 @@ class RevisionService
     public function recordRevision(
         int $tenantId,
         ?int $actorUserId,
+        ?int $actorTenantUserId,
         string $entityType,
         string $entityId,
         string $action,
@@ -25,6 +26,7 @@ class RevisionService
         return Revision::query()->create([
             'tenant_id' => $tenantId,
             'actor_user_id' => $actorUserId,
+            'actor_tenant_user_id' => $actorTenantUserId,
             'entity_type' => $entityType,
             'entity_id' => $entityId,
             'action' => $action,

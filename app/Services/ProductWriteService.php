@@ -410,6 +410,7 @@ class ProductWriteService
         AuditLog::query()->create([
             'tenant_id' => $tenantId,
             'actor_user_id' => $this->resolveActorUserId(),
+            'actor_tenant_user_id' => $this->resolveActorTenantUserId(),
             'action' => $action,
             'entity_type' => 'ps_product',
             'entity_id' => $entityId,
@@ -434,12 +435,23 @@ class ProductWriteService
 
     private function resolveActorUserId(): ?int
     {
-        $user = Auth::user();
+        $user = Auth::guard('web')->user();
 
         if (! $user instanceof User) {
             return null;
         }
 
         return $user->id;
+    }
+
+    private function resolveActorTenantUserId(): ?int
+    {
+        $tenantUser = Auth::guard('tenant')->user();
+
+        if (! $tenantUser instanceof User) {
+            return null;
+        }
+
+        return $tenantUser->id;
     }
 }

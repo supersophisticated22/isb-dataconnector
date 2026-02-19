@@ -22,20 +22,33 @@ class DatabaseSeeder extends Seeder
             'slug' => 'acme-demo',
             'db_host' => '127.0.0.1',
             'db_port' => 3306,
-            'db_name' => 'prestashop_demo',
-            'db_user' => 'prestashop_user',
-            'db_password' => 'secret-password',
+            'db_name' => 'ps_demo',
+            'db_user' => 'root',
+            'db_password' => '',
             'db_prefix' => 'ps_',
             'base_shop_url' => 'https://shop.example.test',
             'status' => 'active',
         ]);
 
-        $user = User::query()->create([
-            'tenant_id' => $tenant->id,
+        $admin = User::query()->create([
             'name' => 'Admin User',
             'email' => 'admin@example.test',
             'password' => 'password',
             'role' => 'admin',
+        ]);
+
+        $tenantAdmin = User::query()->create([
+            'name' => 'Tenant Admin',
+            'email' => 'tenant-admin@example.test',
+            'password' => 'password',
+            'role' => 'viewer',
+        ]);
+
+        $tenantAdmin->tenants()->attach($tenant->id, [
+            'role' => 'admin',
+            'status' => 'active',
+            'invited_by' => $admin->id,
+            'last_seen_at' => now(),
         ]);
 
         [$token, $plainTextToken] = ApiToken::issue($tenant->id, 'Bootstrap API Token', ['*']);
@@ -45,7 +58,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->command->info(trans('saas.seeders.tenant_created', ['name' => $tenant->name]));
-        $this->command->info(trans('saas.seeders.user_created', ['email' => $user->email, 'role' => $user->role]));
+        $this->command->info(trans('saas.seeders.user_created', ['email' => $admin->email, 'role' => $admin->role]));
         $this->command->warn(trans('saas.seeders.api_token_plaintext', [
             'name' => $token->name,
             'token' => $plainTextToken,

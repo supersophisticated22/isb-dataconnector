@@ -16,6 +16,7 @@ class Job extends Model
     protected $fillable = [
         'tenant_id',
         'created_by_user_id',
+        'created_by_tenant_user_id',
         'type',
         'status',
         'progress_current',
@@ -54,5 +55,13 @@ class Job extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by_user_id');
+    }
+
+    /**
+     * @return BelongsTo<User, $this>
+     */
+    public function tenantCreator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by_tenant_user_id');
     }
 }

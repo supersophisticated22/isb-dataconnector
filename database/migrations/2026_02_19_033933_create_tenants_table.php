@@ -26,15 +26,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::table('users', function (Blueprint $table): void {
-            $table->foreign('tenant_id')->references('id')->on('tenants')->cascadeOnDelete();
-        });
-
         Schema::table('jobs', function (Blueprint $table): void {
-            $table->foreign('tenant_id')->references('id')->on('tenants')->cascadeOnDelete();
-        });
-
-        Schema::table('tenant_users', function (Blueprint $table): void {
             $table->foreign('tenant_id')->references('id')->on('tenants')->cascadeOnDelete();
         });
     }
@@ -44,15 +36,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tenant_users', function (Blueprint $table): void {
-            $table->dropForeign(['tenant_id']);
-        });
-
         Schema::table('jobs', function (Blueprint $table): void {
-            $table->dropForeign(['tenant_id']);
-        });
-
-        Schema::table('users', function (Blueprint $table): void {
             $table->dropForeign(['tenant_id']);
         });
 

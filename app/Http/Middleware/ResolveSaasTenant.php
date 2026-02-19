@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\ApiToken;
-use App\Models\TenantUser;
+use App\Models\User;
 use App\Services\TenantContext;
 use App\Services\TenantPrestaShopConnection;
 use Closure;
@@ -40,11 +40,11 @@ class ResolveSaasTenant
 
         $tenantUser = Auth::guard('tenant')->user();
 
-        if ($tenantUser instanceof TenantUser && $tenantUser->tenant_id !== $token->tenant_id) {
+        if ($tenantUser instanceof User && ! $tenantUser->canAccessTenant($token->tenant)) {
             Auth::guard('tenant')->logout();
         }
 
-        if ($tenantUser instanceof TenantUser && $tenantUser->tenant_id === $token->tenant_id) {
+        if ($tenantUser instanceof User && $tenantUser->canAccessTenant($token->tenant)) {
             Auth::shouldUse('tenant');
         }
 
@@ -81,9 +81,9 @@ class ResolveSaasTenant
 
     private function redirectToPanelLogin(string $errorMessage): RedirectResponse
     {
-        $loginUrl = Route::has('filament.saas.auth.login')
-            ? route('filament.saas.auth.login')
-            : '/saas/login';
+        $loginUrl = Route::has('filament.app.auth.login')
+            ? route('filament.app.auth.login')
+            : '/app/login';
 
         return redirect()
             ->guest($loginUrl)

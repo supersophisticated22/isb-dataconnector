@@ -9,13 +9,12 @@ uses(RefreshDatabase::class);
 
 it('records a revision with expected payloads', function () {
     $tenant = Tenant::factory()->create();
-    $actor = User::factory()->create([
-        'tenant_id' => $tenant->id,
-    ]);
+    $actor = User::factory()->create();
 
     $revision = app(RevisionService::class)->recordRevision(
         tenantId: $tenant->id,
         actorUserId: $actor->id,
+        actorTenantUserId: null,
         entityType: 'ps_product',
         entityId: '12',
         action: 'update',
@@ -39,15 +38,14 @@ it('records a revision with expected payloads', function () {
 it('scopes revision lookup by tenant context', function () {
     $tenantA = Tenant::factory()->create();
     $tenantB = Tenant::factory()->create();
-    $actor = User::factory()->create([
-        'tenant_id' => $tenantA->id,
-    ]);
+    $actor = User::factory()->create();
 
     $service = app(RevisionService::class);
 
     $revision = $service->recordRevision(
         tenantId: $tenantA->id,
         actorUserId: $actor->id,
+        actorTenantUserId: null,
         entityType: 'ps_product',
         entityId: '88',
         action: 'rollback',

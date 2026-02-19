@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tenant extends Model
 {
+    /** @use HasFactory<\Database\Factories\TenantFactory> */
     use HasFactory;
 
     /**
@@ -47,6 +49,9 @@ class Tenant extends Model
         ];
     }
 
+    /**
+     * @return Attribute<?string, ?string>
+     */
     protected function dbPasswordEncrypted(): Attribute
     {
         return Attribute::make(
@@ -56,11 +61,13 @@ class Tenant extends Model
     }
 
     /**
-     * @return HasMany<User, $this>
+     * @return BelongsToMany<User, $this>
      */
-    public function users(): HasMany
+    public function users(): BelongsToMany
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class)
+            ->withPivot(['role', 'status', 'invited_by', 'last_seen_at'])
+            ->withTimestamps();
     }
 
     /**
