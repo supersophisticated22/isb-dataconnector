@@ -87,6 +87,52 @@ return [
                     'base_price_update_failed' => 'Unable to update base price.',
                 ],
             ],
+            'relation_managers' => [
+                'specific_prices' => [
+                    'title' => 'Specific prices',
+                    'actions' => [
+                        'create' => 'Add specific price',
+                        'edit' => 'Edit',
+                        'delete' => 'Delete',
+                    ],
+                    'columns' => [
+                        'id' => 'ID',
+                        'price' => 'Price',
+                        'reduction' => 'Reduction',
+                        'reduction_type' => 'Reduction type',
+                        'from' => 'From',
+                        'to' => 'To',
+                    ],
+                    'fields' => [
+                        'price' => 'Price',
+                        'reduction' => 'Reduction',
+                        'reduction_type' => 'Reduction type',
+                        'from' => 'From',
+                        'to' => 'To',
+                    ],
+                    'reduction_types' => [
+                        'amount' => 'Amount',
+                        'percentage' => 'Percentage',
+                    ],
+                    'notifications' => [
+                        'create_success' => 'Specific price created.',
+                        'create_failed' => 'Unable to create specific price.',
+                        'update_success' => 'Specific price updated.',
+                        'update_failed' => 'Unable to update specific price.',
+                        'delete_success' => 'Specific price deleted.',
+                        'delete_failed' => 'Unable to delete specific price.',
+                    ],
+                    'errors' => [
+                        'invalid_price' => 'Specific price must be -1 or greater.',
+                        'invalid_reduction' => 'Reduction must be zero or greater.',
+                        'invalid_reduction_type' => 'Reduction type is invalid.',
+                        'invalid_percentage_reduction' => 'Percentage reduction must be between 0 and 1.',
+                        'invalid_date_range' => 'The "from" date must be before or equal to the "to" date.',
+                        'not_date_valid' => 'Specific price must be valid for the current date and time.',
+                        'not_found_or_out_of_scope' => 'Specific price was not found or is out of V1 scope.',
+                    ],
+                ],
+            ],
         ],
     ],
     'seeders' => [

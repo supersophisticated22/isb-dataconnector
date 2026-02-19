@@ -4,6 +4,7 @@ namespace App\Filament\Saas\Resources\Products;
 
 use App\Filament\Saas\Resources\Products\Pages\ListProducts;
 use App\Filament\Saas\Resources\Products\Pages\ViewProduct;
+use App\Filament\Saas\Resources\Products\RelationManagers\SpecificPricesRelationManager;
 use App\Models\TenantPrestaShopProduct;
 use App\Services\TenantContext;
 use App\Services\TenantPrestaShopConnection;
@@ -181,6 +182,16 @@ class ProductResource extends Resource
         return [
             'index' => ListProducts::route('/'),
             'view' => ViewProduct::route('/{record}'),
+        ];
+    }
+
+    /**
+     * @return array<int, class-string>
+     */
+    public static function getRelations(): array
+    {
+        return [
+            SpecificPricesRelationManager::class,
         ];
     }
 

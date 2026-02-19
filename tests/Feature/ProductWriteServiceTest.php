@@ -225,6 +225,298 @@ it('updates product base price and writes audit after post-commit sync', functio
         ->and((float) ($auditLog?->payload['after']['base_price_tax_excl'] ?? 0))->toBe(60.0);
 });
 
+it('creates a product specific price and writes audit after post-commit sync', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    DB::connection('tenant_ps')->table('ps_product')->insert([
+        'id_product' => 12,
+        'id_manufacturer' => 7,
+        'reference' => 'SKU-12',
+        'active' => 1,
+        'price' => 100.00,
+        'id_tax_rules_group' => 1,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_stock_available')->insert([
+        'id_stock_available' => 3,
+        'id_product' => 12,
+        'id_product_attribute' => 0,
+        'quantity' => 5,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_product_lang')->insert([
+        'id_product' => 12,
+        'id_lang' => 1,
+        'name' => 'Specific Price Product',
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_manufacturer')->insert([
+        'id_manufacturer' => 7,
+        'name' => 'Gamma',
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_category_product')->insert([
+        'id_product' => 12,
+        'id_category' => 4,
+    ]);
+
+    seedTaxTables();
+
+    app()->instance(TypeSenseClient::class, mock(TypeSenseClient::class, function (MockInterface $mock) use ($tenant): void {
+        $mock->shouldReceive('ensureCollectionExists')
+            ->once()
+            ->with($tenant->id);
+
+        $mock->shouldReceive('upsertProductDoc')
+            ->once()
+            ->withArgs(function (int $tenantId, array $document) use ($tenant): bool {
+                return $tenantId === $tenant->id
+                    && ($document['id'] ?? null) === '12'
+                    && ($document['current_price_tax_excl'] ?? null) === 95.0;
+            });
+    }));
+
+    app(ProductWriteService::class)->createProductSpecificPrice(12, [
+        'price' => -1,
+        'reduction' => 5,
+        'reduction_type' => 'amount',
+        'from' => now()->subHour()->format('Y-m-d H:i:s'),
+        'to' => now()->addHour()->format('Y-m-d H:i:s'),
+    ]);
+
+    $specificPrice = DB::connection('tenant_ps')
+        ->table('ps_specific_price')
+        ->where('id_product', 12)
+        ->first();
+
+    expect($specificPrice)->not->toBeNull()
+        ->and((int) ($specificPrice?->id_product_attribute ?? -1))->toBe(0)
+        ->and((float) ($specificPrice?->reduction ?? 0))->toBe(5.0);
+
+    $auditLog = AuditLog::query()
+        ->where('tenant_id', $tenant->id)
+        ->where('action', 'product.specific_price.created')
+        ->where('entity_id', '12')
+        ->first();
+
+    expect($auditLog)->not->toBeNull()
+        ->and((float) ($auditLog?->payload['after']['reduction'] ?? 0))->toBe(5.0);
+});
+
+it('updates a product specific price and writes audit after post-commit sync', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    DB::connection('tenant_ps')->table('ps_product')->insert([
+        'id_product' => 13,
+        'id_manufacturer' => 8,
+        'reference' => 'SKU-13',
+        'active' => 1,
+        'price' => 100.00,
+        'id_tax_rules_group' => 1,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_stock_available')->insert([
+        'id_stock_available' => 4,
+        'id_product' => 13,
+        'id_product_attribute' => 0,
+        'quantity' => 5,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_product_lang')->insert([
+        'id_product' => 13,
+        'id_lang' => 1,
+        'name' => 'Specific Price Update Product',
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_manufacturer')->insert([
+        'id_manufacturer' => 8,
+        'name' => 'Delta',
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_category_product')->insert([
+        'id_product' => 13,
+        'id_category' => 5,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_specific_price')->insert([
+        'id_specific_price' => 1,
+        'id_product' => 13,
+        'id_product_attribute' => 0,
+        'price' => -1,
+        'reduction' => 5,
+        'reduction_type' => 'amount',
+        'from' => now()->subHour()->format('Y-m-d H:i:s'),
+        'to' => now()->addHour()->format('Y-m-d H:i:s'),
+    ]);
+
+    seedTaxTables();
+
+    app()->instance(TypeSenseClient::class, mock(TypeSenseClient::class, function (MockInterface $mock) use ($tenant): void {
+        $mock->shouldReceive('ensureCollectionExists')
+            ->once()
+            ->with($tenant->id);
+
+        $mock->shouldReceive('upsertProductDoc')
+            ->once()
+            ->withArgs(function (int $tenantId, array $document) use ($tenant): bool {
+                return $tenantId === $tenant->id
+                    && ($document['id'] ?? null) === '13'
+                    && ($document['current_price_tax_excl'] ?? null) === 80.0;
+            });
+    }));
+
+    app(ProductWriteService::class)->updateProductSpecificPrice(13, 1, [
+        'price' => -1,
+        'reduction' => 0.20,
+        'reduction_type' => 'percentage',
+        'from' => now()->subHour()->format('Y-m-d H:i:s'),
+        'to' => now()->addHour()->format('Y-m-d H:i:s'),
+    ]);
+
+    $specificPrice = DB::connection('tenant_ps')
+        ->table('ps_specific_price')
+        ->where('id_specific_price', 1)
+        ->first();
+
+    expect($specificPrice)->not->toBeNull()
+        ->and((string) ($specificPrice?->reduction_type ?? ''))->toBe('percentage')
+        ->and((float) ($specificPrice?->reduction ?? 0))->toBe(0.2);
+
+    $auditLog = AuditLog::query()
+        ->where('tenant_id', $tenant->id)
+        ->where('action', 'product.specific_price.updated')
+        ->where('entity_id', '13')
+        ->first();
+
+    expect($auditLog)->not->toBeNull()
+        ->and((float) ($auditLog?->payload['before']['reduction'] ?? 0))->toBe(5.0)
+        ->and((float) ($auditLog?->payload['after']['reduction'] ?? 0))->toBe(0.2);
+});
+
+it('deletes a product specific price and writes audit after post-commit sync', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    DB::connection('tenant_ps')->table('ps_product')->insert([
+        'id_product' => 14,
+        'id_manufacturer' => 9,
+        'reference' => 'SKU-14',
+        'active' => 1,
+        'price' => 100.00,
+        'id_tax_rules_group' => 1,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_stock_available')->insert([
+        'id_stock_available' => 5,
+        'id_product' => 14,
+        'id_product_attribute' => 0,
+        'quantity' => 8,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_product_lang')->insert([
+        'id_product' => 14,
+        'id_lang' => 1,
+        'name' => 'Specific Price Delete Product',
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_manufacturer')->insert([
+        'id_manufacturer' => 9,
+        'name' => 'Epsilon',
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_category_product')->insert([
+        'id_product' => 14,
+        'id_category' => 6,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_specific_price')->insert([
+        'id_specific_price' => 1,
+        'id_product' => 14,
+        'id_product_attribute' => 0,
+        'price' => -1,
+        'reduction' => 10,
+        'reduction_type' => 'amount',
+        'from' => now()->subHour()->format('Y-m-d H:i:s'),
+        'to' => now()->addHour()->format('Y-m-d H:i:s'),
+    ]);
+
+    seedTaxTables();
+
+    app()->instance(TypeSenseClient::class, mock(TypeSenseClient::class, function (MockInterface $mock) use ($tenant): void {
+        $mock->shouldReceive('ensureCollectionExists')
+            ->once()
+            ->with($tenant->id);
+
+        $mock->shouldReceive('upsertProductDoc')
+            ->once()
+            ->withArgs(function (int $tenantId, array $document) use ($tenant): bool {
+                return $tenantId === $tenant->id
+                    && ($document['id'] ?? null) === '14'
+                    && ($document['current_price_tax_excl'] ?? null) === 100.0;
+            });
+    }));
+
+    app(ProductWriteService::class)->deleteProductSpecificPrice(14, 1);
+
+    expect(DB::connection('tenant_ps')
+        ->table('ps_specific_price')
+        ->where('id_specific_price', 1)
+        ->exists())
+        ->toBeFalse();
+
+    $auditLog = AuditLog::query()
+        ->where('tenant_id', $tenant->id)
+        ->where('action', 'product.specific_price.deleted')
+        ->where('entity_id', '14')
+        ->first();
+
+    expect($auditLog)->not->toBeNull()
+        ->and((float) ($auditLog?->payload['before']['reduction'] ?? 0))->toBe(10.0);
+});
+
+it('rejects specific price update when row is out of v1 scope', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    DB::connection('tenant_ps')->table('ps_product')->insert([
+        'id_product' => 15,
+        'id_manufacturer' => 10,
+        'reference' => 'SKU-15',
+        'active' => 1,
+        'price' => 100.00,
+        'id_tax_rules_group' => 1,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_specific_price')->insert([
+        'id_specific_price' => 1,
+        'id_product' => 15,
+        'id_product_attribute' => 1,
+        'price' => -1,
+        'reduction' => 5,
+        'reduction_type' => 'amount',
+        'from' => now()->subHour()->format('Y-m-d H:i:s'),
+        'to' => now()->addHour()->format('Y-m-d H:i:s'),
+    ]);
+
+    app()->instance(TypeSenseClient::class, mock(TypeSenseClient::class, function (MockInterface $mock): void {
+        $mock->shouldNotReceive('ensureCollectionExists');
+        $mock->shouldNotReceive('upsertProductDoc');
+    }));
+
+    expect(fn () => app(ProductWriteService::class)->updateProductSpecificPrice(15, 1, [
+        'price' => -1,
+        'reduction' => 2,
+        'reduction_type' => 'amount',
+        'from' => now()->subHour()->format('Y-m-d H:i:s'),
+        'to' => now()->addHour()->format('Y-m-d H:i:s'),
+    ]))
+        ->toThrow(RuntimeException::class, __('saas.resources.products.relation_managers.specific_prices.errors.not_found_or_out_of_scope'));
+
+    expect(AuditLog::query()->count())->toBe(0);
+});
+
 it('rolls back and does not sync when product does not exist', function (): void {
     $tenant = Tenant::factory()->create();
     app(TenantContext::class)->setTenant($tenant);

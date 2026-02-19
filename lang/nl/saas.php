@@ -87,6 +87,52 @@ return [
                     'base_price_update_failed' => 'Basisprijs kon niet worden bijgewerkt.',
                 ],
             ],
+            'relation_managers' => [
+                'specific_prices' => [
+                    'title' => 'Specifieke prijzen',
+                    'actions' => [
+                        'create' => 'Specifieke prijs toevoegen',
+                        'edit' => 'Bewerken',
+                        'delete' => 'Verwijderen',
+                    ],
+                    'columns' => [
+                        'id' => 'ID',
+                        'price' => 'Prijs',
+                        'reduction' => 'Korting',
+                        'reduction_type' => 'Kortingstype',
+                        'from' => 'Van',
+                        'to' => 'Tot',
+                    ],
+                    'fields' => [
+                        'price' => 'Prijs',
+                        'reduction' => 'Korting',
+                        'reduction_type' => 'Kortingstype',
+                        'from' => 'Van',
+                        'to' => 'Tot',
+                    ],
+                    'reduction_types' => [
+                        'amount' => 'Bedrag',
+                        'percentage' => 'Percentage',
+                    ],
+                    'notifications' => [
+                        'create_success' => 'Specifieke prijs aangemaakt.',
+                        'create_failed' => 'Specifieke prijs kon niet worden aangemaakt.',
+                        'update_success' => 'Specifieke prijs bijgewerkt.',
+                        'update_failed' => 'Specifieke prijs kon niet worden bijgewerkt.',
+                        'delete_success' => 'Specifieke prijs verwijderd.',
+                        'delete_failed' => 'Specifieke prijs kon niet worden verwijderd.',
+                    ],
+                    'errors' => [
+                        'invalid_price' => 'Specifieke prijs moet -1 of hoger zijn.',
+                        'invalid_reduction' => 'Korting moet nul of hoger zijn.',
+                        'invalid_reduction_type' => 'Kortingstype is ongeldig.',
+                        'invalid_percentage_reduction' => 'Percentagekorting moet tussen 0 en 1 liggen.',
+                        'invalid_date_range' => 'De datum "van" moet voor of gelijk zijn aan de datum "tot".',
+                        'not_date_valid' => 'Specifieke prijs moet geldig zijn op de huidige datum en tijd.',
+                        'not_found_or_out_of_scope' => 'Specifieke prijs niet gevonden of buiten V1-scope.',
+                    ],
+                ],
+            ],
         ],
     ],
     'seeders' => [
