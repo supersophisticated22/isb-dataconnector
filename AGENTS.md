@@ -10,8 +10,10 @@ The Laravel Boost guidelines are specifically curated by Laravel maintainers for
 This application is a Laravel application and its main Laravel ecosystems package & versions are below. You are an expert with them all. Ensure you abide by these specific packages & versions.
 
 - php - 8.3.29
+- filament/filament (FILAMENT) - v5
 - laravel/framework (LARAVEL) - v12
 - laravel/prompts (PROMPTS) - v0
+- livewire/livewire (LIVEWIRE) - v4
 - larastan/larastan (LARASTAN) - v3
 - laravel/boost (BOOST) - v2
 - laravel/mcp (MCP) - v0
@@ -34,6 +36,8 @@ This project has domain-specific skills available. You MUST activate the relevan
 - You must follow all existing code conventions used in this application. When creating or editing a file, check sibling files for the correct structure, approach, and naming.
 - Use descriptive names for variables and methods. For example, `isRegisteredForDiscounts`, not `discount()`.
 - Check for existing components to reuse before writing a new one.
+- Filament is strictly **v5** in this project. Do not use legacy Filament v2/v3/v4 namespaces, APIs, middleware lists, or examples.
+- Before adding or changing Filament code, verify classes/methods against the installed project context (`search-docs` + local codebase/vendor) and implement only v5-compatible patterns.
 
 ## Verification Scripts
 
@@ -184,6 +188,14 @@ protected function isAccessible(User $user, ?string $path = null): bool
 ## Configuration
 
 - Use environment variables only in configuration files - never use the `env()` function directly outside of config files. Always use `config('app.name')`, not `env('APP_NAME')`.
+
+## Static Analysis (Larastan / PHPStan)
+
+- Do not introduce new PHPStan/Larastan errors.
+- Prefer fixing issues over ignoring them.
+- Avoid broad `@phpstan-ignore-next-line` unless absolutely necessary.
+- Ensure relationship return types are correctly declared.
+
 
 ## Testing
 
