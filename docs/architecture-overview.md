@@ -10,6 +10,7 @@ Build a multi-tenant SaaS (Laravel + FilamentPHP v5) that connects to each tenan
 - NL-only VAT rates: 21% or 9%
 - Tenants provide DB credentials; we manage hosting so remote DB connections are allowed
 - We assume PS schema compatibility (no strict schema validation at connect time)
+- Admin-facing model changes must be auditable (who changed what and when)
 
 ---
 
@@ -126,3 +127,5 @@ SaaS should function without this module in V1.
 - TypeSense isolation: separate collection per tenant
 - Bulk pricing: queued jobs, chunked updates, progress tracking
 
+## Implementation Plan (Next)
+- Add audit trails to relevant models so each change records actor, changed fields, and timestamp.
