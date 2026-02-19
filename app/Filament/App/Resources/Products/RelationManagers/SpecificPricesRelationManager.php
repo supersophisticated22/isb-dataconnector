@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Filament\Saas\Resources\Products\RelationManagers;
+namespace App\Filament\App\Resources\Products\RelationManagers;
 
 use App\Models\TenantPrestaShopSpecificPrice;
 use App\Services\ProductWriteService;
+use Filament\Actions\Action;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables\Actions\Action;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use RuntimeException;
@@ -19,14 +19,14 @@ class SpecificPricesRelationManager extends RelationManager
 {
     protected static string $relationship = 'specificPrices';
 
-    public static function getTitle($ownerRecord, string $pageClass): string
+    public static function getTitle(mixed $ownerRecord, string $pageClass): string
     {
         return __('saas.resources.products.relation_managers.specific_prices.title');
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form->schema($this->getFormSchema());
+        return $schema->components($this->getFormSchema());
     }
 
     public function table(Table $table): Table
@@ -60,9 +60,11 @@ class SpecificPricesRelationManager extends RelationManager
                     ->icon('heroicon-o-plus')
                     ->form($this->getFormSchema())
                     ->action(function (array $data, ProductWriteService $productWriteService): void {
+                        $productId = (int) data_get($this->getOwnerRecord(), 'id_product', 0);
+
                         try {
                             $productWriteService->createProductSpecificPrice(
-                                productId: (int) $this->getOwnerRecord()->id_product,
+                                productId: $productId,
                                 payload: $data,
                             );
 
@@ -85,19 +87,22 @@ class SpecificPricesRelationManager extends RelationManager
                     ->icon('heroicon-o-pencil-square')
                     ->fillForm(function (TenantPrestaShopSpecificPrice $record): array {
                         return [
-                            'price' => (float) $record->price,
-                            'reduction' => (float) $record->reduction,
-                            'reduction_type' => (string) $record->reduction_type,
-                            'from' => (string) $record->from,
-                            'to' => (string) $record->to,
+                            'price' => (float) data_get($record, 'price', 0),
+                            'reduction' => (float) data_get($record, 'reduction', 0),
+                            'reduction_type' => (string) data_get($record, 'reduction_type', ''),
+                            'from' => (string) data_get($record, 'from', ''),
+                            'to' => (string) data_get($record, 'to', ''),
                         ];
                     })
                     ->form($this->getFormSchema())
                     ->action(function (array $data, TenantPrestaShopSpecificPrice $record, ProductWriteService $productWriteService): void {
+                        $productId = (int) data_get($this->getOwnerRecord(), 'id_product', 0);
+                        $specificPriceId = (int) data_get($record, 'id_specific_price', 0);
+
                         try {
                             $productWriteService->updateProductSpecificPrice(
-                                productId: (int) $this->getOwnerRecord()->id_product,
-                                specificPriceId: (int) $record->id_specific_price,
+                                productId: $productId,
+                                specificPriceId: $specificPriceId,
                                 payload: $data,
                             );
 
@@ -119,10 +124,13 @@ class SpecificPricesRelationManager extends RelationManager
                     ->color('danger')
                     ->requiresConfirmation()
                     ->action(function (TenantPrestaShopSpecificPrice $record, ProductWriteService $productWriteService): void {
+                        $productId = (int) data_get($this->getOwnerRecord(), 'id_product', 0);
+                        $specificPriceId = (int) data_get($record, 'id_specific_price', 0);
+
                         try {
                             $productWriteService->deleteProductSpecificPrice(
-                                productId: (int) $this->getOwnerRecord()->id_product,
-                                specificPriceId: (int) $record->id_specific_price,
+                                productId: $productId,
+                                specificPriceId: $specificPriceId,
                             );
 
                             Notification::make()

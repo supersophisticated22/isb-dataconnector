@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1771484961,
+	'lastFullAnalysisTime' => 1771487832,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.39',
@@ -13,14 +13,46 @@ return [
   'projectConfig' => '{conditionalTags: {Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule: {phpstan.rules.rule: %noEnvCallsOutsideOfConfig%}, Larastan\\Larastan\\Rules\\NoModelMakeRule: {phpstan.rules.rule: %noModelMake%}, Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule: {phpstan.rules.rule: %noUnnecessaryCollectionCall%}, Larastan\\Larastan\\Rules\\NoUnnecessaryEnumerableToArrayCallsRule: {phpstan.rules.rule: %noUnnecessaryEnumerableToArrayCalls%}, Larastan\\Larastan\\Rules\\OctaneCompatibilityRule: {phpstan.rules.rule: %checkOctaneCompatibility%}, Larastan\\Larastan\\Rules\\UnusedViewsRule: {phpstan.rules.rule: %checkUnusedViews%}, Larastan\\Larastan\\Rules\\NoMissingTranslationsRule: {phpstan.rules.rule: %checkMissingTranslations%}, Larastan\\Larastan\\Rules\\ModelAppendsRule: {phpstan.rules.rule: %checkModelAppends%}, Larastan\\Larastan\\Rules\\NoPublicModelScopeAndAccessorRule: {phpstan.rules.rule: %checkModelMethodVisibility%}, Larastan\\Larastan\\Rules\\NoAuthFacadeInRequestScopeRule: {phpstan.rules.rule: %checkAuthCallsWhenInRequestScope%}, Larastan\\Larastan\\Rules\\NoAuthHelperInRequestScopeRule: {phpstan.rules.rule: %checkAuthCallsWhenInRequestScope%}, Larastan\\Larastan\\ReturnTypes\\Helpers\\EnvFunctionDynamicFunctionReturnTypeExtension: {phpstan.broker.dynamicFunctionReturnTypeExtension: %generalizeEnvReturnType%}, Larastan\\Larastan\\ReturnTypes\\Helpers\\ConfigFunctionDynamicFunctionReturnTypeExtension: {phpstan.broker.dynamicFunctionReturnTypeExtension: %checkConfigTypes%}, Larastan\\Larastan\\ReturnTypes\\ConfigRepositoryDynamicMethodReturnTypeExtension: {phpstan.broker.dynamicMethodReturnTypeExtension: %checkConfigTypes%}, Larastan\\Larastan\\ReturnTypes\\ConfigFacadeCollectionDynamicStaticMethodReturnTypeExtension: {phpstan.broker.dynamicStaticMethodReturnTypeExtension: %checkConfigTypes%}, Larastan\\Larastan\\Rules\\ConfigCollectionRule: {phpstan.rules.rule: %checkConfigTypes%}}, parameters: {universalObjectCratesClasses: [Illuminate\\Http\\Request, Illuminate\\Support\\Optional], earlyTerminatingFunctionCalls: [abort, dd], mixinExcludeClasses: [Eloquent], bootstrapFiles: [bootstrap.php, bootstrap/app.php], checkOctaneCompatibility: false, noEnvCallsOutsideOfConfig: true, noModelMake: true, noUnnecessaryCollectionCall: true, noUnnecessaryCollectionCallOnly: [], noUnnecessaryCollectionCallExcept: [], noUnnecessaryEnumerableToArrayCalls: false, squashedMigrationsPath: [], databaseMigrationsPath: [], disableMigrationScan: false, disableSchemaScan: false, configDirectories: [], viewDirectories: [], translationDirectories: [], checkModelProperties: false, checkUnusedViews: false, checkMissingTranslations: false, checkModelAppends: true, checkModelMethodVisibility: false, generalizeEnvReturnType: false, checkConfigTypes: false, checkAuthCallsWhenInRequestScope: false, parseModelCastsMethod: false, enableMigrationCache: false, level: 6, paths: [/Users/fabionbaromeo/Herd/isb-presta-manager/app], tmpDir: /Users/fabionbaromeo/Herd/isb-presta-manager/storage/phpstan}, rules: [Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessWithFunctionCallsRule, Larastan\\Larastan\\Rules\\UselessConstructs\\NoUselessValueFunctionCallsRule, Larastan\\Larastan\\Rules\\DeferrableServiceProviderMissingProvidesRule, Larastan\\Larastan\\Rules\\ConsoleCommand\\UndefinedArgumentOrOptionRule], services: {{class: Larastan\\Larastan\\Methods\\RelationForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\EloquentBuilderForwardsCallsExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderTapProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\HigherOrderCollectionProxyExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\StorageMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\Extension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ModelFactoryMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\RedirectResponseMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\MacroMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Methods\\ViewWithMethodsClassReflectionExtension, tags: [phpstan.broker.methodsClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelAccessorExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\ModelPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\Properties\\HigherOrderCollectionProxyPropertyExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\HigherOrderTapProxyExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Container\\Container}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Foundation\\Application}}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerArrayAccessDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {className: Illuminate\\Contracts\\Foundation\\Application}}, {class: Larastan\\Larastan\\Properties\\ModelRelationsExtension, tags: [phpstan.broker.propertiesClassReflectionExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelOnlyDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelFactoryDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ModelDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AuthManagerExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DateExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\GuardExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestFileExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestRouteExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RequestUserExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\EloquentBuilderExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\RelationCollectionExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TestCaseExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Support\\CollectionHelper}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AuthExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\CollectExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\NowAndTodayExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ResponseExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValidatorExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\LiteralExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionFilterRejectDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\CollectionWhereNotNullDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\NewModelQueryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\FactoryDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: abort, negate: true}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: false}}, {class: Larastan\\Larastan\\Types\\AbortIfFunctionTypeSpecifyingExtension, tags: [phpstan.typeSpecifier.functionTypeSpecifyingExtension], arguments: {methodName: throw, negate: true}}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\AppExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ValueExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\StrExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\TapExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\StorageDynamicStaticMethodReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\GenericEloquentCollectionTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Types\\ViewStringTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Rules\\OctaneCompatibilityRule}, {class: Larastan\\Larastan\\Rules\\NoEnvCallsOutsideOfConfigRule, arguments: {configDirectories: %configDirectories%}}, {class: Larastan\\Larastan\\Rules\\NoModelMakeRule}, {class: Larastan\\Larastan\\Rules\\NoUnnecessaryCollectionCallRule, arguments: {onlyMethods: %noUnnecessaryCollectionCallOnly%, excludeMethods: %noUnnecessaryCollectionCallExcept%}}, {class: Larastan\\Larastan\\Rules\\NoUnnecessaryEnumerableToArrayCallsRule}, {class: Larastan\\Larastan\\Rules\\ModelAppendsRule}, {class: Larastan\\Larastan\\Rules\\NoPublicModelScopeAndAccessorRule}, {class: Larastan\\Larastan\\Types\\GenericEloquentBuilderTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppEnvironmentReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {class: Illuminate\\Foundation\\Application}}, {class: Larastan\\Larastan\\ReturnTypes\\AppEnvironmentReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension], arguments: {class: Illuminate\\Contracts\\Foundation\\Application}}, {class: Larastan\\Larastan\\ReturnTypes\\AppFacadeEnvironmentReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Types\\ModelProperty\\ModelPropertyTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension], arguments: {active: %checkModelProperties%}}, {class: Larastan\\Larastan\\Types\\CollectionOf\\CollectionOfTypeNodeResolverExtension, tags: [phpstan.phpDoc.typeNodeResolverExtension]}, {class: Larastan\\Larastan\\Properties\\MigrationHelper, arguments: {databaseMigrationPath: %databaseMigrationsPath%, disableMigrationScan: %disableMigrationScan%, parser: @migrationsParser, reflectionProvider: @reflectionProvider}}, iamcalSqlParser: {class: Larastan\\Larastan\\SQL\\IamcalSqlParser, autowired: false}, sqlParserFactory: {class: Larastan\\Larastan\\SQL\\SqlParserFactory, arguments: {iamcalSqlParser: @iamcalSqlParser}}, sqlParser: {type: Larastan\\Larastan\\SQL\\SqlParser, factory: [@sqlParserFactory, create]}, {class: Larastan\\Larastan\\Properties\\SquashedMigrationHelper, arguments: {schemaPaths: %squashedMigrationsPath%, disableSchemaScan: %disableSchemaScan%}}, {class: Larastan\\Larastan\\Properties\\ModelCastHelper, arguments: {parser: @currentPhpVersionSimpleDirectParser, parseModelCastsMethod: %parseModelCastsMethod%}}, {class: Larastan\\Larastan\\Properties\\MigrationCache, arguments: {cacheDirectory: %tmpDir%, enabled: %enableMigrationCache%}}, {class: Larastan\\Larastan\\Properties\\ModelPropertyHelper}, {class: Larastan\\Larastan\\Rules\\ModelRuleHelper}, {class: Larastan\\Larastan\\Methods\\BuilderHelper, arguments: {checkProperties: %checkModelProperties%}}, {class: Larastan\\Larastan\\Rules\\RelationExistenceRule, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Bus\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Rules\\CheckDispatchArgumentTypesCompatibleWithClassConstructorRule, arguments: {dispatchableClass: Illuminate\\Foundation\\Events\\Dispatchable}, tags: [phpstan.rules.rule]}, {class: Larastan\\Larastan\\Properties\\Schema\\MySqlDataTypeToPhpTypeConverter}, {class: Larastan\\Larastan\\LarastanStubFilesExtension, tags: [phpstan.stubFilesExtension]}, {class: Larastan\\Larastan\\Rules\\UnusedViewsRule}, {class: Larastan\\Larastan\\Collectors\\UsedViewFunctionCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedEmailViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewFacadeMakeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedRouteFacadeViewCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedViewInAnotherViewCollector}, {class: Larastan\\Larastan\\Support\\ViewFileHelper, arguments: {viewDirectories: %viewDirectories%}}, {class: Larastan\\Larastan\\Support\\ViewParser, arguments: {parser: @currentPhpVersionSimpleDirectParser}}, {class: Larastan\\Larastan\\Rules\\NoMissingTranslationsRule, arguments: {translationDirectories: %translationDirectories%}}, {class: Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedTranslationTranslatorCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedTranslationFacadeCollector, tags: [phpstan.collector]}, {class: Larastan\\Larastan\\Collectors\\UsedTranslationViewCollector}, {class: Larastan\\Larastan\\ReturnTypes\\ApplicationMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ContainerMakeDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\ArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasArgumentDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\OptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\ConsoleCommand\\HasOptionDynamicReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TranslatorGetReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\LangGetReturnTypeExtension, tags: [phpstan.broker.dynamicStaticMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\TransHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\DoubleUnderscoreHelperReturnTypeExtension, tags: [phpstan.broker.dynamicFunctionReturnTypeExtension]}, {class: Larastan\\Larastan\\ReturnTypes\\AppMakeHelper}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationResolver}, {class: Larastan\\Larastan\\Internal\\ConsoleApplicationHelper}, {class: Larastan\\Larastan\\Support\\HigherOrderCollectionProxyHelper}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\ConfigFunctionDynamicFunctionReturnTypeExtension}, {class: Larastan\\Larastan\\ReturnTypes\\ConfigRepositoryDynamicMethodReturnTypeExtension}, {class: Larastan\\Larastan\\ReturnTypes\\ConfigFacadeCollectionDynamicStaticMethodReturnTypeExtension}, {class: Larastan\\Larastan\\Support\\ConfigParser, arguments: {parser: @currentPhpVersionSimpleDirectParser, configPaths: %configDirectories%}}, {class: Larastan\\Larastan\\Internal\\ConfigHelper}, {class: Larastan\\Larastan\\ReturnTypes\\Helpers\\EnvFunctionDynamicFunctionReturnTypeExtension}, {class: Larastan\\Larastan\\ReturnTypes\\FormRequestSafeDynamicMethodReturnTypeExtension, tags: [phpstan.broker.dynamicMethodReturnTypeExtension]}, {class: Larastan\\Larastan\\Rules\\NoAuthFacadeInRequestScopeRule}, {class: Larastan\\Larastan\\Rules\\NoAuthHelperInRequestScopeRule}, {class: Larastan\\Larastan\\Rules\\ConfigCollectionRule}, {class: Illuminate\\Filesystem\\Filesystem, autowired: self}, migrationsParser: {class: PHPStan\\Parser\\CachedParser, arguments: {originalParser: @currentPhpVersionSimpleDirectParser, cachedNodesByStringCountMax: %cache.nodesByStringCountMax%}, autowired: false}}}',
   'analysedPaths' => 
   array (
-    0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app',
+    0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources',
+    1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products',
   ),
   'scannedFiles' => 
   array (
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/BulkPriceUpdate.php' => 'e356a580cdaeeb1fb294676f29eab930fba8fca2a758b7660f4794117fbc490a',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/Dashboard.php' => 'd310dbe09ebf449c289398e9f322fc9ef8a7a91aa07cc49ad591a6f9757ddf2d',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Pages/TenantSettings.php' => '33582884967dbc94442c3f78da5a9f404451c44467ae302914df94785cb89617',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Admin/ImpersonateUserController.php' => '70b2e19d13339b664f41dcecdc0a2aa4a1af3507161a36e31cd7fdf61b3d0404',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php' => '8e6dff3feaf1acd4154b958e0f6100fde4928aebbd50bfe1d3177967245a11b6',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Controller.php' => '25d1c1ef8e6cc8a376553faacfba2b07d9dfaee9bdbb84f14f77517580e9deb1',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php' => 'a14a10753812d8ef29313430602524e7f21c745028007c9e53a2f12db75feafb',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Requests/Api/V1/ListProductsRequest.php' => '8e73f751f1b4bc44de22374ab2af657591a012dc95eddc3669a9038c3cc52110',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Jobs/FinalizeBulkPriceUpdateJob.php' => 'f8bf06d0e32957d18278c19406b34da7f4d097e6b0e42de7e704b2283b8f73de',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Jobs/ProcessBulkPriceUpdateChunkJob.php' => '7af13c56472eb16556e9fcb20b9fa220d4efe24224133114fc5166b39fffac98',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Jobs/ReindexTenantProductsJob.php' => 'fb5c7fb1ea6e0cae8052d1127ec08f293bc4d01fdcfe78d395ea273fe21aeb1d',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Jobs/StartBulkPriceUpdateJob.php' => '63724d20aa60a39c53064ec55c38f9bb50150630283c0b6d6b1ef35f67bd5a43',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/ApiToken.php' => '4039b671960d080bc1fca27d8c46e2bde40f4ef85d54c8f3bb539b83c1a58e1f',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php' => 'e1518f191625252127231446f220058a0547d61d5d3a709f8c9b1b5a0383096e',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php' => '7a212e7926902680fb4a9522cbb6ca5226dbc9a66c82e5aabc8bd65f5eea13f1',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php' => '74bdfd7aaa860569c99070db4e2cb367cb9f2b5b0e955b115fbbe5bd3839d14c',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php' => '90e4c3cb7541eb541c5763c76398b4aea43202f25ee5bbbf2cd10b9852e6a4f5',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantPrestaShopProduct.php' => '35154048533c308b5ee1e511a5b86870aae19f3c777789ec01c386e60a7574e4',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantPrestaShopSpecificPrice.php' => '5af80f67d96a712646023ca174c723f5a2d58d7bc8ae88276c54975a786207c4',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantUser.php' => '2395a18207300b2e16def0a45955c0e0f704d0fd76a5ede1881ef4f13486ccf9',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php' => '431f4797e3967dc2ac07de27a0aecb825bf5d1a919f37cc9c99a4092acd958d0',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php' => '0e2e293157e0e529f20df8c908d8c64c59ca841b5ff86df1b1dedca07d881b2a',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/Filament/AdminPanelProvider.php' => 'c6b13e7d474d30fe54ae6f00a0618ba2c46c78d675a62fdf4600028d553feb0f',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/Filament/AppPanelProvider.php' => 'e37964805ba1c9ca3bdc122fd99deabfdb4e7374576439e49e943f4418d8d4f1',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/BulkPriceUpdateService.php' => 'f00c55ecdbed313452571889381d507ba31f151f66d1384274fe8851e940879a',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/PricingService.php' => 'db7f177750af257453b65626a539e36e489c5b2cd5ca1728c3f55adda63db2c0',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php' => '88e241891e9b455dc085b0758cbd406476aa66281527ea22dfc0b28ea47dd17d',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/RevisionService.php' => 'a2d3a40f18f3ca384392300917a54f31dbe6b4786ba1df4b5a6737d1397d55c8',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantContext.php' => 'f01e97822a71d7535aa59aea63560c85157ca391c17b7e6a60b6f82f6f6f7297',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php' => 'b6dc1ae52d0dac44439710e6c74c192af738c85a90f39b9ab9cc2bbb3a2a54f7',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TypeSenseClient.php' => '2cd8c6686ce9bae5a1820e8dea4598a98e5893fa2f03a8a1b6780d139956c55d',
   ),
   'composerLocks' => 
   array (
-    '/Users/fabionbaromeo/Herd/isb-presta-manager/composer.lock' => '3f59304f0c2da370a164ec61d93be59e208a386a0e90622ef7d7d9b5f8c22f85',
+    '/Users/fabionbaromeo/Herd/isb-presta-manager/composer.lock' => '114a2477f927b78051c8f3ca1124135484580fd5ec38d945fd07568db631ebf2',
   ),
   'composerInstalled' => 
   array (
@@ -28,6 +60,42 @@ return [
     array (
       'versions' => 
       array (
+        'anourvalar/eloquent-serialize' => 
+        array (
+          'pretty_version' => '1.3.5',
+          'version' => '1.3.5.0',
+          'reference' => '1a7dead8d532657e5358f8f27c0349373517681e',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../anourvalar/eloquent-serialize',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'blade-ui-kit/blade-heroicons' => 
+        array (
+          'pretty_version' => '2.6.0',
+          'version' => '2.6.0.0',
+          'reference' => '4553b2a1f6c76f0ac7f3bc0de4c0cfa06a097d19',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../blade-ui-kit/blade-heroicons',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'blade-ui-kit/blade-icons' => 
+        array (
+          'pretty_version' => '1.8.1',
+          'version' => '1.8.1.0',
+          'reference' => '47e7b6f43250e6404e4224db8229219cd42b543c',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../blade-ui-kit/blade-icons',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'brianium/paratest' => 
         array (
           'pretty_version' => 'v7.19.0',
@@ -64,6 +132,30 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'chillerlan/php-qrcode' => 
+        array (
+          'pretty_version' => '5.0.5',
+          'version' => '5.0.5.0',
+          'reference' => '7b66282572fc14075c0507d74d9837dab25b38d6',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../chillerlan/php-qrcode',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'chillerlan/php-settings-container' => 
+        array (
+          'pretty_version' => '3.2.1',
+          'version' => '3.2.1.0',
+          'reference' => '95ed3e9676a1d47cab2e3174d19b43f5dbf52681',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../chillerlan/php-settings-container',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'cordoval/hamcrest-php' => 
         array (
           'dev_requirement' => true,
@@ -71,6 +163,30 @@ return [
           array (
             0 => '*',
           ),
+        ),
+        'danharrin/date-format-converter' => 
+        array (
+          'pretty_version' => 'v0.3.1',
+          'version' => '0.3.1.0',
+          'reference' => '7c31171bc981e48726729a5f3a05a2d2b63f0b1e',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../danharrin/date-format-converter',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'danharrin/livewire-rate-limiting' => 
+        array (
+          'pretty_version' => 'v2.1.0',
+          'version' => '2.1.0.0',
+          'reference' => '14dde653a9ae8f38af07a0ba4921dc046235e1a0',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../danharrin/livewire-rate-limiting',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
         ),
         'davedevelopment/hamcrest-php' => 
         array (
@@ -175,6 +291,126 @@ return [
           array (
           ),
           'dev_requirement' => true,
+        ),
+        'filament/actions' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => 'ba5d5b91ae4f46dc13e14335fa3fc775b4da996d',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/actions',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/filament' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => '1c0d01a9d0dd1b8b1ca08016ed6464ca325c7812',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/filament',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/forms' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => '0c51b91fff831c9a33d01b257803305e7aca9904',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/forms',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/infolists' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => '1829de0cde22d1386e9a565f51a363cadd24f440',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/infolists',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/notifications' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => '3fa5a274fb45f9e9f68ccce06c3fb110adf3e3c3',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/notifications',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/query-builder' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => 'ee6bcb57ce78e8ca5741fdc998c445c7c77e4751',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/query-builder',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/schemas' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => 'f09a32b5b3f1ae7479efc3aaf7d3daaa71a665bc',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/schemas',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/support' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => '3566a9a97cab591c829635b6806afc1442491881',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/support',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/tables' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => 'e14c1dd83afce6ae80d7f3e4b3ccf9583a50b0d2',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/tables',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'filament/widgets' => 
+        array (
+          'pretty_version' => 'v5.2.1',
+          'version' => '5.2.1.0',
+          'reference' => '7f47eb48be64110fd1dcea3155834648cb17df30',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../filament/widgets',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
         ),
         'filp/whoops' => 
         array (
@@ -584,6 +820,18 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'kirschbaum-development/eloquent-power-joins' => 
+        array (
+          'pretty_version' => '4.2.11',
+          'version' => '4.2.11.0',
+          'reference' => '0e3e3372992e4bf82391b3c7b84b435c3db73588',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../kirschbaum-development/eloquent-power-joins',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => 
         array (
           'dev_requirement' => true,
@@ -748,6 +996,18 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'league/csv' => 
+        array (
+          'pretty_version' => '9.28.0',
+          'version' => '9.28.0.0',
+          'reference' => '6582ace29ae09ba5b07049d40ea13eb19c8b5073',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../league/csv',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'league/flysystem' => 
         array (
           'pretty_version' => '3.31.0',
@@ -796,6 +1056,18 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'league/uri-components' => 
+        array (
+          'pretty_version' => '7.8.0',
+          'version' => '7.8.0.0',
+          'reference' => '8b5ffcebcc0842b76eb80964795bd56a8333b2ba',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../league/uri-components',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'league/uri-interfaces' => 
         array (
           'pretty_version' => '7.8.0',
@@ -803,6 +1075,30 @@ return [
           'reference' => 'c5c5cd056110fc8afaba29fa6b72a43ced42acd4',
           'type' => 'library',
           'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../league/uri-interfaces',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'livewire/livewire' => 
+        array (
+          'pretty_version' => 'v4.1.4',
+          'version' => '4.1.4.0',
+          'reference' => '4697085e02a1f5f11410a1b5962400e3539f8843',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../livewire/livewire',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'masterminds/html5' => 
+        array (
+          'pretty_version' => '2.10.0',
+          'version' => '2.10.0.0',
+          'reference' => 'fcf91eb64359852f00d921887b219479b4f21251',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../masterminds/html5',
           'aliases' => 
           array (
           ),
@@ -864,6 +1160,18 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'nette/php-generator' => 
+        array (
+          'pretty_version' => 'v4.2.1',
+          'version' => '4.2.1.0',
+          'reference' => '52aff4d9b12f20ca9f3e31a559b646d2fd21dd61',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../nette/php-generator',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'nette/schema' => 
         array (
           'pretty_version' => 'v1.3.4',
@@ -919,6 +1227,30 @@ return [
           'reference' => '712a31b768f5daea284c2169a7d227031001b9a8',
           'type' => 'library',
           'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../nunomaduro/termwind',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'openspout/openspout' => 
+        array (
+          'pretty_version' => 'v4.32.0',
+          'version' => '4.32.0.0',
+          'reference' => '41f045c1f632e1474e15d4c7bc3abcb4a153563d',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../openspout/openspout',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'paragonie/constant_time_encoding' => 
+        array (
+          'pretty_version' => 'v3.1.3',
+          'version' => '3.1.3.0',
+          'reference' => 'd5b01a39b3415c2cd581d3bd3a3575c1ebbd8e77',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../paragonie/constant_time_encoding',
           'aliases' => 
           array (
           ),
@@ -1164,6 +1496,30 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'pragmarx/google2fa' => 
+        array (
+          'pretty_version' => 'v9.0.0',
+          'version' => '9.0.0.0',
+          'reference' => 'e6bc62dd6ae83acc475f57912e27466019a1f2cf',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../pragmarx/google2fa',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'pragmarx/google2fa-qrcode' => 
+        array (
+          'pretty_version' => 'v3.0.0',
+          'version' => '3.0.0.0',
+          'reference' => 'ce4d8a729b6c93741c607cfb2217acfffb5bf76b',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../pragmarx/google2fa-qrcode',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'psr/clock' => 
         array (
           'pretty_version' => '1.0.0',
@@ -1381,6 +1737,30 @@ return [
             0 => '4.9.2',
           ),
         ),
+        'ryangjchandler/blade-capture-directive' => 
+        array (
+          'pretty_version' => 'v1.1.0',
+          'version' => '1.1.0.0',
+          'reference' => 'bbb1513dfd89eaec87a47fe0c449a7e3d4a1976d',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../ryangjchandler/blade-capture-directive',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'scrivo/highlight.php' => 
+        array (
+          'pretty_version' => 'v9.18.1.10',
+          'version' => '9.18.1.10',
+          'reference' => '850f4b44697a2552e892ffe71490ba2733c2fc6e',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../scrivo/highlight.php',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'sebastian/cli-parser' => 
         array (
           'pretty_version' => '4.2.0',
@@ -1537,6 +1917,30 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'spatie/invade' => 
+        array (
+          'pretty_version' => '2.1.0',
+          'version' => '2.1.0.0',
+          'reference' => 'b920f6411d21df4e8610a138e2e87ae4957d7f63',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../spatie/invade',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'spatie/laravel-package-tools' => 
+        array (
+          'pretty_version' => '1.92.7',
+          'version' => '1.92.7.0',
+          'reference' => 'f09a799850b1ed765103a4f0b4355006360c49a5',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../spatie/laravel-package-tools',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'spatie/once' => 
         array (
           'dev_requirement' => false,
@@ -1544,6 +1948,18 @@ return [
           array (
             0 => '*',
           ),
+        ),
+        'spatie/shiki-php' => 
+        array (
+          'pretty_version' => '2.3.3',
+          'version' => '2.3.3.0',
+          'reference' => '9d50ff4d9825d87d3283a6695c65ae9c3c3caa6b',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../spatie/shiki-php',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
         ),
         'staabm/side-effects-detector' => 
         array (
@@ -1656,6 +2072,18 @@ return [
           'reference' => 'ad4daa7c38668dcb031e63bc99ea9bd42196a2cb',
           'type' => 'library',
           'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../symfony/finder',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'symfony/html-sanitizer' => 
+        array (
+          'pretty_version' => 'v7.4.0',
+          'version' => '7.4.0.0',
+          'reference' => '5b0bbcc3600030b535dd0b17a0e8c56243f96d7f',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../symfony/html-sanitizer',
           'aliases' => 
           array (
           ),
@@ -1981,6 +2409,18 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'ueberdosis/tiptap-php' => 
+        array (
+          'pretty_version' => '2.1.0',
+          'version' => '2.1.0.0',
+          'reference' => '6ea321fa665080e1a72ac5f52dfab19f6a292e2d',
+          'type' => 'library',
+          'install_path' => '/Users/fabionbaromeo/Herd/isb-presta-manager/vendor/composer/../ueberdosis/tiptap-php',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'vlucas/phpdotenv' => 
         array (
           'pretty_version' => 'v5.6.3',
@@ -2108,1552 +2548,6 @@ return [
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/Dashboard.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Filament\\Saas\\Pages\\Dashboard extends unknown class Filament\\Pages\\Dashboard.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/Dashboard.php',
-       'line' => 7,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/Dashboard.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 7,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Class_',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Filament\\Saas\\Pages\\TenantSettings extends unknown class Filament\\Pages\\Page.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 18,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 18,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Class_',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Filament\\Saas\\Pages\\TenantSettings implements unknown interface Filament\\Forms\\Contracts\\HasForms.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 18,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 18,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Class_',
-       'identifier' => 'interface.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Filament\\Saas\\Pages\\TenantSettings uses unknown trait Filament\\Forms\\Concerns\\InteractsWithForms.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 20,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 20,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\TraitUse',
-       'identifier' => 'trait.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property App\\Filament\\Saas\\Pages\\TenantSettings::$form.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
-       'nodeLine' => 41,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Pages\\TenantSettings::form() has invalid return type Filament\\Forms\\Form.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $form of method App\\Filament\\Saas\\Pages\\TenantSettings::form() has invalid type Filament\\Forms\\Form.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method statePath() on an unknown class Filament\\Forms\\Form.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 68,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 68,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 71,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 71,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 75,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 75,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 81,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 81,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 85,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 85,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 89,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 89,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 96,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 96,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 100,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 100,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Pages\\TenantSettings::getHeaderActions() has invalid return type Filament\\Actions\\Action.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 110,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 110,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Actions\\Action.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 113,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 113,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Notifications\\Notification.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 132,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 132,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Actions\\Action.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 137,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 137,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property App\\Filament\\Saas\\Pages\\TenantSettings::$form.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 158,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
-       'nodeLine' => 158,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Notifications\\Notification.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 160,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 160,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property App\\Filament\\Saas\\Pages\\TenantSettings::$form.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 192,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
-       'nodeLine' => 192,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property App\\Filament\\Saas\\Pages\\TenantSettings::$form.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 211,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
-       'nodeLine' => 211,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Notifications\\Notification.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 214,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 214,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Notifications\\Notification.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 223,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 223,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property App\\Filament\\Saas\\Pages\\TenantSettings::$form.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'line' => 246,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
-       'nodeLine' => 246,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Filament\\Saas\\Resources\\Products\\Pages\\ListProducts extends unknown class Filament\\Resources\\Pages\\ListRecords.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php',
-       'line' => 8,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 8,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Class_',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Resources\\Products\\Pages\\ListProducts::getHeaderActions() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php',
-       'line' => 12,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 12,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct extends unknown class Filament\\Resources\\Pages\\ViewRecord.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 13,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 13,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Class_',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct::getHeaderActions() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 17,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 17,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Actions\\Action.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 20,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 20,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 23,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 23,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct::getRecord().',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 33,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 33,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Notifications\\Notification.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 39,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 39,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Notifications\\Notification.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 44,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 44,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Actions\\Action.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 51,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 51,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Forms\\Components\\TextInput.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 54,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 54,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct::getRecord().',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 64,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Notifications\\Notification.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 70,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 70,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Notifications\\Notification.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 75,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 75,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct::getRecord().',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 88,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 88,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct::$record.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'line' => 92,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
-       'nodeLine' => 92,
-       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
-       'identifier' => 'property.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Filament\\Saas\\Resources\\Products\\ProductResource extends unknown class Filament\\Resources\\Resource.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 24,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 24,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Class_',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Resources\\Products\\ProductResource::canView() has parameter $record with no type specified.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 52,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 52,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Resources\\Products\\ProductResource::canEdit() has parameter $record with no type specified.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 62,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 62,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Resources\\Products\\ProductResource::canDelete() has parameter $record with no type specified.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 67,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 67,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Resources\\Products\\ProductResource::table() has invalid return type Filament\\Tables\\Table.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 72,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 72,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $table of method App\\Filament\\Saas\\Resources\\Products\\ProductResource::table() has invalid type Filament\\Tables\\Table.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 72,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 72,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method searchPlaceholder() on an unknown class Filament\\Tables\\Table.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 74,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 74,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 77,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 77,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 80,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 80,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 84,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 84,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 87,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 87,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\IconColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 90,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 90,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 93,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 93,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 98,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 98,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 103,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 103,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 108,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 108,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Columns\\TextColumn.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 114,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 114,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Tables\\Actions\\ViewAction.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 122,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 122,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Resources\\Products\\ProductResource::infolist() has invalid return type Filament\\Infolists\\Infolist.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 129,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 129,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $infolist of method App\\Filament\\Saas\\Resources\\Products\\ProductResource::infolist() has invalid type Filament\\Infolists\\Infolist.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 129,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 129,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method schema() on an unknown class Filament\\Infolists\\Infolist.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 131,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 131,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\Section.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 133,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 136,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 136,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 138,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 138,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 140,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 140,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    25 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    26 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 144,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 144,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 153,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 153,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    28 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\Section.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 157,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 157,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    29 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 160,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 160,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    30 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 163,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 163,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    31 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 166,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 166,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    32 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to static method make() on an unknown class Filament\\Infolists\\Components\\TextEntry.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 169,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 169,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    33 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined static method App\\Filament\\Saas\\Resources\\Products\\Pages\\ListProducts::route().',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 182,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 182,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'staticMethod.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    34 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined static method App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct::route().',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 183,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 183,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'staticMethod.notFound',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    35 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Filament\\Saas\\Resources\\Products\\ProductResource::getEloquentQuery() return type with generic class Illuminate\\Database\\Eloquent\\Builder does not specify its types: TModel',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 187,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 187,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    36 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'App\\Filament\\Saas\\Resources\\Products\\ProductResource::getEloquentQuery() calls parent::getEloquentQuery() but App\\Filament\\Saas\\Resources\\Products\\ProductResource does not extend any class.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 229,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 229,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'class.noParent',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    37 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Unsafe call to private method App\\Filament\\Saas\\Resources\\Products\\ProductResource::resolveSearchQuery() through static::.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 245,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 245,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'staticClassAccess.privateMethod',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    38 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Unsafe call to private method App\\Filament\\Saas\\Resources\\Products\\ProductResource::resolveTypeSenseProductIds() through static::.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 251,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 251,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'staticClassAccess.privateMethod',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    39 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Offset \'data\' on array{data: array<int, array<string, mixed>>, total: int} on left side of ?? always exists and is not nullable.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'line' => 300,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 300,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Coalesce',
-       'identifier' => 'nullCoalesce.offset',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/ApiToken.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Models\\ApiToken uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/ApiToken.php',
-       'line' => 12,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/ApiToken.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 12,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\TraitUse',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Models\\AuditLog uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php',
-       'line' => 11,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 11,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\TraitUse',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Models\\Job uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php',
-       'line' => 11,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 11,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\TraitUse',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Models\\Revision uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php',
-       'line' => 11,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 11,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\TraitUse',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Models\\Tenant uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'line' => 12,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 12,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\TraitUse',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Models\\Tenant::dbPasswordEncrypted() return type with generic class Illuminate\\Database\\Eloquent\\Casts\\Attribute does not specify its types: TGet, TSet',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'line' => 50,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 50,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Using nullsafe property access "?->db_prefix" on left side of ?? is unnecessary. Use -> instead.',
-       'file' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php',
-       'line' => 60,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 60,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Coalesce',
-       'identifier' => 'nullsafe.neverNull',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
 ); },
 	'locallyIgnoredErrorsCallback' => static function (): array { return array (
 ); },
@@ -3662,157 +2556,18 @@ return [
 	'unmatchedLineIgnores' => array (
 ),
 	'collectedDataCallback' => static function (): array { return array (
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/Dashboard.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ListProducts.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
     array (
       0 => 
       array (
-        0 => 'saas.pages.dashboard.navigation_label',
-        1 => 13,
-      ),
-      1 => 
-      array (
-        0 => 'saas.pages.dashboard.title',
+        0 => 'saas.pages.bulk_price_update.navigation_label',
         1 => 18,
       ),
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php' => 
-  array (
-    'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'saas.pages.tenant_settings.navigation_label',
-        1 => 58,
-      ),
-      1 => 
-      array (
-        0 => 'saas.pages.tenant_settings.title',
-        1 => 63,
-      ),
-      2 => 
-      array (
-        0 => 'saas.pages.tenant_settings.fields.db_host',
-        1 => 72,
-      ),
-      3 => 
-      array (
-        0 => 'saas.pages.tenant_settings.fields.db_port',
-        1 => 76,
-      ),
-      4 => 
-      array (
-        0 => 'saas.pages.tenant_settings.fields.db_name',
-        1 => 82,
-      ),
-      5 => 
-      array (
-        0 => 'saas.pages.tenant_settings.fields.db_user',
-        1 => 86,
-      ),
-      6 => 
-      array (
-        0 => 'saas.pages.tenant_settings.fields.db_password',
-        1 => 90,
-      ),
-      7 => 
-      array (
-        0 => 'saas.pages.tenant_settings.password_hint',
-        1 => 94,
-      ),
-      8 => 
-      array (
-        0 => 'saas.pages.tenant_settings.fields.db_prefix',
-        1 => 97,
-      ),
-      9 => 
-      array (
-        0 => 'saas.pages.tenant_settings.fields.base_shop_url',
-        1 => 101,
-      ),
-      10 => 
-      array (
-        0 => 'saas.pages.tenant_settings.actions.test_connection',
-        1 => 114,
-      ),
-      11 => 
-      array (
-        0 => 'saas.pages.tenant_settings.notifications.no_tenant',
-        1 => 119,
-      ),
-      12 => 
-      array (
-        0 => 'saas.pages.tenant_settings.notifications.connection_failed',
-        1 => 127,
-      ),
-      13 => 
-      array (
-        0 => 'saas.pages.tenant_settings.notifications.connection_success',
-        1 => 134,
-      ),
-      14 => 
-      array (
-        0 => 'saas.pages.tenant_settings.actions.sync_shop_url',
-        1 => 138,
-      ),
-      15 => 
-      array (
-        0 => 'saas.pages.tenant_settings.notifications.no_tenant',
-        1 => 143,
-      ),
-      16 => 
-      array (
-        0 => 'saas.pages.tenant_settings.notifications.sync_failed',
-        1 => 153,
-      ),
-      17 => 
-      array (
-        0 => 'saas.pages.tenant_settings.notifications.sync_success',
-        1 => 162,
-      ),
-      18 => 
-      array (
-        0 => 'saas.pages.tenant_settings.notifications.no_tenant',
-        1 => 173,
-      ),
-      19 => 
-      array (
-        0 => 'saas.pages.tenant_settings.notifications.saved',
-        1 => 216,
-      ),
-    ),
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'App\\Filament\\Saas\\Pages\\TenantSettings',
-        1 => 'tenantDataForForm',
-        2 => 'App\\Filament\\Saas\\Pages\\TenantSettings',
-      ),
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Filament\\Forms\\Concerns\\InteractsWithForms',
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'App\\Filament\\Saas\\Resources\\Products\\Pages\\ListProducts',
-        1 => 'getHeaderActions',
-        2 => 'App\\Filament\\Saas\\Resources\\Products\\Pages\\ListProducts',
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ViewProduct.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
     array (
@@ -3829,1250 +2584,509 @@ return [
       2 => 
       array (
         0 => 'saas.resources.products.view.notifications.stock_update_success',
-        1 => 41,
+        1 => 43,
       ),
       3 => 
       array (
         0 => 'saas.resources.products.view.notifications.stock_update_failed',
-        1 => 46,
+        1 => 48,
       ),
       4 => 
       array (
         0 => 'saas.resources.products.view.actions.update_base_price',
-        1 => 52,
+        1 => 54,
       ),
       5 => 
       array (
         0 => 'saas.resources.products.view.fields.base_price_tax_excl',
-        1 => 55,
+        1 => 57,
       ),
       6 => 
       array (
         0 => 'saas.resources.products.view.notifications.base_price_update_success',
-        1 => 72,
+        1 => 76,
       ),
       7 => 
       array (
         0 => 'saas.resources.products.view.notifications.base_price_update_failed',
-        1 => 77,
+        1 => 81,
       ),
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
     array (
       0 => 
       array (
         0 => 'saas.resources.products.navigation_label',
-        1 => 34,
+        1 => 44,
       ),
       1 => 
       array (
         0 => 'saas.resources.products.model_label',
-        1 => 39,
+        1 => 49,
       ),
       2 => 
       array (
         0 => 'saas.resources.products.plural_model_label',
-        1 => 44,
-      ),
-      3 => 
-      array (
-        0 => 'saas.resources.products.table.search_placeholder',
-        1 => 75,
-      ),
-      4 => 
-      array (
-        0 => 'saas.resources.products.table.columns.id',
-        1 => 78,
-      ),
-      5 => 
-      array (
-        0 => 'saas.resources.products.table.columns.name',
-        1 => 81,
-      ),
-      6 => 
-      array (
-        0 => 'saas.resources.products.table.columns.reference',
-        1 => 85,
-      ),
-      7 => 
-      array (
-        0 => 'saas.resources.products.table.columns.manufacturer',
-        1 => 88,
-      ),
-      8 => 
-      array (
-        0 => 'saas.resources.products.table.columns.active',
-        1 => 91,
-      ),
-      9 => 
-      array (
-        0 => 'saas.resources.products.table.columns.stock_qty',
-        1 => 94,
-      ),
-      10 => 
-      array (
-        0 => 'saas.resources.products.table.columns.original_price_tax_excl',
-        1 => 99,
-      ),
-      11 => 
-      array (
-        0 => 'saas.resources.products.table.columns.current_price_tax_excl',
-        1 => 104,
-      ),
-      12 => 
-      array (
-        0 => 'saas.resources.products.table.columns.original_price_tax_incl',
-        1 => 109,
-      ),
-      13 => 
-      array (
-        0 => 'saas.resources.products.table.columns.current_price_tax_incl',
-        1 => 115,
-      ),
-      14 => 
-      array (
-        0 => 'saas.resources.products.table.actions.view',
-        1 => 123,
-      ),
-      15 => 
-      array (
-        0 => 'saas.resources.products.table.empty_state_heading',
-        1 => 126,
-      ),
-      16 => 
-      array (
-        0 => 'saas.resources.products.infolist.sections.general',
-        1 => 133,
-      ),
-      17 => 
-      array (
-        0 => 'saas.resources.products.table.columns.id',
-        1 => 137,
-      ),
-      18 => 
-      array (
-        0 => 'saas.resources.products.table.columns.name',
-        1 => 139,
-      ),
-      19 => 
-      array (
-        0 => 'saas.resources.products.table.columns.reference',
-        1 => 141,
-      ),
-      20 => 
-      array (
-        0 => 'saas.resources.products.table.columns.manufacturer',
-        1 => 143,
-      ),
-      21 => 
-      array (
-        0 => 'saas.resources.products.table.columns.active',
-        1 => 145,
-      ),
-      22 => 
-      array (
-        0 => 'saas.resources.products.states.active',
-        1 => 149,
-      ),
-      23 => 
-      array (
-        0 => 'saas.resources.products.states.inactive',
-        1 => 150,
-      ),
-      24 => 
-      array (
-        0 => 'saas.resources.products.table.columns.stock_qty',
-        1 => 154,
-      ),
-      25 => 
-      array (
-        0 => 'saas.resources.products.infolist.sections.pricing',
-        1 => 157,
-      ),
-      26 => 
-      array (
-        0 => 'saas.resources.products.table.columns.original_price_tax_excl',
-        1 => 161,
-      ),
-      27 => 
-      array (
-        0 => 'saas.resources.products.table.columns.current_price_tax_excl',
-        1 => 164,
-      ),
-      28 => 
-      array (
-        0 => 'saas.resources.products.table.columns.original_price_tax_incl',
-        1 => 167,
-      ),
-      29 => 
-      array (
-        0 => 'saas.resources.products.table.columns.current_price_tax_incl',
-        1 => 170,
+        1 => 54,
       ),
     ),
     'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
     array (
       0 => 
       array (
-        0 => 'App\\Filament\\Saas\\Resources\\Products\\ProductResource',
+        0 => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
         1 => 'canCreate',
-        2 => 'App\\Filament\\Saas\\Resources\\Products\\ProductResource',
+        2 => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
       ),
       1 => 
       array (
-        0 => 'App\\Filament\\Saas\\Resources\\Products\\ProductResource',
+        0 => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
         1 => 'canEdit',
-        2 => 'App\\Filament\\Saas\\Resources\\Products\\ProductResource',
+        2 => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
       ),
       2 => 
       array (
-        0 => 'App\\Filament\\Saas\\Resources\\Products\\ProductResource',
+        0 => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
         1 => 'canDelete',
-        2 => 'App\\Filament\\Saas\\Resources\\Products\\ProductResource',
+        2 => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
+      ),
+      3 => 
+      array (
+        0 => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
+        1 => 'getRelations',
+        2 => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
       ),
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/RelationManagers/SpecificPricesRelationManager.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
     array (
       0 => 
       array (
-        0 => 'saas.api.products.not_found',
-        1 => 60,
-      ),
-    ),
-    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
-    array (
-      0 => 'App\\Http\\Controllers\\Api\\V1\\ProductController',
-    ),
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'App\\Http\\Controllers\\Api\\V1\\ProductController',
-        1 => 'isActive',
-        2 => 'App\\Http\\Controllers\\Api\\V1\\ProductController',
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Requests/Api/V1/ListProductsRequest.php' => 
-  array (
-    'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'saas.api.products.validation.q.string',
-        1 => 37,
+        0 => 'saas.resources.products.relation_managers.specific_prices.title',
+        1 => 24,
       ),
       1 => 
       array (
-        0 => 'saas.api.products.validation.q.max',
+        0 => 'saas.resources.products.relation_managers.specific_prices.columns.id',
         1 => 38,
       ),
       2 => 
       array (
-        0 => 'saas.api.products.validation.category.string',
-        1 => 39,
+        0 => 'saas.resources.products.relation_managers.specific_prices.columns.price',
+        1 => 41,
       ),
       3 => 
       array (
-        0 => 'saas.api.products.validation.category.max',
-        1 => 40,
+        0 => 'saas.resources.products.relation_managers.specific_prices.columns.reduction',
+        1 => 45,
       ),
       4 => 
       array (
-        0 => 'saas.api.products.validation.manufacturer.string',
-        1 => 41,
+        0 => 'saas.resources.products.relation_managers.specific_prices.columns.reduction_type',
+        1 => 49,
       ),
       5 => 
       array (
-        0 => 'saas.api.products.validation.manufacturer.max',
-        1 => 42,
+        0 => 'saas.resources.products.relation_managers.specific_prices.columns.from',
+        1 => 51,
       ),
       6 => 
       array (
-        0 => 'saas.api.products.validation.min_price.numeric',
-        1 => 43,
+        0 => 'saas.resources.products.relation_managers.specific_prices.columns.to',
+        1 => 54,
       ),
       7 => 
       array (
-        0 => 'saas.api.products.validation.min_price.min',
-        1 => 44,
+        0 => 'saas.resources.products.relation_managers.specific_prices.actions.create',
+        1 => 59,
       ),
       8 => 
       array (
-        0 => 'saas.api.products.validation.max_price.numeric',
-        1 => 45,
+        0 => 'saas.resources.products.relation_managers.specific_prices.notifications.create_success',
+        1 => 73,
       ),
       9 => 
       array (
-        0 => 'saas.api.products.validation.max_price.gte',
-        1 => 46,
+        0 => 'saas.resources.products.relation_managers.specific_prices.notifications.create_failed',
+        1 => 78,
       ),
       10 => 
       array (
-        0 => 'saas.api.products.validation.has_discount.boolean',
-        1 => 47,
+        0 => 'saas.resources.products.relation_managers.specific_prices.actions.edit',
+        1 => 86,
       ),
       11 => 
       array (
-        0 => 'saas.api.products.validation.page.integer',
-        1 => 48,
+        0 => 'saas.resources.products.relation_managers.specific_prices.notifications.update_success',
+        1 => 111,
       ),
       12 => 
       array (
-        0 => 'saas.api.products.validation.page.min',
-        1 => 49,
+        0 => 'saas.resources.products.relation_managers.specific_prices.notifications.update_failed',
+        1 => 116,
       ),
       13 => 
       array (
-        0 => 'saas.api.products.validation.per_page.integer',
-        1 => 50,
+        0 => 'saas.resources.products.relation_managers.specific_prices.actions.delete',
+        1 => 122,
       ),
       14 => 
       array (
-        0 => 'saas.api.products.validation.per_page.min',
-        1 => 51,
+        0 => 'saas.resources.products.relation_managers.specific_prices.notifications.delete_success',
+        1 => 138,
       ),
       15 => 
       array (
-        0 => 'saas.api.products.validation.per_page.max',
-        1 => 52,
+        0 => 'saas.resources.products.relation_managers.specific_prices.notifications.delete_failed',
+        1 => 143,
       ),
-    ),
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
+      16 => 
       array (
-        0 => 'App\\Http\\Requests\\Api\\V1\\ListProductsRequest',
-        1 => 'authorize',
-        2 => 'App\\Http\\Requests\\Api\\V1\\ListProductsRequest',
+        0 => 'saas.resources.products.relation_managers.specific_prices.fields.price',
+        1 => 158,
       ),
-      1 => 
+      17 => 
       array (
-        0 => 'App\\Http\\Requests\\Api\\V1\\ListProductsRequest',
-        1 => 'rules',
-        2 => 'App\\Http\\Requests\\Api\\V1\\ListProductsRequest',
+        0 => 'saas.resources.products.relation_managers.specific_prices.fields.reduction',
+        1 => 164,
+      ),
+      18 => 
+      array (
+        0 => 'saas.resources.products.relation_managers.specific_prices.fields.reduction_type',
+        1 => 170,
+      ),
+      19 => 
+      array (
+        0 => 'saas.resources.products.relation_managers.specific_prices.reduction_types.amount',
+        1 => 172,
+      ),
+      20 => 
+      array (
+        0 => 'saas.resources.products.relation_managers.specific_prices.reduction_types.percentage',
+        1 => 173,
+      ),
+      21 => 
+      array (
+        0 => 'saas.resources.products.relation_managers.specific_prices.fields.from',
+        1 => 177,
+      ),
+      22 => 
+      array (
+        0 => 'saas.resources.products.relation_managers.specific_prices.fields.to',
+        1 => 181,
       ),
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Jobs/ReindexTenantProductsJob.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Schemas/ProductInfolist.php' => 
   array (
     'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
     array (
       0 => 
       array (
-        0 => 'saas.typesense.reindex.started',
+        0 => 'saas.resources.products.infolist.sections.general',
+        1 => 15,
+      ),
+      1 => 
+      array (
+        0 => 'saas.resources.products.table.columns.id',
         1 => 19,
       ),
+      2 => 
+      array (
+        0 => 'saas.resources.products.table.columns.name',
+        1 => 21,
+      ),
+      3 => 
+      array (
+        0 => 'saas.resources.products.table.columns.reference',
+        1 => 23,
+      ),
+      4 => 
+      array (
+        0 => 'saas.resources.products.table.columns.manufacturer',
+        1 => 25,
+      ),
+      5 => 
+      array (
+        0 => 'saas.resources.products.table.columns.active',
+        1 => 27,
+      ),
+      6 => 
+      array (
+        0 => 'saas.resources.products.states.active',
+        1 => 31,
+      ),
+      7 => 
+      array (
+        0 => 'saas.resources.products.states.inactive',
+        1 => 32,
+      ),
+      8 => 
+      array (
+        0 => 'saas.resources.products.table.columns.stock_qty',
+        1 => 36,
+      ),
+      9 => 
+      array (
+        0 => 'saas.resources.products.infolist.sections.pricing',
+        1 => 39,
+      ),
+      10 => 
+      array (
+        0 => 'saas.resources.products.table.columns.original_price_tax_excl',
+        1 => 43,
+      ),
+      11 => 
+      array (
+        0 => 'saas.resources.products.table.columns.current_price_tax_excl',
+        1 => 46,
+      ),
+      12 => 
+      array (
+        0 => 'saas.resources.products.table.columns.original_price_tax_incl',
+        1 => 49,
+      ),
+      13 => 
+      array (
+        0 => 'saas.resources.products.table.columns.current_price_tax_incl',
+        1 => 52,
+      ),
+    ),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Tables/ProductsTable.php' => 
+  array (
+    'Larastan\\Larastan\\Collectors\\UsedTranslationFunctionCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'saas.resources.products.table.search_placeholder',
+        1 => 16,
+      ),
       1 => 
       array (
-        0 => 'saas.typesense.reindex.completed',
+        0 => 'saas.resources.products.table.columns.id',
+        1 => 19,
+      ),
+      2 => 
+      array (
+        0 => 'saas.resources.products.table.columns.name',
+        1 => 22,
+      ),
+      3 => 
+      array (
+        0 => 'saas.resources.products.table.columns.reference',
         1 => 26,
       ),
-      2 => 
+      4 => 
       array (
-        0 => 'saas.typesense.reindex.failed',
-        1 => 30,
+        0 => 'saas.resources.products.table.columns.manufacturer',
+        1 => 29,
       ),
-    ),
-    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
-    array (
-      0 => 'App\\Jobs\\ReindexTenantProductsJob',
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
+      5 => 
       array (
-        0 => 'Illuminate\\Foundation\\Queue\\Queueable',
+        0 => 'saas.resources.products.table.columns.active',
+        1 => 32,
       ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/ApiToken.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
+      6 => 
       array (
-        0 => 'App\\Models\\ApiToken',
-        1 => 'casts',
-        2 => 'App\\Models\\ApiToken',
+        0 => 'saas.resources.products.table.columns.stock_qty',
+        1 => 35,
       ),
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
+      7 => 
       array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+        0 => 'saas.resources.products.table.columns.original_price_tax_excl',
+        1 => 40,
       ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
+      8 => 
       array (
-        0 => 'App\\Models\\AuditLog',
-        1 => 'casts',
-        2 => 'App\\Models\\AuditLog',
+        0 => 'saas.resources.products.table.columns.current_price_tax_excl',
+        1 => 45,
       ),
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
+      9 => 
       array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+        0 => 'saas.resources.products.table.columns.original_price_tax_incl',
+        1 => 50,
       ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
+      10 => 
       array (
-        0 => 'App\\Models\\Job',
-        1 => 'casts',
-        2 => 'App\\Models\\Job',
+        0 => 'saas.resources.products.table.columns.current_price_tax_incl',
+        1 => 56,
       ),
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
+      11 => 
       array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+        0 => 'saas.resources.products.table.actions.view',
+        1 => 64,
       ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
+      12 => 
       array (
-        0 => 'App\\Models\\Revision',
-        1 => 'casts',
-        2 => 'App\\Models\\Revision',
-      ),
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'App\\Models\\Tenant',
-        1 => 'casts',
-        2 => 'App\\Models\\Tenant',
-      ),
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantUser.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'App\\Models\\TenantUser',
-        1 => 'casts',
-        2 => 'App\\Models\\TenantUser',
-      ),
-      1 => 
-      array (
-        0 => 'App\\Models\\TenantUser',
-        1 => 'isAdmin',
-        2 => 'App\\Models\\TenantUser',
-      ),
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-        1 => 'Illuminate\\Notifications\\Notifiable',
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'App\\Models\\User',
-        1 => 'casts',
-        2 => 'App\\Models\\User',
-      ),
-    ),
-    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-        1 => 'Illuminate\\Notifications\\Notifiable',
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Support\\Facades\\Gate',
-        1 => 'define',
-        2 => 28,
-      ),
-      1 => 
-      array (
-        0 => 'Illuminate\\Support\\Facades\\Gate',
-        1 => 'define',
-        2 => 32,
-      ),
-      2 => 
-      array (
-        0 => 'Illuminate\\Support\\Facades\\RateLimiter',
-        1 => 'for',
-        2 => 36,
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/PricingService.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
-    array (
-      0 => 'App\\Services\\PricingService',
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
-    array (
-      0 => 'App\\Services\\ProductWriteService',
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantContext.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'App\\Services\\TenantContext',
-        1 => 'getTenant',
-        2 => 'App\\Services\\TenantContext',
-      ),
-      1 => 
-      array (
-        0 => 'App\\Services\\TenantContext',
-        1 => 'tenantId',
-        2 => 'App\\Services\\TenantContext',
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
-    array (
-      0 => 'App\\Services\\TenantPrestaShopConnection',
-    ),
-    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Database\\DatabaseManager',
-        1 => 'reconnect',
-        2 => 41,
-      ),
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TypeSenseClient.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'App\\Services\\TypeSenseClient',
-        1 => 'collectionName',
-        2 => 'App\\Services\\TypeSenseClient',
+        0 => 'saas.resources.products.table.empty_state_heading',
+        1 => 67,
       ),
     ),
   ),
 ); },
 	'dependencies' => array (
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/Dashboard.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ListProducts.php' => 
   array (
-    'fileHash' => '86ec53de2ec76633505a14fb3c14bb1165fb45e48214f6914b1c538be2ece471',
+    'fileHash' => '7b718c75facf5945ab3a79b8c8a5959631556f6dc2ffeea9077804cae4484512',
     'dependentFiles' => 
     array (
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ViewProduct.php' => 
   array (
-    'fileHash' => '38a1b5b958c798f979085cc8f0caba00c30603ac28970c6f3b426ec6b82ad4f0',
+    'fileHash' => '4a322a42e38cca4bb0ae8ee5b48733a185e3d845e5f3da9fa067612c8f1863ed',
     'dependentFiles' => 
     array (
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php' => 
   array (
-    'fileHash' => 'dc7ae129113fd481558fe92bcb5d1de82ae83ae3d1c9645a36cb2e55a1f3bd1d',
+    'fileHash' => '560ec96c98f99b0efa462e6e4b5aa3777497d0e83bc79a51f8002ec563781296',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ListProducts.php',
+      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ViewProduct.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/RelationManagers/SpecificPricesRelationManager.php' => 
   array (
-    'fileHash' => 'f89aab2f3634dfee6c6adca84c4f70fde71840ebeee871c1528388c972cb17f1',
+    'fileHash' => '9ecfc9d1c80054f16ae5a9f1814aaf4d378bf9f54403e4a87ac15571eff56266',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Schemas/ProductInfolist.php' => 
   array (
-    'fileHash' => '82f1c5002e8ec44cc6267553910f70053375552f2c318ce10146e0b4e618d32f',
+    'fileHash' => 'd53be30097a3d3d20dcaa72973d82ec3c61a99e95e450fb6a51b7678d4299436',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Tables/ProductsTable.php' => 
   array (
-    'fileHash' => '8e6dff3feaf1acd4154b958e0f6100fde4928aebbd50bfe1d3177967245a11b6',
+    'fileHash' => '6cb71dcb6dea2fa94aa8b5a3cbd45fbdb0bf5552a6952dcb22a0160acb987aef',
     'dependentFiles' => 
     array (
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Controller.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/CreateTenant.php' => 
   array (
-    'fileHash' => '25d1c1ef8e6cc8a376553faacfba2b07d9dfaee9bdbb84f14f77517580e9deb1',
+    'fileHash' => '63348eeb003ee58759ecc655778cfe3af069968a5d8b50e2a9ebe67ebf1bc08a',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/TenantResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/EditTenant.php' => 
   array (
-    'fileHash' => 'a14a10753812d8ef29313430602524e7f21c745028007c9e53a2f12db75feafb',
+    'fileHash' => 'b9a4bfcdd7bc9c2d1ecef7ed0dd1a6c807a150a25d9daa9e83678d63d73246b9',
     'dependentFiles' => 
     array (
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/TenantResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Requests/Api/V1/ListProductsRequest.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/ListTenants.php' => 
   array (
-    'fileHash' => '8e73f751f1b4bc44de22374ab2af657591a012dc95eddc3669a9038c3cc52110',
+    'fileHash' => 'fdd137cd4e629f036e7ccec7b23bb0ad8bb8a1c55585dee5149123e518549e3d',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/TenantResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Jobs/ReindexTenantProductsJob.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Schemas/TenantForm.php' => 
   array (
-    'fileHash' => 'fb5c7fb1ea6e0cae8052d1127ec08f293bc4d01fdcfe78d395ea273fe21aeb1d',
+    'fileHash' => '1a08f157e2a7faddb78b71a724a5b40d5df56384afab66c50c3541aff90bc99d',
     'dependentFiles' => 
     array (
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/TenantResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/ApiToken.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Tables/TenantsTable.php' => 
   array (
-    'fileHash' => '4039b671960d080bc1fca27d8c46e2bde40f4ef85d54c8f3bb539b83c1a58e1f',
+    'fileHash' => '9fb72d388578a85d3b7c57092061b044c9f01b3f98e5865fdaf83c9845fcd602',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/TenantResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/TenantResource.php' => 
   array (
-    'fileHash' => 'e1518f191625252127231446f220058a0547d61d5d3a709f8c9b1b5a0383096e',
+    'fileHash' => 'c52d63dded369705d9ed8f056bc083a6b812039003a7f7661068368fb214ace0',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/CreateTenant.php',
+      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/EditTenant.php',
+      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/ListTenants.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/CreateUser.php' => 
   array (
-    'fileHash' => '7a212e7926902680fb4a9522cbb6ca5226dbc9a66c82e5aabc8bd65f5eea13f1',
+    'fileHash' => 'c6bb05dfd3550a1f53e5a4f951ef1eb7325c2bf02a14a554c7578529a6093e4e',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/EditUser.php' => 
   array (
-    'fileHash' => '74bdfd7aaa860569c99070db4e2cb367cb9f2b5b0e955b115fbbe5bd3839d14c',
+    'fileHash' => 'c9786232bb303aca6365d76b62f8170af6bad74d31fb3b4838da5eb155e2d2d8',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/RevisionService.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/ListUsers.php' => 
   array (
-    'fileHash' => '90e4c3cb7541eb541c5763c76398b4aea43202f25ee5bbbf2cd10b9852e6a4f5',
+    'fileHash' => 'aa7cad5b07ca26dcbc8bdc4db069e54809a6d73ae294ac03b10b13af0108c1b0',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php',
-      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/ApiToken.php',
-      3 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php',
-      4 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php',
-      5 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php',
-      6 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantUser.php',
-      7 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php',
-      8 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php',
-      9 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantContext.php',
-      10 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantPrestaShopProduct.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Schemas/UserForm.php' => 
   array (
-    'fileHash' => '4155256f60216bbdadc471bb7d0c01fe9cfa0e76ea9359f60aa1bf6ee95e984c',
+    'fileHash' => '662ce78154e899bfafb0eda05bfed7dcc55da7721c98f1a6687681ae8e871613',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantUser.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Tables/UsersTable.php' => 
   array (
-    'fileHash' => '2395a18207300b2e16def0a45955c0e0f704d0fd76a5ede1881ef4f13486ccf9',
+    'fileHash' => 'cdd4f557902318c4141115e30ab49979a5a0a53629ad26ddc84347055c5c2f96',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php',
-      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php',
-      3 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php',
     ),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php' => 
   array (
-    'fileHash' => 'c5b771c24e3b766b12db46c2c85fcdb2e324c55858c4a5ab05ae80f124e2a9b1',
+    'fileHash' => 'c7670c662f6643f3d3539e237f3d303b6a2aad941bd70e1e7b15242212fc582b',
     'dependentFiles' => 
     array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php',
-      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php',
-      3 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php',
-      4 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php' => 
-  array (
-    'fileHash' => '0ade9c9cdfe7c016cf99ca5a1fc13b55806715d4a78143414247b0ad31728194',
-    'dependentFiles' => 
-    array (
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/PricingService.php' => 
-  array (
-    'fileHash' => 'db7f177750af257453b65626a539e36e489c5b2cd5ca1728c3f55adda63db2c0',
-    'dependentFiles' => 
-    array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php' => 
-  array (
-    'fileHash' => '94bc3129970283da1baf2c1c3737043f118dd92286ec1d9dd05544d350fdc72a',
-    'dependentFiles' => 
-    array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php',
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/RevisionService.php' => 
-  array (
-    'fileHash' => 'a2d3a40f18f3ca384392300917a54f31dbe6b4786ba1df4b5a6737d1397d55c8',
-    'dependentFiles' => 
-    array (
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantContext.php' => 
-  array (
-    'fileHash' => 'f01e97822a71d7535aa59aea63560c85157ca391c17b7e6a60b6f82f6f6f7297',
-    'dependentFiles' => 
-    array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php',
-      3 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php',
-      4 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php',
-      5 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
-      6 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php',
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php' => 
-  array (
-    'fileHash' => 'b6dc1ae52d0dac44439710e6c74c192af738c85a90f39b9ab9cc2bbb3a2a54f7',
-    'dependentFiles' => 
-    array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php',
-      3 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantPrestaShopProduct.php',
-      4 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/PricingService.php',
-      5 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
-    ),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TypeSenseClient.php' => 
-  array (
-    'fileHash' => '2cd8c6686ce9bae5a1820e8dea4598a98e5893fa2f03a8a1b6780d139956c55d',
-    'dependentFiles' => 
-    array (
-      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php',
-      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php',
-      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Jobs/ReindexTenantProductsJob.php',
-      3 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php',
+      0 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/CreateUser.php',
+      1 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/EditUser.php',
+      2 => '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/ListUsers.php',
     ),
   ),
 ),
 	'exportedNodesCallback' => static function (): array { return array (
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/Dashboard.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ListProducts.php' => 
   array (
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Filament\\Saas\\Pages\\Dashboard',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Filament\\Pages\\Dashboard',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'navigationIcon',
-          ),
-           'phpDoc' => NULL,
-           'type' => '?string',
-           'public' => false,
-           'private' => false,
-           'static' => true,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getNavigationLabel',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTitle',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Pages/TenantSettings.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Filament\\Saas\\Pages\\TenantSettings',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Filament\\Pages\\Page',
-       'implements' => 
-      array (
-        0 => 'Filament\\Forms\\Contracts\\HasForms',
-      ),
-       'usedTraits' => 
-      array (
-        0 => 'Filament\\Forms\\Concerns\\InteractsWithForms',
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'navigationIcon',
-          ),
-           'phpDoc' => NULL,
-           'type' => '?string',
-           'public' => false,
-           'private' => false,
-           'static' => true,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'slug',
-          ),
-           'phpDoc' => NULL,
-           'type' => '?string',
-           'public' => false,
-           'private' => false,
-           'static' => true,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'view',
-          ),
-           'phpDoc' => NULL,
-           'type' => 'string',
-           'public' => false,
-           'private' => false,
-           'static' => true,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'data',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var array<string, mixed>
-     */',
-             'namespace' => 'App\\Filament\\Saas\\Pages',
-             'uses' => 
-            array (
-              'tenant' => 'App\\Models\\Tenant',
-              'tenantuser' => 'App\\Models\\TenantUser',
-              'tenantcontext' => 'App\\Services\\TenantContext',
-              'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
-              'action' => 'Filament\\Actions\\Action',
-              'textinput' => 'Filament\\Forms\\Components\\TextInput',
-              'interactswithforms' => 'Filament\\Forms\\Concerns\\InteractsWithForms',
-              'hasforms' => 'Filament\\Forms\\Contracts\\HasForms',
-              'form' => 'Filament\\Forms\\Form',
-              'notification' => 'Filament\\Notifications\\Notification',
-              'page' => 'Filament\\Pages\\Page',
-              'auth' => 'Illuminate\\Support\\Facades\\Auth',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => '?array',
-           'public' => true,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'mount',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        5 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'shouldRegisterNavigation',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        6 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'canAccess',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        7 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getNavigationLabel',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        8 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTitle',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        9 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'form',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Filament\\Forms\\Form',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'form',
-               'type' => 'Filament\\Forms\\Form',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        10 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getHeaderActions',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<Action>
-     */',
-             'namespace' => 'App\\Filament\\Saas\\Pages',
-             'uses' => 
-            array (
-              'tenant' => 'App\\Models\\Tenant',
-              'tenantuser' => 'App\\Models\\TenantUser',
-              'tenantcontext' => 'App\\Services\\TenantContext',
-              'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
-              'action' => 'Filament\\Actions\\Action',
-              'textinput' => 'Filament\\Forms\\Components\\TextInput',
-              'interactswithforms' => 'Filament\\Forms\\Concerns\\InteractsWithForms',
-              'hasforms' => 'Filament\\Forms\\Contracts\\HasForms',
-              'form' => 'Filament\\Forms\\Form',
-              'notification' => 'Filament\\Notifications\\Notification',
-              'page' => 'Filament\\Pages\\Page',
-              'auth' => 'Illuminate\\Support\\Facades\\Auth',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        11 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'save',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ListProducts.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Filament\\Saas\\Resources\\Products\\Pages\\ListProducts',
+       'name' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ListProducts',
        'phpDoc' => NULL,
        'abstract' => false,
        'final' => false,
@@ -5137,11 +3151,11 @@ return [
       ),
     )),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/Pages/ViewProduct.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Pages/ViewProduct.php' => 
   array (
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct',
+       'name' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ViewProduct',
        'phpDoc' => NULL,
        'abstract' => false,
        'final' => false,
@@ -5206,11 +3220,11 @@ return [
       ),
     )),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Saas/Resources/Products/ProductResource.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/ProductResource.php' => 
   array (
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Filament\\Saas\\Resources\\Products\\ProductResource',
+       'name' => 'App\\Filament\\App\\Resources\\Products\\ProductResource',
        'phpDoc' => NULL,
        'abstract' => false,
        'final' => false,
@@ -5258,7 +3272,7 @@ return [
             0 => 'navigationIcon',
           ),
            'phpDoc' => NULL,
-           'type' => '?string',
+           'type' => 'string|BackedEnum|null',
            'public' => false,
            'private' => false,
            'static' => true,
@@ -5303,7 +3317,7 @@ return [
         )),
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getNavigationLabel',
+           'name' => 'infolist',
            'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
@@ -5311,174 +3325,26 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => true,
-           'returnType' => 'string',
+           'returnType' => 'Filament\\Schemas\\Schema',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'schema',
+               'type' => 'Filament\\Schemas\\Schema',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
           ),
         )),
         4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getModelLabel',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        5 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getPluralModelLabel',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        6 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'canViewAny',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        7 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'canView',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'record',
-               'type' => NULL,
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        8 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'canCreate',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        9 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'canEdit',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'record',
-               'type' => NULL,
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        10 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'canDelete',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => true,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'record',
-               'type' => NULL,
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        11 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'table',
            'phpDoc' => NULL,
@@ -5507,9 +3373,9 @@ return [
           array (
           ),
         )),
-        12 => 
+        5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'infolist',
+           'name' => 'getNavigationLabel',
            'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
@@ -5517,13 +3383,161 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => true,
-           'returnType' => 'Filament\\Infolists\\Infolist',
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getModelLabel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getPluralModelLabel',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canViewAny',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        9 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canView',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'bool',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'infolist',
-               'type' => 'Filament\\Infolists\\Infolist',
+               'name' => 'record',
+               'type' => 'mixed',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        10 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canCreate',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        11 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canEdit',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'record',
+               'type' => 'mixed',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        12 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canDelete',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'record',
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -5538,28 +3552,28 @@ return [
         )),
         13 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getPages',
+           'name' => 'getRelations',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @return array<string, class-string>
+     * @return array<int, class-string>
      */',
-             'namespace' => 'App\\Filament\\Saas\\Resources\\Products',
+             'namespace' => 'App\\Filament\\App\\Resources\\Products',
              'uses' => 
             array (
-              'listproducts' => 'App\\Filament\\Saas\\Resources\\Products\\Pages\\ListProducts',
-              'viewproduct' => 'App\\Filament\\Saas\\Resources\\Products\\Pages\\ViewProduct',
+              'listproducts' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ListProducts',
+              'viewproduct' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ViewProduct',
+              'productinfolist' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
+              'productstable' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
+              'specificpricesrelationmanager' => 'App\\Filament\\App\\Resources\\Products\\RelationManagers\\SpecificPricesRelationManager',
               'tenantprestashopproduct' => 'App\\Models\\TenantPrestaShopProduct',
               'tenantcontext' => 'App\\Services\\TenantContext',
               'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
               'typesenseclient' => 'App\\Services\\TypeSenseClient',
-              'section' => 'Filament\\Infolists\\Components\\Section',
-              'textentry' => 'Filament\\Infolists\\Components\\TextEntry',
-              'infolist' => 'Filament\\Infolists\\Infolist',
+              'backedenum' => 'BackedEnum',
+              'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
               'resource' => 'Filament\\Resources\\Resource',
-              'viewaction' => 'Filament\\Tables\\Actions\\ViewAction',
-              'iconcolumn' => 'Filament\\Tables\\Columns\\IconColumn',
-              'textcolumn' => 'Filament\\Tables\\Columns\\TextColumn',
+              'schema' => 'Filament\\Schemas\\Schema',
               'table' => 'Filament\\Tables\\Table',
               'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
               'db' => 'Illuminate\\Support\\Facades\\DB',
@@ -5586,8 +3600,86 @@ return [
         )),
         14 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getPages',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, PageRegistration>
+     */',
+             'namespace' => 'App\\Filament\\App\\Resources\\Products',
+             'uses' => 
+            array (
+              'listproducts' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ListProducts',
+              'viewproduct' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ViewProduct',
+              'productinfolist' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
+              'productstable' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
+              'specificpricesrelationmanager' => 'App\\Filament\\App\\Resources\\Products\\RelationManagers\\SpecificPricesRelationManager',
+              'tenantprestashopproduct' => 'App\\Models\\TenantPrestaShopProduct',
+              'tenantcontext' => 'App\\Services\\TenantContext',
+              'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
+              'typesenseclient' => 'App\\Services\\TypeSenseClient',
+              'backedenum' => 'BackedEnum',
+              'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
+              'resource' => 'Filament\\Resources\\Resource',
+              'schema' => 'Filament\\Schemas\\Schema',
+              'table' => 'Filament\\Tables\\Table',
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'gate' => 'Illuminate\\Support\\Facades\\Gate',
+              'throwable' => 'Throwable',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        15 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getEloquentQuery',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return Builder<\\Illuminate\\Database\\Eloquent\\Model>
+     */',
+             'namespace' => 'App\\Filament\\App\\Resources\\Products',
+             'uses' => 
+            array (
+              'listproducts' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ListProducts',
+              'viewproduct' => 'App\\Filament\\App\\Resources\\Products\\Pages\\ViewProduct',
+              'productinfolist' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
+              'productstable' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
+              'specificpricesrelationmanager' => 'App\\Filament\\App\\Resources\\Products\\RelationManagers\\SpecificPricesRelationManager',
+              'tenantprestashopproduct' => 'App\\Models\\TenantPrestaShopProduct',
+              'tenantcontext' => 'App\\Services\\TenantContext',
+              'tenantprestashopconnection' => 'App\\Services\\TenantPrestaShopConnection',
+              'typesenseclient' => 'App\\Services\\TypeSenseClient',
+              'backedenum' => 'BackedEnum',
+              'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
+              'resource' => 'Filament\\Resources\\Resource',
+              'schema' => 'Filament\\Schemas\\Schema',
+              'table' => 'Filament\\Tables\\Table',
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'gate' => 'Illuminate\\Support\\Facades\\Gate',
+              'throwable' => 'Throwable',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -5608,429 +3700,20 @@ return [
       ),
     )),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Api/V1/ProductController.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/RelationManagers/SpecificPricesRelationManager.php' => 
   array (
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Http\\Controllers\\Api\\V1\\ProductController',
+       'name' => 'App\\Filament\\App\\Resources\\Products\\RelationManagers\\SpecificPricesRelationManager',
        'phpDoc' => NULL,
        'abstract' => false,
        'final' => false,
-       'extends' => 'App\\Http\\Controllers\\Controller',
+       'extends' => 'Filament\\Resources\\RelationManagers\\RelationManager',
        'implements' => 
       array (
       ),
        'usedTraits' => 
       array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => '__construct',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => NULL,
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'typeSenseClient',
-               'type' => 'App\\Services\\TypeSenseClient',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantContext',
-               'type' => 'App\\Services\\TenantContext',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'index',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Http\\JsonResponse',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'request',
-               'type' => 'App\\Http\\Requests\\Api\\V1\\ListProductsRequest',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'show',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Http\\JsonResponse',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'id',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Controllers/Controller.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Http\\Controllers\\Controller',
-       'phpDoc' => NULL,
-       'abstract' => true,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Middleware/ResolveSaasTenant.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Http\\Middleware\\ResolveSaasTenant',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'handle',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Symfony\\Component\\HttpFoundation\\Response',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'request',
-               'type' => 'Illuminate\\Http\\Request',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'next',
-               'type' => 'Closure',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Http/Requests/Api/V1/ListProductsRequest.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Http\\Requests\\Api\\V1\\ListProductsRequest',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Foundation\\Http\\FormRequest',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'authorize',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'rules',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, mixed>
-     */',
-             'namespace' => 'App\\Http\\Requests\\Api\\V1',
-             'uses' => 
-            array (
-              'formrequest' => 'Illuminate\\Foundation\\Http\\FormRequest',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'messages',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, string>
-     */',
-             'namespace' => 'App\\Http\\Requests\\Api\\V1',
-             'uses' => 
-            array (
-              'formrequest' => 'Illuminate\\Foundation\\Http\\FormRequest',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Jobs/ReindexTenantProductsJob.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Jobs\\ReindexTenantProductsJob',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-        0 => 'Illuminate\\Contracts\\Queue\\ShouldQueue',
-      ),
-       'usedTraits' => 
-      array (
-        0 => 'Illuminate\\Foundation\\Queue\\Queueable',
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => '__construct',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => NULL,
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'handle',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'typeSenseClient',
-               'type' => 'App\\Services\\TypeSenseClient',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/ApiToken.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Models\\ApiToken',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
       ),
        'traitUseAdaptations' => 
       array (
@@ -6041,29 +3724,13 @@ return [
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
-            0 => 'fillable',
+            0 => 'relationship',
           ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'str' => 'Illuminate\\Support\\Str',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
+           'phpDoc' => NULL,
+           'type' => 'string',
            'public' => false,
            'private' => false,
-           'static' => false,
+           'static' => true,
            'readonly' => false,
            'abstract' => false,
            'final' => false,
@@ -6079,75 +3746,69 @@ return [
           ),
         )),
         1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'hidden',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'str' => 'Illuminate\\Support\\Str',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
-           'public' => false,
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getTitle',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
            'private' => false,
-           'static' => false,
-           'readonly' => false,
            'abstract' => false,
            'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
+           'static' => true,
+           'returnType' => 'string',
+           'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'ownerRecord',
+               'type' => 'mixed',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'pageClass',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
-           'hooks' => 
+           'attributes' => 
           array (
           ),
         )),
         2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'casts',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'str' => 'Illuminate\\Support\\Str',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
+           'name' => 'form',
+           'phpDoc' => NULL,
            'byRef' => false,
-           'public' => false,
+           'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'array',
+           'returnType' => 'Filament\\Schemas\\Schema',
            'parameters' => 
           array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'schema',
+               'type' => 'Filament\\Schemas\\Schema',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
           ),
            'attributes' => 
           array (
@@ -6155,41 +3816,7 @@ return [
         )),
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'tenant',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<Tenant, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'str' => 'Illuminate\\Support\\Str',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'setTokenHashAttribute',
+           'name' => 'table',
            'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
@@ -6197,13 +3824,581 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => 'void',
+           'returnType' => 'Filament\\Tables\\Table',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'value',
-               'type' => 'string',
+               'name' => 'table',
+               'type' => 'Filament\\Tables\\Table',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Schemas/ProductInfolist.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\App\\Resources\\Products\\Schemas\\ProductInfolist',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'configure',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'Filament\\Schemas\\Schema',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'schema',
+               'type' => 'Filament\\Schemas\\Schema',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/App/Resources/Products/Tables/ProductsTable.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\App\\Resources\\Products\\Tables\\ProductsTable',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'configure',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'Filament\\Tables\\Table',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'Filament\\Tables\\Table',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/CreateTenant.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Tenants\\Pages\\CreateTenant',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Filament\\Resources\\Pages\\CreateRecord',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'resource',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/EditTenant.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Tenants\\Pages\\EditTenant',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Filament\\Resources\\Pages\\EditRecord',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'resource',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getHeaderActions',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Pages/ListTenants.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Tenants\\Pages\\ListTenants',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Filament\\Resources\\Pages\\ListRecords',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'resource',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getHeaderActions',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Schemas/TenantForm.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Tenants\\Schemas\\TenantForm',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'configure',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'Filament\\Schemas\\Schema',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'schema',
+               'type' => 'Filament\\Schemas\\Schema',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/Tables/TenantsTable.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Tenants\\Tables\\TenantsTable',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'configure',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'Filament\\Tables\\Table',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'Filament\\Tables\\Table',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Tenants/TenantResource.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Tenants\\TenantResource',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Filament\\Resources\\Resource',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'model',
+          ),
+           'phpDoc' => NULL,
+           'type' => '?string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'navigationIcon',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string|BackedEnum|null',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'navigationSort',
+          ),
+           'phpDoc' => NULL,
+           'type' => '?int',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'form',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'Filament\\Schemas\\Schema',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'schema',
+               'type' => 'Filament\\Schemas\\Schema',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'table',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'Filament\\Tables\\Table',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'Filament\\Tables\\Table',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -6218,20 +4413,27 @@ return [
         )),
         5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'issue',
+           'name' => 'getPages',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @param  array<int, string>  $abilities
-     * @return array{0: self, 1: string}
+     * @return array<string, PageRegistration>
      */',
-             'namespace' => 'App\\Models',
+             'namespace' => 'App\\Filament\\Resources\\Tenants',
              'uses' => 
             array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'str' => 'Illuminate\\Support\\Str',
+              'createtenant' => 'App\\Filament\\Resources\\Tenants\\Pages\\CreateTenant',
+              'edittenant' => 'App\\Filament\\Resources\\Tenants\\Pages\\EditTenant',
+              'listtenants' => 'App\\Filament\\Resources\\Tenants\\Pages\\ListTenants',
+              'tenantform' => 'App\\Filament\\Resources\\Tenants\\Schemas\\TenantForm',
+              'tenantstable' => 'App\\Filament\\Resources\\Tenants\\Tables\\TenantsTable',
+              'tenant' => 'App\\Models\\Tenant',
+              'backedenum' => 'BackedEnum',
+              'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
+              'resource' => 'Filament\\Resources\\Resource',
+              'schema' => 'Filament\\Schemas\\Schema',
+              'table' => 'Filament\\Tables\\Table',
+              'gate' => 'Illuminate\\Support\\Facades\\Gate',
             ),
              'constUses' => 
             array (
@@ -6246,816 +4448,6 @@ return [
            'returnType' => 'array',
            'parameters' => 
           array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'name',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            2 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'abilities',
-               'type' => 'array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => true,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/AuditLog.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Models\\AuditLog',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'timestamps',
-          ),
-           'phpDoc' => NULL,
-           'type' => NULL,
-           'public' => true,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'fillable',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'casts',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'tenant',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<Tenant, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'actor',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<User, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Job.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Models\\Job',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'fillable',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'casts',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'tenant',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<Tenant, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'creator',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<User, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Revision.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Models\\Revision',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'timestamps',
-          ),
-           'phpDoc' => NULL,
-           'type' => NULL,
-           'public' => true,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'fillable',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'casts',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'tenant',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<Tenant, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'actor',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<User, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/Tenant.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Models\\Tenant',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'fillable',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'attribute' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'hidden',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'attribute' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'casts',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'attribute' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'dbPasswordEncrypted',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'users',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return HasMany<User, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'attribute' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        5 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'apiTokens',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return HasMany<ApiToken, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'attribute' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-           'parameters' => 
-          array (
           ),
            'attributes' => 
           array (
@@ -7063,31 +4455,15 @@ return [
         )),
         6 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'jobs',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return HasMany<Job, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'attribute' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
+           'name' => 'canViewAny',
+           'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+           'static' => true,
+           'returnType' => 'bool',
            'parameters' => 
           array (
           ),
@@ -7097,31 +4473,15 @@ return [
         )),
         7 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'auditLogs',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return HasMany<AuditLog, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'attribute' => 'Illuminate\\Database\\Eloquent\\Casts\\Attribute',
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'model' => 'Illuminate\\Database\\Eloquent\\Model',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
+           'name' => 'canCreate',
+           'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+           'static' => true,
+           'returnType' => 'bool',
            'parameters' => 
           array (
           ),
@@ -7129,369 +4489,22 @@ return [
           array (
           ),
         )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantPrestaShopProduct.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Models\\TenantPrestaShopProduct',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'connection',
-          ),
-           'phpDoc' => NULL,
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'primaryKey',
-          ),
-           'phpDoc' => NULL,
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'incrementing',
-          ),
-           'phpDoc' => NULL,
-           'type' => NULL,
-           'public' => true,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'keyType',
-          ),
-           'phpDoc' => NULL,
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'timestamps',
-          ),
-           'phpDoc' => NULL,
-           'type' => NULL,
-           'public' => true,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        5 => 
+        8 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTable',
+           'name' => 'canEdit',
            'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
-           'returnType' => 'string',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/TenantUser.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Models\\TenantUser',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Foundation\\Auth\\User',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-        1 => 'Illuminate\\Notifications\\Notifiable',
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'fillable',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
-           'names' => 
-          array (
-            0 => 'hidden',
-          ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
-           'public' => false,
-           'private' => false,
-           'static' => false,
-           'readonly' => false,
-           'abstract' => false,
-           'final' => false,
-           'publicSet' => false,
-           'protectedSet' => false,
-           'privateSet' => false,
-           'virtual' => false,
-           'attributes' => 
-          array (
-          ),
-           'hooks' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'casts',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => false,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'tenant',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<Tenant, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'canAccessPanel',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
+           'static' => true,
            'returnType' => 'bool',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'panel',
+               'name' => 'record',
                'type' => 'mixed',
                'byRef' => false,
                'variadic' => false,
@@ -7505,17 +4518,148 @@ return [
           array (
           ),
         )),
-        5 => 
+        9 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'isAdmin',
+           'name' => 'canDelete',
            'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
+           'static' => true,
            'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'record',
+               'type' => 'mixed',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/CreateUser.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Users\\Pages\\CreateUser',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Filament\\Resources\\Pages\\CreateRecord',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'resource',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/EditUser.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Users\\Pages\\EditUser',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Filament\\Resources\\Pages\\EditRecord',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'resource',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getHeaderActions',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
            'parameters' => 
           array (
           ),
@@ -7529,22 +4673,20 @@ return [
       ),
     )),
   ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Models/User.php' => 
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Pages/ListUsers.php' => 
   array (
     0 => 
     \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Models\\User',
+       'name' => 'App\\Filament\\Resources\\Users\\Pages\\ListUsers',
        'phpDoc' => NULL,
        'abstract' => false,
        'final' => false,
-       'extends' => 'Illuminate\\Foundation\\Auth\\User',
+       'extends' => 'Filament\\Resources\\Pages\\ListRecords',
        'implements' => 
       array (
       ),
        'usedTraits' => 
       array (
-        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-        1 => 'Illuminate\\Notifications\\Notifiable',
       ),
        'traitUseAdaptations' => 
       array (
@@ -7555,32 +4697,192 @@ return [
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
-            0 => 'fillable',
+            0 => 'resource',
           ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
+           'phpDoc' => NULL,
+           'type' => 'string',
            'public' => false,
            'private' => false,
+           'static' => true,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getHeaderActions',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
            'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Schemas/UserForm.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Users\\Schemas\\UserForm',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'configure',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'Filament\\Schemas\\Schema',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'schema',
+               'type' => 'Filament\\Schemas\\Schema',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/Tables/UsersTable.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Users\\Tables\\UsersTable',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'configure',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'Filament\\Tables\\Table',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'table',
+               'type' => 'Filament\\Tables\\Table',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Filament/Resources/Users/UserResource.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Filament\\Resources\\Users\\UserResource',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Filament\\Resources\\Resource',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'model',
+          ),
+           'phpDoc' => NULL,
+           'type' => '?string',
+           'public' => false,
+           'private' => false,
+           'static' => true,
            'readonly' => false,
            'abstract' => false,
            'final' => false,
@@ -7599,32 +4901,13 @@ return [
         \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
            'names' => 
           array (
-            0 => 'hidden',
+            0 => 'navigationIcon',
           ),
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'type' => NULL,
+           'phpDoc' => NULL,
+           'type' => 'string|BackedEnum|null',
            'public' => false,
            'private' => false,
-           'static' => false,
+           'static' => true,
            'readonly' => false,
            'abstract' => false,
            'final' => false,
@@ -7640,410 +4923,47 @@ return [
           ),
         )),
         2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'casts',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'navigationSort',
+          ),
+           'phpDoc' => NULL,
+           'type' => '?int',
            'public' => false,
            'private' => false,
+           'static' => true,
+           'readonly' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
           array (
           ),
-           'attributes' => 
+           'hooks' => 
           array (
           ),
         )),
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'tenant',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return BelongsTo<Tenant, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'createdJobs',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return HasMany<Job, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        5 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'auditLogs',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return HasMany<AuditLog, $this>
-     */',
-             'namespace' => 'App\\Models',
-             'uses' => 
-            array (
-              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
-              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
-              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
-              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Providers/AppServiceProvider.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Providers\\AppServiceProvider',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => 'Illuminate\\Support\\ServiceProvider',
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'register',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Register any application services.
-     */',
-             'namespace' => 'App\\Providers',
-             'uses' => 
-            array (
-              'tenantuser' => 'App\\Models\\TenantUser',
-              'tenantcontext' => 'App\\Services\\TenantContext',
-              'limit' => 'Illuminate\\Cache\\RateLimiting\\Limit',
-              'request' => 'Illuminate\\Http\\Request',
-              'gate' => 'Illuminate\\Support\\Facades\\Gate',
-              'ratelimiter' => 'Illuminate\\Support\\Facades\\RateLimiter',
-              'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'boot',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Bootstrap any application services.
-     */',
-             'namespace' => 'App\\Providers',
-             'uses' => 
-            array (
-              'tenantuser' => 'App\\Models\\TenantUser',
-              'tenantcontext' => 'App\\Services\\TenantContext',
-              'limit' => 'Illuminate\\Cache\\RateLimiting\\Limit',
-              'request' => 'Illuminate\\Http\\Request',
-              'gate' => 'Illuminate\\Support\\Facades\\Gate',
-              'ratelimiter' => 'Illuminate\\Support\\Facades\\RateLimiter',
-              'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/PricingService.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Services\\PricingService',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => '__construct',
+           'name' => 'form',
            'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
-           'returnType' => NULL,
+           'static' => true,
+           'returnType' => 'Filament\\Schemas\\Schema',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantPrestaShopConnection',
-               'type' => 'App\\Services\\TenantPrestaShopConnection',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'computeForProduct',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array{
-     *     original_price_tax_excl:float,
-     *     current_price_tax_excl:float,
-     *     original_price_tax_incl:float,
-     *     current_price_tax_incl:float,
-     *     discount_amount_tax_excl:float,
-     *     discount_percent:float
-     * }
-     */',
-             'namespace' => 'App\\Services',
-             'uses' => 
-            array (
-              'carbon' => 'Illuminate\\Support\\Carbon',
-              'db' => 'Illuminate\\Support\\Facades\\DB',
-              'runtimeexception' => 'RuntimeException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'productId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'computeTaxIncl',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'float',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'priceExcl',
-               'type' => 'float',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'vatRate',
-               'type' => 'float',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'resolveVatRateForProduct',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'float',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'productId',
-               'type' => 'int',
+               'name' => 'schema',
+               'type' => 'Filament\\Schemas\\Schema',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -8057,609 +4977,6 @@ return [
           ),
         )),
         4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'resolveCurrentPriceFromSpecificPrices',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @param  iterable<object{price:float|int|string,reduction:float|int|string,reduction_type:string}|array{price:float|int|string,reduction:float|int|string,reduction_type:string}>  $specificPrices
-     */',
-             'namespace' => 'App\\Services',
-             'uses' => 
-            array (
-              'carbon' => 'Illuminate\\Support\\Carbon',
-              'db' => 'Illuminate\\Support\\Facades\\DB',
-              'runtimeexception' => 'RuntimeException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'float',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'originalPrice',
-               'type' => 'float',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'specificPrices',
-               'type' => 'iterable',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/ProductWriteService.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Services\\ProductWriteService',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => '__construct',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => NULL,
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantContext',
-               'type' => 'App\\Services\\TenantContext',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantPrestaShopConnection',
-               'type' => 'App\\Services\\TenantPrestaShopConnection',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            2 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'pricingService',
-               'type' => 'App\\Services\\PricingService',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            3 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'typeSenseClient',
-               'type' => 'App\\Services\\TypeSenseClient',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'updateProductStock',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'productId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'qty',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'updateProductBasePrice',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'productId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'priceExcl',
-               'type' => 'float',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/RevisionService.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Services\\RevisionService',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'recordRevision',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @param  array<string, mixed>|null  $before
-     * @param  array<string, mixed>|null  $after
-     */',
-             'namespace' => 'App\\Services',
-             'uses' => 
-            array (
-              'revision' => 'App\\Models\\Revision',
-              'runtimeexception' => 'RuntimeException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'App\\Models\\Revision',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'actorUserId',
-               'type' => '?int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            2 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'entityType',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            3 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'entityId',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            4 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'action',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            5 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'before',
-               'type' => '?array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            6 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'after',
-               'type' => '?array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            7 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'source',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            8 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'reason',
-               'type' => '?string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => true,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getRevision',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => '?App\\Models\\Revision',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'id',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantContext.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Services\\TenantContext',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'setTenant',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenant',
-               'type' => 'App\\Models\\Tenant',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getTenant',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => '?App\\Models\\Tenant',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'tenantId',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => '?int',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'clear',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TenantPrestaShopConnection.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Services\\TenantPrestaShopConnection',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => '__construct',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => NULL,
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantContext',
-               'type' => 'App\\Services\\TenantContext',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'connect',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenant',
-               'type' => '?App\\Models\\Tenant',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => true,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'table',
            'phpDoc' => NULL,
@@ -8668,138 +4985,14 @@ return [
            'private' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
-           'returnType' => 'string',
+           'static' => true,
+           'returnType' => 'Filament\\Tables\\Table',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'name',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenant',
-               'type' => '?App\\Models\\Tenant',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => true,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'testConnection',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenant',
-               'type' => '?App\\Models\\Tenant',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => true,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        4 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'onboard',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'bool',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenant',
-               'type' => '?App\\Models\\Tenant',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => true,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  '/Users/fabionbaromeo/Herd/isb-presta-manager/app/Services/TypeSenseClient.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Services\\TypeSenseClient',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'ensureCollectionExists',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantId',
-               'type' => 'int',
+               'name' => 'table',
+               'type' => 'Filament\\Tables\\Table',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -8812,21 +5005,29 @@ return [
           array (
           ),
         )),
-        1 => 
+        5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'upsertProductDoc',
+           'name' => 'getPages',
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * @param  array<string, mixed>  $document
+     * @return array<string, PageRegistration>
      */',
-             'namespace' => 'App\\Services',
+             'namespace' => 'App\\Filament\\Resources\\Users',
              'uses' => 
             array (
-              'pendingrequest' => 'Illuminate\\Http\\Client\\PendingRequest',
-              'response' => 'Illuminate\\Http\\Client\\Response',
-              'http' => 'Illuminate\\Support\\Facades\\Http',
-              'runtimeexception' => 'RuntimeException',
+              'createuser' => 'App\\Filament\\Resources\\Users\\Pages\\CreateUser',
+              'edituser' => 'App\\Filament\\Resources\\Users\\Pages\\EditUser',
+              'listusers' => 'App\\Filament\\Resources\\Users\\Pages\\ListUsers',
+              'userform' => 'App\\Filament\\Resources\\Users\\Schemas\\UserForm',
+              'userstable' => 'App\\Filament\\Resources\\Users\\Tables\\UsersTable',
+              'user' => 'App\\Models\\User',
+              'backedenum' => 'BackedEnum',
+              'pageregistration' => 'Filament\\Resources\\Pages\\PageRegistration',
+              'resource' => 'Filament\\Resources\\Resource',
+              'schema' => 'Filament\\Schemas\\Schema',
+              'table' => 'Filament\\Tables\\Table',
+              'gate' => 'Illuminate\\Support\\Facades\\Gate',
             ),
              'constUses' => 
             array (
@@ -8837,158 +5038,71 @@ return [
            'private' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'document',
-               'type' => 'array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        2 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'deleteProductDoc',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'void',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'productId',
-               'type' => 'int|string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        3 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'searchProductDocs',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @param  array<string, mixed>  $filters
-     * @return array{data: array<int, array<string, mixed>>, total: int}
-     */',
-             'namespace' => 'App\\Services',
-             'uses' => 
-            array (
-              'pendingrequest' => 'Illuminate\\Http\\Client\\PendingRequest',
-              'response' => 'Illuminate\\Http\\Client\\Response',
-              'http' => 'Illuminate\\Support\\Facades\\Http',
-              'runtimeexception' => 'RuntimeException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
+           'static' => true,
            'returnType' => 'array',
            'parameters' => 
           array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canViewAny',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canCreate',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'canEdit',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => true,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantId',
-               'type' => 'int',
+               'name' => 'record',
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'query',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            2 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'page',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            3 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'perPage',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            4 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'filters',
-               'type' => 'array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => true,
                'attributes' => 
               array (
               ),
@@ -8998,50 +5112,23 @@ return [
           array (
           ),
         )),
-        4 => 
+        9 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'getProductDoc',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * @return array<string, mixed>|null
-     */',
-             'namespace' => 'App\\Services',
-             'uses' => 
-            array (
-              'pendingrequest' => 'Illuminate\\Http\\Client\\PendingRequest',
-              'response' => 'Illuminate\\Http\\Client\\Response',
-              'http' => 'Illuminate\\Support\\Facades\\Http',
-              'runtimeexception' => 'RuntimeException',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
+           'name' => 'canDelete',
+           'phpDoc' => NULL,
            'byRef' => false,
            'public' => true,
            'private' => false,
            'abstract' => false,
            'final' => false,
-           'static' => false,
-           'returnType' => '?array',
+           'static' => true,
+           'returnType' => 'bool',
            'parameters' => 
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'tenantId',
-               'type' => 'int',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-            1 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'productId',
-               'type' => 'int|string',
+               'name' => 'record',
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,

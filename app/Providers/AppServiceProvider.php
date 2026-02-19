@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\TenantUser;
+use App\Models\User;
 use App\Services\TenantContext;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -25,12 +26,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Gate::define('access-admin-panel', function (User $user): bool {
+            return $user->role === 'admin';
+        });
+
         Gate::define('manage-tenant-settings', function (TenantUser $tenantUser): bool {
             return $tenantUser->isAdmin();
         });
 
         Gate::define('view-tenant-products', function (TenantUser $tenantUser): bool {
             return $tenantUser->tenant()->exists();
+        });
+
+        Gate::define('manage-tenant-bulk-price-updates', function (TenantUser $tenantUser): bool {
+            return $tenantUser->isAdmin();
         });
 
         RateLimiter::for('tenant-token', function (Request $request): Limit {

@@ -73,4 +73,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(AuditLog::class, 'actor_user_id');
     }
+
+    public function canAccessPanel(mixed $panel): bool
+    {
+        if (! is_object($panel) || ! method_exists($panel, 'getId')) {
+            return false;
+        }
+
+        $panelId = $panel->getId();
+
+        if ($panelId === 'admin') {
+            return $this->role === 'admin';
+        }
+
+        if ($panelId === 'app') {
+            return $this->tenant()->exists();
+        }
+
+        return false;
+    }
 }

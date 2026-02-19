@@ -1,29 +1,30 @@
 <?php
 
-namespace App\Filament\Saas\Pages;
+namespace App\Filament\App\Pages;
 
 use App\Models\Tenant;
 use App\Models\TenantUser;
 use App\Services\TenantContext;
 use App\Services\TenantPrestaShopConnection;
+use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 
 class TenantSettings extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static ?string $slug = 'settings';
 
-    protected static string $view = 'filament.saas.pages.tenant-settings';
+    protected string $view = 'filament.saas.pages.tenant-settings';
 
     /**
      * @var array<string, mixed>
@@ -63,11 +64,11 @@ class TenantSettings extends Page implements HasForms
         return __('saas.pages.tenant_settings.title');
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->statePath('data')
-            ->schema([
+            ->components([
                 TextInput::make('db_host')
                     ->label(__('saas.pages.tenant_settings.fields.db_host'))
                     ->required()

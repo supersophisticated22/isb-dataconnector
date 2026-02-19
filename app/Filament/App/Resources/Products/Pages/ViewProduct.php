@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Saas\Resources\Products\Pages;
+namespace App\Filament\App\Resources\Products\Pages;
 
-use App\Filament\Saas\Resources\Products\ProductResource;
+use App\Filament\App\Resources\Products\ProductResource;
 use App\Services\ProductWriteService;
 use Filament\Actions\Action;
 use Filament\Forms\Components\TextInput;
@@ -28,9 +28,11 @@ class ViewProduct extends ViewRecord
                         ->step(1),
                 ])
                 ->action(function (array $data, ProductWriteService $productWriteService): void {
+                    $productId = (int) data_get($this->getRecord(), 'id_product', 0);
+
                     try {
                         $productWriteService->updateProductStock(
-                            productId: (int) $this->getRecord()->id_product,
+                            productId: $productId,
                             qty: (int) $data['qty'],
                         );
 
@@ -59,9 +61,11 @@ class ViewProduct extends ViewRecord
                         ->step(0.000001),
                 ])
                 ->action(function (array $data, ProductWriteService $productWriteService): void {
+                    $productId = (int) data_get($this->getRecord(), 'id_product', 0);
+
                     try {
                         $productWriteService->updateProductBasePrice(
-                            productId: (int) $this->getRecord()->id_product,
+                            productId: $productId,
                             priceExcl: (float) $data['price_excl'],
                         );
 
@@ -84,8 +88,10 @@ class ViewProduct extends ViewRecord
 
     private function reloadRecord(): void
     {
+        $productId = (int) data_get($this->getRecord(), 'id_product', 0);
+
         $freshRecord = ProductResource::getEloquentQuery()
-            ->where('id_product', $this->getRecord()->id_product)
+            ->where('id_product', $productId)
             ->first();
 
         if ($freshRecord !== null) {

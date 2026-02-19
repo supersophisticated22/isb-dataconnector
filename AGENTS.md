@@ -10,8 +10,10 @@ The Laravel Boost guidelines are specifically curated by Laravel maintainers for
 This application is a Laravel application and its main Laravel ecosystems package & versions are below. You are an expert with them all. Ensure you abide by these specific packages & versions.
 
 - php - 8.3.29
+- filament/filament (FILAMENT) - v5
 - laravel/framework (LARAVEL) - v12
 - laravel/prompts (PROMPTS) - v0
+- livewire/livewire (LIVEWIRE) - v4
 - larastan/larastan (LARASTAN) - v3
 - laravel/boost (BOOST) - v2
 - laravel/mcp (MCP) - v0
@@ -34,6 +36,7 @@ This project has domain-specific skills available. You MUST activate the relevan
 - You must follow all existing code conventions used in this application. When creating or editing a file, check sibling files for the correct structure, approach, and naming.
 - Use descriptive names for variables and methods. For example, `isRegisteredForDiscounts`, not `discount()`.
 - Check for existing components to reuse before writing a new one.
+- If an error occurs, prefer fixing the root cause rather than working around it.
 
 ## Verification Scripts
 
@@ -43,6 +46,34 @@ This project has domain-specific skills available. You MUST activate the relevan
 
 - Stick to existing directory structure; don't create new base folders without approval.
 - Do not change the application's dependencies without approval.
+- Create Filament Resources through their Artisan command (for example, `php artisan make:filament-resource`) instead of manually creating the complete file.
+
+=== filament/v5 rules ===
+
+# Filament v5
+
+## Panels & registration
+- Prefer Panels and Panel Providers for configuration (don’t hardcode global Filament config).
+- Create new panels with `php artisan make:filament-panel <name>` and configure via the generated `*PanelProvider`.
+
+## Resources & code organization
+- Create resources/pages/widgets using Filament Artisan commands (avoid hand-rolling entire class trees).
+- Keep Resources thin: extract repeated form/table pieces into dedicated classes (e.g. schema/table builders), or reusable components.
+- Prefer Filament Actions/Notifications over bespoke controller endpoints or custom JS when the interaction is admin-only.
+- Authorization must be enforced (policies/guards). Never rely on “it’s in the admin panel” as access control.
+
+## Forms & tables
+- Prefer explicit `->relationship()` / eager loading patterns to avoid N+1 in tables.
+- Prefer searchable/sortable columns intentionally (don’t make everything searchable by default).
+- Use bulk actions for multi-record operations; validate and confirm destructive actions.
+- Keep queries in `->modifyQueryUsing()` / scopes rather than embedding complex query logic inline.
+
+## Livewire v4 compatibility
+- When changing Filament pages/widgets, verify Livewire v4 patterns and test the Livewire component behavior.
+
+## Upgrades
+- When upgrading Filament major versions, use the official upgrade script and review generated changes carefully.
+
 
 ## Frontend Bundling
 
@@ -139,13 +170,6 @@ protected function isAccessible(User $user, ?string $path = null): bool
 
 - The application is served by Laravel Herd and will be available at: `https?://[kebab-case-project-dir].test`. Use the `get-absolute-url` tool to generate valid URLs for the user.
 - You must not run any commands to make the site available via HTTP(S). It is always available through Laravel Herd.
-
-=== tests rules ===
-
-# Test Enforcement
-
-- Every change must be programmatically tested. Write a new test or update an existing test, then run the affected tests to make sure they pass.
-- Run the minimum number of tests needed to ensure code quality and speed. Use `php artisan test --compact` with a specific filename or filter.
 
 === laravel/core rules ===
 
