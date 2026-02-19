@@ -71,6 +71,22 @@ return [
                     'pricing' => 'Prijzen',
                 ],
             ],
+            'view' => [
+                'actions' => [
+                    'update_stock' => 'Voorraad bijwerken',
+                    'update_base_price' => 'Basisprijs bijwerken',
+                ],
+                'fields' => [
+                    'stock_qty' => 'Voorraadaantal',
+                    'base_price_tax_excl' => 'Basisprijs (excl.)',
+                ],
+                'notifications' => [
+                    'stock_update_success' => 'Voorraad bijgewerkt.',
+                    'stock_update_failed' => 'Voorraad kon niet worden bijgewerkt.',
+                    'base_price_update_success' => 'Basisprijs bijgewerkt.',
+                    'base_price_update_failed' => 'Basisprijs kon niet worden bijgewerkt.',
+                ],
+            ],
         ],
     ],
     'seeders' => [

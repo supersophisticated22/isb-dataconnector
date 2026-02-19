@@ -71,6 +71,22 @@ return [
                     'pricing' => 'Pricing',
                 ],
             ],
+            'view' => [
+                'actions' => [
+                    'update_stock' => 'Update stock',
+                    'update_base_price' => 'Update base price',
+                ],
+                'fields' => [
+                    'stock_qty' => 'Stock quantity',
+                    'base_price_tax_excl' => 'Base price (excl.)',
+                ],
+                'notifications' => [
+                    'stock_update_success' => 'Stock updated.',
+                    'stock_update_failed' => 'Unable to update stock.',
+                    'base_price_update_success' => 'Base price updated.',
+                    'base_price_update_failed' => 'Unable to update base price.',
+                ],
+            ],
         ],
     ],
     'seeders' => [

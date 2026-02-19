@@ -3,7 +3,12 @@
 namespace App\Filament\Saas\Resources\Products\Pages;
 
 use App\Filament\Saas\Resources\Products\ProductResource;
+use App\Services\ProductWriteService;
+use Filament\Actions\Action;
+use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ViewRecord;
+use RuntimeException;
 
 class ViewProduct extends ViewRecord
 {
@@ -11,6 +16,80 @@ class ViewProduct extends ViewRecord
 
     protected function getHeaderActions(): array
     {
-        return [];
+        return [
+            Action::make('updateStock')
+                ->label(__('saas.resources.products.view.actions.update_stock'))
+                ->form([
+                    TextInput::make('qty')
+                        ->label(__('saas.resources.products.view.fields.stock_qty'))
+                        ->numeric()
+                        ->required()
+                        ->minValue(0)
+                        ->step(1),
+                ])
+                ->action(function (array $data, ProductWriteService $productWriteService): void {
+                    try {
+                        $productWriteService->updateProductStock(
+                            productId: (int) $this->getRecord()->id_product,
+                            qty: (int) $data['qty'],
+                        );
+
+                        $this->reloadRecord();
+
+                        Notification::make()
+                            ->success()
+                            ->title(__('saas.resources.products.view.notifications.stock_update_success'))
+                            ->send();
+                    } catch (RuntimeException $exception) {
+                        Notification::make()
+                            ->danger()
+                            ->title(__('saas.resources.products.view.notifications.stock_update_failed'))
+                            ->body($exception->getMessage())
+                            ->send();
+                    }
+                }),
+            Action::make('updateBasePrice')
+                ->label(__('saas.resources.products.view.actions.update_base_price'))
+                ->form([
+                    TextInput::make('price_excl')
+                        ->label(__('saas.resources.products.view.fields.base_price_tax_excl'))
+                        ->numeric()
+                        ->required()
+                        ->minValue(0)
+                        ->step(0.000001),
+                ])
+                ->action(function (array $data, ProductWriteService $productWriteService): void {
+                    try {
+                        $productWriteService->updateProductBasePrice(
+                            productId: (int) $this->getRecord()->id_product,
+                            priceExcl: (float) $data['price_excl'],
+                        );
+
+                        $this->reloadRecord();
+
+                        Notification::make()
+                            ->success()
+                            ->title(__('saas.resources.products.view.notifications.base_price_update_success'))
+                            ->send();
+                    } catch (RuntimeException $exception) {
+                        Notification::make()
+                            ->danger()
+                            ->title(__('saas.resources.products.view.notifications.base_price_update_failed'))
+                            ->body($exception->getMessage())
+                            ->send();
+                    }
+                }),
+        ];
+    }
+
+    private function reloadRecord(): void
+    {
+        $freshRecord = ProductResource::getEloquentQuery()
+            ->where('id_product', $this->getRecord()->id_product)
+            ->first();
+
+        if ($freshRecord !== null) {
+            $this->record = $freshRecord;
+        }
     }
 }
