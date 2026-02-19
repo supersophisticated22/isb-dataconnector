@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -21,6 +22,7 @@ class Tenant extends Model
         'db_name',
         'db_user',
         'db_password',
+        'db_password_encrypted',
         'db_prefix',
         'base_shop_url',
         'status',
@@ -31,6 +33,7 @@ class Tenant extends Model
      */
     protected $hidden = [
         'db_password',
+        'db_password_encrypted',
     ];
 
     /**
@@ -42,6 +45,14 @@ class Tenant extends Model
             'db_port' => 'integer',
             'db_password' => 'encrypted',
         ];
+    }
+
+    protected function dbPasswordEncrypted(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): ?string => $this->attributes['db_password'] ?? null,
+            set: fn (?string $value): array => ['db_password' => $value],
+        );
     }
 
     /**

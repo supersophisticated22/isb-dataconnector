@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Models\ApiToken;
 use App\Models\TenantUser;
 use App\Services\TenantContext;
+use App\Services\TenantPrestaShopConnection;
 use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ class ResolveSaasTenant
         }
 
         app(TenantContext::class)->setTenant($token->tenant);
+        app(TenantPrestaShopConnection::class)->connect($token->tenant);
 
         $request->attributes->set('tenant_id', $token->tenant_id);
         $request->attributes->set('tenant', $token->tenant);
