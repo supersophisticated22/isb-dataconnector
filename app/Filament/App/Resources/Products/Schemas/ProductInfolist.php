@@ -72,6 +72,20 @@ class ProductInfolist
                             ->label(__('saas.resources.products.infolist.labels.formatted_price'))
                             ->state(fn (TextEntry $component): string => self::viewData($component->getRecord())->formattedPrice),
                     ]),
+                Section::make(__('saas.resources.products.view.actions.edit_content'))
+                    ->columns(2)
+                    ->schema([
+                        TextEntry::make('description')
+                            ->label(__('saas.resources.products.view.fields.description'))
+                            ->columnSpanFull(),
+                        TextEntry::make('meta_title')
+                            ->label(__('saas.resources.products.view.fields.meta_title')),
+                        TextEntry::make('meta_description')
+                            ->label(__('saas.resources.products.view.fields.meta_description')),
+                        TextEntry::make('meta_keywords')
+                            ->label(__('saas.resources.products.view.fields.meta_keywords'))
+                            ->columnSpanFull(),
+                    ]),
                 Section::make(__('saas.resources.products.infolist.sections.specific_price'))
                     ->visible(fn (Section $component): bool => self::viewData($component->getRecord())->discounted)
                     ->schema([

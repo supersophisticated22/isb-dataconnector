@@ -31,7 +31,7 @@ class ViewProduct extends ViewRecord
         return [
             Action::make('updateStock')
                 ->label(__('saas.resources.products.view.actions.update_stock'))
-                ->form([
+                ->schema([
                     TextInput::make('qty')
                         ->label(__('saas.resources.products.view.fields.stock_qty'))
                         ->numeric()
@@ -64,7 +64,7 @@ class ViewProduct extends ViewRecord
                 }),
             Action::make('updateBasePrice')
                 ->label(__('saas.resources.products.view.actions.update_base_price'))
-                ->form([
+                ->schema([
                     TextInput::make('price_excl')
                         ->label(__('saas.resources.products.view.fields.base_price_tax_excl'))
                         ->numeric()
@@ -99,7 +99,7 @@ class ViewProduct extends ViewRecord
                 ->label(__('saas.resources.products.view.actions.edit_product'))
                 ->disabled($languageOptions === [])
                 ->fillForm(fn (): array => $this->resolveProductEditFormState($languageOptions))
-                ->form([
+                ->schema([
                     Select::make('id_lang')
                         ->label(__('saas.resources.products.view.fields.language'))
                         ->options($languageOptions)
@@ -273,7 +273,7 @@ class ViewProduct extends ViewRecord
 
         if ($defaultLanguageId < 1) {
             return [
-                'id_lang' => null,
+                'id_lang' => 1,
                 ...$this->emptyProductEditData(),
             ];
         }

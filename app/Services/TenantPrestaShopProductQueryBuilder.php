@@ -35,6 +35,34 @@ class TenantPrestaShopProductQueryBuilder
             ->orderBy('pl.id_lang')
             ->limit(1);
 
+        $descriptionSubquery = DB::connection('tenant_ps')
+            ->table($productLangTable.' as pl')
+            ->select('pl.description')
+            ->whereColumn('pl.id_product', 'p.id_product')
+            ->orderBy('pl.id_lang')
+            ->limit(1);
+
+        $metaTitleSubquery = DB::connection('tenant_ps')
+            ->table($productLangTable.' as pl')
+            ->select('pl.meta_title')
+            ->whereColumn('pl.id_product', 'p.id_product')
+            ->orderBy('pl.id_lang')
+            ->limit(1);
+
+        $metaDescriptionSubquery = DB::connection('tenant_ps')
+            ->table($productLangTable.' as pl')
+            ->select('pl.meta_description')
+            ->whereColumn('pl.id_product', 'p.id_product')
+            ->orderBy('pl.id_lang')
+            ->limit(1);
+
+        $metaKeywordsSubquery = DB::connection('tenant_ps')
+            ->table($productLangTable.' as pl')
+            ->select('pl.meta_keywords')
+            ->whereColumn('pl.id_product', 'p.id_product')
+            ->orderBy('pl.id_lang')
+            ->limit(1);
+
         $stockSubquery = DB::connection('tenant_ps')
             ->table($stockAvailableTable.' as sa')
             ->selectRaw('sa.id_product as stock_product_id, COALESCE(SUM(sa.quantity), 0) as stock_qty')
@@ -81,6 +109,10 @@ class TenantPrestaShopProductQueryBuilder
                 DB::raw('COALESCE(current_price.current_price_tax_excl, ROUND(p.price, 6)) as current_price_tax_excl'),
                 DB::raw('COALESCE(current_price.current_price_tax_excl, ROUND(p.price, 6)) as current_price_tax_incl'),
             ])
-            ->selectSub($nameSubquery, 'name');
+            ->selectSub($nameSubquery, 'name')
+            ->selectSub($descriptionSubquery, 'description')
+            ->selectSub($metaTitleSubquery, 'meta_title')
+            ->selectSub($metaDescriptionSubquery, 'meta_description')
+            ->selectSub($metaKeywordsSubquery, 'meta_keywords');
     }
 }
