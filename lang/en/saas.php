@@ -213,6 +213,43 @@ return [
                 ],
             ],
         ],
+        'cms_pages' => [
+            'navigation_label' => 'CMS Pages',
+            'model_label' => 'CMS page',
+            'plural_model_label' => 'CMS pages',
+            'fields' => [
+                'language' => 'Language',
+                'category' => 'Category',
+                'active' => 'Active',
+                'position' => 'Position',
+                'indexation' => 'Indexation',
+                'meta_title' => 'Meta title',
+                'meta_description' => 'Meta description',
+                'meta_keywords' => 'Meta keywords',
+                'link_rewrite' => 'Slug',
+                'content' => 'Content',
+            ],
+            'table' => [
+                'empty_state_heading' => 'No CMS pages found.',
+                'actions' => [
+                    'create' => 'Create CMS page',
+                    'edit' => 'Edit',
+                ],
+                'columns' => [
+                    'id' => 'ID',
+                    'meta_title' => 'Title',
+                    'category' => 'Category',
+                    'active' => 'Active',
+                    'position' => 'Position',
+                ],
+            ],
+            'notifications' => [
+                'create_success' => 'CMS page created.',
+                'create_failed' => 'Unable to create CMS page.',
+                'update_success' => 'CMS page updated.',
+                'update_failed' => 'Unable to update CMS page.',
+            ],
+        ],
     ],
     'seeders' => [
         'tenant_created' => 'Tenant created: :name',

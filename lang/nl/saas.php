@@ -213,6 +213,43 @@ return [
                 ],
             ],
         ],
+        'cms_pages' => [
+            'navigation_label' => 'CMS-pagina\'s',
+            'model_label' => 'CMS-pagina',
+            'plural_model_label' => 'CMS-pagina\'s',
+            'fields' => [
+                'language' => 'Taal',
+                'category' => 'Categorie',
+                'active' => 'Actief',
+                'position' => 'Positie',
+                'indexation' => 'Indexatie',
+                'meta_title' => 'Meta titel',
+                'meta_description' => 'Meta beschrijving',
+                'meta_keywords' => 'Meta zoekwoorden',
+                'link_rewrite' => 'Slug',
+                'content' => 'Inhoud',
+            ],
+            'table' => [
+                'empty_state_heading' => 'Geen CMS-pagina\'s gevonden.',
+                'actions' => [
+                    'create' => 'CMS-pagina maken',
+                    'edit' => 'Bewerken',
+                ],
+                'columns' => [
+                    'id' => 'ID',
+                    'meta_title' => 'Titel',
+                    'category' => 'Categorie',
+                    'active' => 'Actief',
+                    'position' => 'Positie',
+                ],
+            ],
+            'notifications' => [
+                'create_success' => 'CMS-pagina aangemaakt.',
+                'create_failed' => 'CMS-pagina kon niet worden aangemaakt.',
+                'update_success' => 'CMS-pagina bijgewerkt.',
+                'update_failed' => 'CMS-pagina kon niet worden bijgewerkt.',
+            ],
+        ],
     ],
     'seeders' => [
         'tenant_created' => 'Tenant aangemaakt: :name',
