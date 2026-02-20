@@ -257,6 +257,39 @@ return [
                 'update_failed' => 'Unable to update CMS page.',
             ],
         ],
+        'cms_categories' => [
+            'navigation_label' => 'CMS Categories',
+            'model_label' => 'CMS category',
+            'plural_model_label' => 'CMS categories',
+            'fields' => [
+                'language' => 'Language',
+                'name' => 'Name',
+                'parent' => 'Parent category',
+                'active' => 'Active',
+                'position' => 'Position',
+            ],
+            'table' => [
+                'empty_state_heading' => 'No CMS categories found.',
+                'actions' => [
+                    'create' => 'Create CMS category',
+                    'edit' => 'Edit',
+                ],
+                'columns' => [
+                    'id' => 'ID',
+                    'name' => 'Name',
+                    'parent' => 'Parent',
+                    'active' => 'Active',
+                    'position' => 'Position',
+                    'level_depth' => 'Level depth',
+                ],
+            ],
+            'notifications' => [
+                'create_success' => 'CMS category created.',
+                'create_failed' => 'Unable to create CMS category.',
+                'update_success' => 'CMS category updated.',
+                'update_failed' => 'Unable to update CMS category.',
+            ],
+        ],
     ],
     'seeders' => [
         'tenant_created' => 'Tenant created: :name',

@@ -257,6 +257,39 @@ return [
                 'update_failed' => 'CMS-pagina kon niet worden bijgewerkt.',
             ],
         ],
+        'cms_categories' => [
+            'navigation_label' => 'CMS-categorieën',
+            'model_label' => 'CMS-categorie',
+            'plural_model_label' => 'CMS-categorieën',
+            'fields' => [
+                'language' => 'Taal',
+                'name' => 'Naam',
+                'parent' => 'Bovenliggende categorie',
+                'active' => 'Actief',
+                'position' => 'Positie',
+            ],
+            'table' => [
+                'empty_state_heading' => 'Geen CMS-categorieën gevonden.',
+                'actions' => [
+                    'create' => 'CMS-categorie maken',
+                    'edit' => 'Bewerken',
+                ],
+                'columns' => [
+                    'id' => 'ID',
+                    'name' => 'Naam',
+                    'parent' => 'Bovenliggend',
+                    'active' => 'Actief',
+                    'position' => 'Positie',
+                    'level_depth' => 'Niveaudiepte',
+                ],
+            ],
+            'notifications' => [
+                'create_success' => 'CMS-categorie aangemaakt.',
+                'create_failed' => 'CMS-categorie kon niet worden aangemaakt.',
+                'update_success' => 'CMS-categorie bijgewerkt.',
+                'update_failed' => 'CMS-categorie kon niet worden bijgewerkt.',
+            ],
+        ],
     ],
     'seeders' => [
         'tenant_created' => 'Tenant aangemaakt: :name',
