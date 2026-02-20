@@ -144,6 +144,7 @@ return [
                     'update_stock' => 'Voorraad bijwerken',
                     'update_base_price' => 'Basisprijs bijwerken',
                     'edit_content' => 'Content bewerken',
+                    'edit_product' => 'Product bewerken',
                 ],
                 'fields' => [
                     'language' => 'Taal',
@@ -156,6 +157,10 @@ return [
                     'meta_description' => 'Meta beschrijving',
                     'meta_keywords' => 'Meta zoekwoorden',
                     'link_rewrite' => 'Slug',
+                    'weight' => 'Gewicht',
+                    'default_category' => 'Standaardcategorie',
+                    'categories' => 'Categorieën',
+                    'inhoud' => 'Inhoud',
                 ],
                 'notifications' => [
                     'stock_update_success' => 'Voorraad bijgewerkt.',
@@ -164,6 +169,8 @@ return [
                     'base_price_update_failed' => 'Basisprijs kon niet worden bijgewerkt.',
                     'content_update_success' => 'Productcontent bijgewerkt.',
                     'content_update_failed' => 'Productcontent kon niet worden bijgewerkt.',
+                    'product_update_success' => 'Product bijgewerkt.',
+                    'product_update_failed' => 'Product kon niet worden bijgewerkt.',
                 ],
             ],
             'relation_managers' => [

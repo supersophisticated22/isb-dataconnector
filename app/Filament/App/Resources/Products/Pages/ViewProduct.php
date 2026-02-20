@@ -4,8 +4,9 @@ namespace App\Filament\App\Resources\Products\Pages;
 
 use App\Filament\App\Resources\Products\ProductResource;
 use App\Services\ProductWriteService;
+use App\Services\TenantPrestaShopCategoryService;
 use App\Services\TenantPrestaShopConnection;
-use App\Services\TenantPrestaShopProductContentService;
+use App\Services\TenantPrestaShopProductEditorService;
 use Filament\Actions\Action;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -13,6 +14,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ViewRecord;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Support\Facades\DB;
 use RuntimeException;
@@ -93,10 +95,10 @@ class ViewProduct extends ViewRecord
                             ->send();
                     }
                 }),
-            Action::make('editContent')
-                ->label(__('saas.resources.products.view.actions.edit_content'))
+            Action::make('editProduct')
+                ->label(__('saas.resources.products.view.actions.edit_product'))
                 ->disabled($languageOptions === [])
-                ->fillForm(fn (): array => $this->resolveContentFormState($languageOptions))
+                ->fillForm(fn (): array => $this->resolveProductEditFormState($languageOptions))
                 ->form([
                     Select::make('id_lang')
                         ->label(__('saas.resources.products.view.fields.language'))
@@ -107,63 +109,101 @@ class ViewProduct extends ViewRecord
                             $langId = (int) $state;
 
                             if ($langId < 1) {
-                                $this->setContentFields($set, $this->emptyContent());
+                                $this->setProductEditFields($set, $this->emptyProductEditData());
 
                                 return;
                             }
 
                             try {
-                                $this->setContentFields(
+                                $this->setProductEditFields(
                                     $set,
-                                    app(TenantPrestaShopProductContentService::class)->getContent(
+                                    app(TenantPrestaShopProductEditorService::class)->getProductEditData(
                                         productId: $this->resolveProductId(),
                                         langId: $langId,
                                     )
                                 );
                             } catch (RuntimeException) {
-                                $this->setContentFields($set, $this->emptyContent());
+                                $this->setProductEditFields($set, $this->emptyProductEditData());
                             }
                         }),
-                    TextInput::make('content_name')
+                    TextInput::make('name')
                         ->label(__('saas.resources.products.view.fields.name'))
                         ->required()
                         ->maxLength(255),
-                    RichEditor::make('content_description_short')
+                    RichEditor::make('description_short')
                         ->label(__('saas.resources.products.view.fields.description_short')),
-                    RichEditor::make('content_description')
+                    RichEditor::make('description')
                         ->label(__('saas.resources.products.view.fields.description')),
-                    TextInput::make('content_meta_title')
+                    TextInput::make('meta_title')
                         ->label(__('saas.resources.products.view.fields.meta_title'))
                         ->maxLength(255),
-                    Textarea::make('content_meta_description')
+                    Textarea::make('meta_description')
                         ->label(__('saas.resources.products.view.fields.meta_description'))
                         ->rows(3)
                         ->maxLength(512),
-                    Textarea::make('content_meta_keywords')
+                    Textarea::make('meta_keywords')
                         ->label(__('saas.resources.products.view.fields.meta_keywords'))
                         ->rows(2),
-                    TextInput::make('content_link_rewrite')
+                    TextInput::make('link_rewrite')
                         ->label(__('saas.resources.products.view.fields.link_rewrite'))
                         ->required()
                         ->maxLength(128)
                         ->rule('regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'),
+                    TextInput::make('weight')
+                        ->label(__('saas.resources.products.view.fields.weight'))
+                        ->numeric()
+                        ->minValue(0)
+                        ->step(0.000001),
+                    Select::make('defaultCategoryId')
+                        ->label(__('saas.resources.products.view.fields.default_category'))
+                        ->options(fn (Get $get): array => $this->resolveCategoryOptions((int) $get('id_lang')))
+                        ->required()
+                        ->searchable()
+                        ->live()
+                        ->afterStateUpdated(function (Get $get, Set $set, mixed $state): void {
+                            $defaultCategoryId = (int) $state;
+                            $selectedCategoryIds = collect($get('categoryIds') ?? [])
+                                ->map(static fn (mixed $id): int => (int) $id)
+                                ->filter(static fn (int $id): bool => $id > 0)
+                                ->unique()
+                                ->values()
+                                ->all();
+
+                            if ($defaultCategoryId > 0 && ! in_array($defaultCategoryId, $selectedCategoryIds, true)) {
+                                array_unshift($selectedCategoryIds, $defaultCategoryId);
+                                $set('categoryIds', $selectedCategoryIds);
+                            }
+                        }),
+                    Select::make('categoryIds')
+                        ->label(__('saas.resources.products.view.fields.categories'))
+                        ->options(fn (Get $get): array => $this->resolveCategoryOptions((int) $get('id_lang')))
+                        ->multiple()
+                        ->required()
+                        ->searchable(),
+                    TextInput::make('inhoud')
+                        ->label(__('saas.resources.products.view.fields.inhoud'))
+                        ->maxLength(255),
                 ])
-                ->action(function (array $data, TenantPrestaShopProductContentService $contentService): void {
+                ->action(function (array $data, TenantPrestaShopProductEditorService $productEditorService): void {
                     $productId = $this->resolveProductId();
                     $langId = (int) ($data['id_lang'] ?? 0);
 
                     try {
-                        $contentService->upsertContent(
+                        $productEditorService->updateProduct(
                             productId: $productId,
                             langId: $langId,
                             payload: [
-                                'name' => $data['content_name'] ?? null,
-                                'description_short' => $data['content_description_short'] ?? null,
-                                'description' => $data['content_description'] ?? null,
-                                'meta_title' => $data['content_meta_title'] ?? null,
-                                'meta_description' => $data['content_meta_description'] ?? null,
-                                'meta_keywords' => $data['content_meta_keywords'] ?? null,
-                                'link_rewrite' => $data['content_link_rewrite'] ?? null,
+                                'name' => $data['name'] ?? null,
+                                'description_short' => $data['description_short'] ?? null,
+                                'description' => $data['description'] ?? null,
+                                'meta_title' => $data['meta_title'] ?? null,
+                                'meta_description' => $data['meta_description'] ?? null,
+                                'meta_keywords' => $data['meta_keywords'] ?? null,
+                                'link_rewrite' => $data['link_rewrite'] ?? null,
+                                'weight' => $data['weight'] ?? null,
+                                'defaultCategoryId' => $data['defaultCategoryId'] ?? null,
+                                'categoryIds' => $data['categoryIds'] ?? [],
+                                'inhoud' => $data['inhoud'] ?? null,
                             ],
                         );
 
@@ -171,12 +211,12 @@ class ViewProduct extends ViewRecord
 
                         Notification::make()
                             ->success()
-                            ->title(__('saas.resources.products.view.notifications.content_update_success'))
+                            ->title(__('saas.resources.products.view.notifications.product_update_success'))
                             ->send();
                     } catch (RuntimeException $exception) {
                         Notification::make()
                             ->danger()
-                            ->title(__('saas.resources.products.view.notifications.content_update_failed'))
+                            ->title(__('saas.resources.products.view.notifications.product_update_failed'))
                             ->body($exception->getMessage())
                             ->send();
                     }
@@ -227,50 +267,54 @@ class ViewProduct extends ViewRecord
      * @param  array<int, string>  $languageOptions
      * @return array<string, mixed>
      */
-    private function resolveContentFormState(array $languageOptions): array
+    private function resolveProductEditFormState(array $languageOptions): array
     {
         $defaultLanguageId = (int) array_key_first($languageOptions);
 
         if ($defaultLanguageId < 1) {
             return [
                 'id_lang' => null,
-                ...$this->emptyContent(),
+                ...$this->emptyProductEditData(),
             ];
         }
 
         try {
-            $content = app(TenantPrestaShopProductContentService::class)->getContent(
+            $productData = app(TenantPrestaShopProductEditorService::class)->getProductEditData(
                 productId: $this->resolveProductId(),
                 langId: $defaultLanguageId,
             );
         } catch (RuntimeException) {
-            $content = $this->emptyContent();
+            $productData = $this->emptyProductEditData();
         }
 
         return [
             'id_lang' => $defaultLanguageId,
-            ...$this->mapContentToFormState($content),
+            ...$this->mapProductDataToFormState($productData),
         ];
     }
 
     /**
-     * @param  array{name:string,description_short:?string,description:?string,meta_title:?string,meta_description:?string,meta_keywords:?string,link_rewrite:string}  $content
+     * @param  array{name:string,description_short:?string,description:?string,meta_title:?string,meta_description:?string,meta_keywords:?string,link_rewrite:string,weight:?float,defaultCategoryId:?int,categoryIds:list<int>,inhoud:?string,inhoudFeatureId:?int}  $content
      */
-    private function setContentFields(Set $set, array $content): void
+    private function setProductEditFields(Set $set, array $content): void
     {
-        $set('content_name', $content['name']);
-        $set('content_description_short', $content['description_short']);
-        $set('content_description', $content['description']);
-        $set('content_meta_title', $content['meta_title']);
-        $set('content_meta_description', $content['meta_description']);
-        $set('content_meta_keywords', $content['meta_keywords']);
-        $set('content_link_rewrite', $content['link_rewrite']);
+        $set('name', $content['name']);
+        $set('description_short', $content['description_short']);
+        $set('description', $content['description']);
+        $set('meta_title', $content['meta_title']);
+        $set('meta_description', $content['meta_description']);
+        $set('meta_keywords', $content['meta_keywords']);
+        $set('link_rewrite', $content['link_rewrite']);
+        $set('weight', $content['weight']);
+        $set('defaultCategoryId', $content['defaultCategoryId']);
+        $set('categoryIds', $content['categoryIds']);
+        $set('inhoud', $content['inhoud']);
     }
 
     /**
-     * @return array{name:string,description_short:?string,description:?string,meta_title:?string,meta_description:?string,meta_keywords:?string,link_rewrite:string}
+     * @return array{name:string,description_short:?string,description:?string,meta_title:?string,meta_description:?string,meta_keywords:?string,link_rewrite:string,weight:?float,defaultCategoryId:?int,categoryIds:list<int>,inhoud:?string,inhoudFeatureId:?int}
      */
-    private function emptyContent(): array
+    private function emptyProductEditData(): array
     {
         return [
             'name' => '',
@@ -280,32 +324,61 @@ class ViewProduct extends ViewRecord
             'meta_description' => null,
             'meta_keywords' => null,
             'link_rewrite' => '',
+            'weight' => null,
+            'defaultCategoryId' => null,
+            'categoryIds' => [],
+            'inhoud' => null,
+            'inhoudFeatureId' => null,
         ];
     }
 
     /**
-     * @param  array{name:string,description_short:?string,description:?string,meta_title:?string,meta_description:?string,meta_keywords:?string,link_rewrite:string}  $content
+     * @param  array{name:string,description_short:?string,description:?string,meta_title:?string,meta_description:?string,meta_keywords:?string,link_rewrite:string,weight:?float,defaultCategoryId:?int,categoryIds:list<int>,inhoud:?string,inhoudFeatureId:?int}  $content
      * @return array{
-     *     content_name:string,
-     *     content_description_short:?string,
-     *     content_description:?string,
-     *     content_meta_title:?string,
-     *     content_meta_description:?string,
-     *     content_meta_keywords:?string,
-     *     content_link_rewrite:string
+     *     name:string,
+     *     description_short:?string,
+     *     description:?string,
+     *     meta_title:?string,
+     *     meta_description:?string,
+     *     meta_keywords:?string,
+     *     link_rewrite:string,
+     *     weight:?float,
+     *     defaultCategoryId:?int,
+     *     categoryIds:list<int>,
+     *     inhoud:?string
      * }
      */
-    private function mapContentToFormState(array $content): array
+    private function mapProductDataToFormState(array $content): array
     {
         return [
-            'content_name' => $content['name'],
-            'content_description_short' => $content['description_short'],
-            'content_description' => $content['description'],
-            'content_meta_title' => $content['meta_title'],
-            'content_meta_description' => $content['meta_description'],
-            'content_meta_keywords' => $content['meta_keywords'],
-            'content_link_rewrite' => $content['link_rewrite'],
+            'name' => $content['name'],
+            'description_short' => $content['description_short'],
+            'description' => $content['description'],
+            'meta_title' => $content['meta_title'],
+            'meta_description' => $content['meta_description'],
+            'meta_keywords' => $content['meta_keywords'],
+            'link_rewrite' => $content['link_rewrite'],
+            'weight' => $content['weight'],
+            'defaultCategoryId' => $content['defaultCategoryId'],
+            'categoryIds' => $content['categoryIds'],
+            'inhoud' => $content['inhoud'],
         ];
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private function resolveCategoryOptions(int $langId): array
+    {
+        if ($langId < 1) {
+            return [];
+        }
+
+        try {
+            return app(TenantPrestaShopCategoryService::class)->getCategoryOptions($langId);
+        } catch (RuntimeException) {
+            return [];
+        }
     }
 
     private function resolveProductId(): int

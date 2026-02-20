@@ -144,6 +144,7 @@ return [
                     'update_stock' => 'Update stock',
                     'update_base_price' => 'Update base price',
                     'edit_content' => 'Edit content',
+                    'edit_product' => 'Edit product',
                 ],
                 'fields' => [
                     'language' => 'Language',
@@ -156,6 +157,10 @@ return [
                     'meta_description' => 'Meta description',
                     'meta_keywords' => 'Meta keywords',
                     'link_rewrite' => 'Slug',
+                    'weight' => 'Weight',
+                    'default_category' => 'Default category',
+                    'categories' => 'Categories',
+                    'inhoud' => 'Inhoud',
                 ],
                 'notifications' => [
                     'stock_update_success' => 'Stock updated.',
@@ -164,6 +169,8 @@ return [
                     'base_price_update_failed' => 'Unable to update base price.',
                     'content_update_success' => 'Product content updated.',
                     'content_update_failed' => 'Unable to update product content.',
+                    'product_update_success' => 'Product updated.',
+                    'product_update_failed' => 'Unable to update product.',
                 ],
             ],
             'relation_managers' => [

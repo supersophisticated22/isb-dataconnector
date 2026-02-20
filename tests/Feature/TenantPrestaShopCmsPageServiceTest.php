@@ -227,3 +227,31 @@ it('throws when tenant context is missing', function (): void {
 
     expect($callback)->toThrow(RuntimeException::class, 'Tenant context is missing.');
 });
+
+it('reorders cms pages using position', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    DB::connection('tenant_ps')->table('ps_cms')->insert([
+        'id_cms' => 101,
+        'id_cms_category' => 2,
+        'active' => 1,
+        'position' => 8,
+        'indexation' => 1,
+    ]);
+
+    app(TenantPrestaShopCmsPageService::class)->reorderPages([101, 100]);
+
+    $positions = DB::connection('tenant_ps')
+        ->table('ps_cms')
+        ->whereIn('id_cms', [100, 101])
+        ->orderBy('id_cms')
+        ->pluck('position', 'id_cms')
+        ->mapWithKeys(fn (mixed $position, mixed $id): array => [(int) $id => (int) $position])
+        ->all();
+
+    expect($positions)->toBe([
+        100 => 2,
+        101 => 1,
+    ]);
+});
