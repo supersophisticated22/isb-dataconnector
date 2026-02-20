@@ -299,6 +299,41 @@ class TenantPrestaShopCmsPageService
         return (int) ($shopIds[0] ?? 1);
     }
 
+    /**
+     * @param  list<int|string>  $orderedCmsIds
+     */
+    public function reorderPages(array $orderedCmsIds): void
+    {
+        $this->resolveTenantId();
+
+        $cmsIds = collect($orderedCmsIds)
+            ->map(fn (int|string $value): int => (int) $value)
+            ->filter(fn (int $cmsId): bool => $cmsId > 0)
+            ->values()
+            ->all();
+
+        if ($cmsIds === []) {
+            return;
+        }
+
+        $cmsTable = $this->tenantPrestaShopConnection->table('cms');
+
+        if (! $this->hasColumn($cmsTable, 'position')) {
+            throw new RuntimeException('Position column is not available for CMS pages.');
+        }
+
+        DB::connection('tenant_ps')->transaction(function () use ($cmsIds, $cmsTable): void {
+            foreach ($cmsIds as $index => $cmsId) {
+                DB::connection('tenant_ps')
+                    ->table($cmsTable)
+                    ->where('id_cms', $cmsId)
+                    ->update([
+                        'position' => $index + 1,
+                    ]);
+            }
+        });
+    }
+
     public function hasCmsColumn(string $column): bool
     {
         $this->resolveTenantId();
