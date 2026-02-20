@@ -7,11 +7,35 @@ use App\Services\TenantPrestaShopCmsPageService;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ManageRecords;
+use Illuminate\Database\Eloquent\Model;
 use RuntimeException;
 
 class ManageCmsPages extends ManageRecords
 {
     protected static string $resource = CmsPageResource::class;
+
+    /**
+     * @return Model|array<string, mixed>|null
+     */
+    protected function resolveTableRecord(?string $key): Model|array|null
+    {
+        if ($key === null) {
+            return null;
+        }
+
+        $query = $this->applyFiltersToTableQuery(
+            $this->getTable()->getQuery(isResolvingRecord: true),
+            isResolvingRecord: true,
+        );
+
+        foreach ($this->getTable()->getVisibleColumns() as $column) {
+            $column->applyRelationshipAggregates($query);
+        }
+
+        return $query
+            ->where('c.id_cms', (int) $key)
+            ->first();
+    }
 
     protected function getHeaderActions(): array
     {
