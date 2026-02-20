@@ -15,6 +15,23 @@ class ManageCmsPages extends ManageRecords
     protected static string $resource = CmsPageResource::class;
 
     /**
+     * @param  array<int|string>  $order
+     */
+    public function reorderTable(array $order, int|string|null $draggedRecordKey = null): void
+    {
+        if (! $this->getTable()->isReorderable()) {
+            return;
+        }
+
+        $this->getTable()->callBeforeReordering($order);
+
+        app(TenantPrestaShopCmsPageService::class)->reorderPages($order);
+
+        $this->getTable()->callAfterReordering($order);
+        $this->flushCachedTableRecords();
+    }
+
+    /**
      * @return Model|array<string, mixed>|null
      */
     protected function resolveTableRecord(?string $key): Model|array|null

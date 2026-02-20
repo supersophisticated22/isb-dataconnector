@@ -50,8 +50,9 @@ class CmsPageResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->defaultSort('id_cms', 'desc')
+            ->defaultSort('position', 'asc')
             ->defaultKeySort(false)
+            ->reorderable('position', self::hasPositionColumn())
             ->defaultPaginationPageOption(50)
             ->paginationPageOptions([25, 50, 100])
             ->columns([
@@ -61,15 +62,19 @@ class CmsPageResource extends Resource
                 TextColumn::make('meta_title')
                     ->label(__('saas.resources.cms_pages.table.columns.meta_title'))
                     ->wrap()
-                    ->searchable(false),
+                    ->searchable(false)
+                    ->sortable(),
                 TextColumn::make('category_name')
                     ->label(__('saas.resources.cms_pages.table.columns.category'))
-                    ->searchable(false),
+                    ->searchable(false)
+                    ->sortable(),
                 IconColumn::make('active')
                     ->label(__('saas.resources.cms_pages.table.columns.active'))
-                    ->boolean(),
+                    ->boolean()
+                    ->sortable(),
                 TextColumn::make('position')
                     ->label(__('saas.resources.cms_pages.table.columns.position'))
+                    ->sortable()
                     ->toggleable(),
             ])
             ->filters([
@@ -230,8 +235,7 @@ class CmsPageResource extends Resource
                 'cl.meta_title',
                 'cl.link_rewrite',
                 'ccl.name as category_name',
-            ])
-            ->orderByDesc('c.id_cms');
+            ]);
 
         if ($cmsService->hasCmsColumn('indexation')) {
             $query->addSelect('c.indexation');
@@ -405,6 +409,19 @@ class CmsPageResource extends Resource
 
         try {
             return app(TenantPrestaShopCmsPageService::class)->hasCmsColumn('indexation');
+        } catch (Throwable) {
+            return false;
+        }
+    }
+
+    private static function hasPositionColumn(): bool
+    {
+        if (! self::hasValidTenantContext()) {
+            return false;
+        }
+
+        try {
+            return app(TenantPrestaShopCmsPageService::class)->hasCmsColumn('position');
         } catch (Throwable) {
             return false;
         }
