@@ -54,16 +54,6 @@ class ProductsTable
                     ->numeric(0)
                     ->alignRight()
                     ->sortable(),
-                TextColumn::make('original_price_tax_excl')
-                    ->label(__('saas.resources.products.table.columns.original_price_tax_excl'))
-                    ->numeric(2)
-                    ->alignRight()
-                    ->sortable(),
-                TextColumn::make('current_price_tax_excl')
-                    ->label(__('saas.resources.products.table.columns.current_price_tax_excl'))
-                    ->numeric(2)
-                    ->alignRight()
-                    ->sortable(),
                 TextColumn::make('original_price_tax_incl')
                     ->label(__('saas.resources.products.table.columns.original_price_tax_incl'))
                     ->numeric(2)

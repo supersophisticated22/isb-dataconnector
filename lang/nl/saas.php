@@ -143,16 +143,27 @@ return [
                 'actions' => [
                     'update_stock' => 'Voorraad bijwerken',
                     'update_base_price' => 'Basisprijs bijwerken',
+                    'edit_content' => 'Content bewerken',
                 ],
                 'fields' => [
+                    'language' => 'Taal',
                     'stock_qty' => 'Voorraadaantal',
                     'base_price_tax_excl' => 'Basisprijs (excl.)',
+                    'name' => 'Naam',
+                    'description_short' => 'Korte beschrijving',
+                    'description' => 'Beschrijving',
+                    'meta_title' => 'Meta titel',
+                    'meta_description' => 'Meta beschrijving',
+                    'meta_keywords' => 'Meta zoekwoorden',
+                    'link_rewrite' => 'Slug',
                 ],
                 'notifications' => [
                     'stock_update_success' => 'Voorraad bijgewerkt.',
                     'stock_update_failed' => 'Voorraad kon niet worden bijgewerkt.',
                     'base_price_update_success' => 'Basisprijs bijgewerkt.',
                     'base_price_update_failed' => 'Basisprijs kon niet worden bijgewerkt.',
+                    'content_update_success' => 'Productcontent bijgewerkt.',
+                    'content_update_failed' => 'Productcontent kon niet worden bijgewerkt.',
                 ],
             ],
             'relation_managers' => [

@@ -154,6 +154,75 @@ it('updates product stock inside a transaction and upserts typesense after commi
         ->toBeTrue();
 });
 
+it('creates the product-level stock row when it is missing and updates stock', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    DB::connection('tenant_ps')->table('ps_product')->insert([
+        'id_product' => 16,
+        'id_manufacturer' => 5,
+        'reference' => 'SKU-16',
+        'active' => 1,
+        'price' => 100.00,
+        'id_tax_rules_group' => 1,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_stock_available')->insert([
+        'id_stock_available' => 16,
+        'id_product' => 16,
+        'id_product_attribute' => 2,
+        'quantity' => 3,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_product_lang')->insert([
+        'id_product' => 16,
+        'id_lang' => 1,
+        'name' => 'Missing Product Level Stock Product',
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_manufacturer')->insert([
+        'id_manufacturer' => 5,
+        'name' => 'Acme',
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_category_product')->insert([
+        'id_product' => 16,
+        'id_category' => 2,
+    ]);
+
+    seedTaxTables();
+
+    app()->instance(TypeSenseClient::class, mock(TypeSenseClient::class, function (MockInterface $mock) use ($tenant): void {
+        $mock->shouldReceive('ensureCollectionExists')
+            ->once()
+            ->with($tenant->id);
+
+        $mock->shouldReceive('upsertProductDoc')
+            ->once()
+            ->withArgs(function (int $tenantId, array $document) use ($tenant): bool {
+                return $tenantId === $tenant->id
+                    && ($document['id'] ?? null) === '16'
+                    && ($document['current_price_tax_excl'] ?? null) === 100.0;
+            });
+    }));
+
+    app(ProductWriteService::class)->updateProductStock(16, 12);
+
+    expect((int) DB::connection('tenant_ps')
+        ->table('ps_stock_available')
+        ->where('id_product', 16)
+        ->where('id_product_attribute', 0)
+        ->value('quantity'))
+        ->toBe(12);
+
+    expect(AuditLog::query()
+        ->where('tenant_id', $tenant->id)
+        ->where('action', 'product.stock.updated')
+        ->where('entity_id', '16')
+        ->exists())
+        ->toBeTrue();
+});
+
 it('updates product base price and writes audit after post-commit sync', function (): void {
     $tenant = Tenant::factory()->create();
     app(TenantContext::class)->setTenant($tenant);

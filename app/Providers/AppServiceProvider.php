@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('view-tenant-products', function (User $user): bool {
-            return $user->canAccessTenantId($this->resolveCurrentTenantId());
+            return $user->isTenantAdmin($this->resolveCurrentTenantId());
         });
 
         Gate::define('manage-tenant-bulk-price-updates', function (User $user): bool {

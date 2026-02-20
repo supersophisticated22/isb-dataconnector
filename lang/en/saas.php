@@ -119,8 +119,8 @@ return [
                     'stock_qty' => 'Stock qty',
                     'original_price_tax_excl' => 'Original price (excl.)',
                     'current_price_tax_excl' => 'Current price (excl.)',
-                    'original_price_tax_incl' => 'Original price (incl.)',
-                    'current_price_tax_incl' => 'Current price (incl.)',
+                    'original_price_tax_incl' => 'Original price',
+                    'current_price_tax_incl' => 'Current price',
                 ],
             ],
             'infolist' => [
@@ -143,16 +143,27 @@ return [
                 'actions' => [
                     'update_stock' => 'Update stock',
                     'update_base_price' => 'Update base price',
+                    'edit_content' => 'Edit content',
                 ],
                 'fields' => [
+                    'language' => 'Language',
                     'stock_qty' => 'Stock quantity',
                     'base_price_tax_excl' => 'Base price (excl.)',
+                    'name' => 'Name',
+                    'description_short' => 'Short description',
+                    'description' => 'Description',
+                    'meta_title' => 'Meta title',
+                    'meta_description' => 'Meta description',
+                    'meta_keywords' => 'Meta keywords',
+                    'link_rewrite' => 'Slug',
                 ],
                 'notifications' => [
                     'stock_update_success' => 'Stock updated.',
                     'stock_update_failed' => 'Unable to update stock.',
                     'base_price_update_success' => 'Base price updated.',
                     'base_price_update_failed' => 'Unable to update base price.',
+                    'content_update_success' => 'Product content updated.',
+                    'content_update_failed' => 'Unable to update product content.',
                 ],
             ],
             'relation_managers' => [

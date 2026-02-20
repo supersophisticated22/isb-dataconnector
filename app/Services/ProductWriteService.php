@@ -45,7 +45,7 @@ class ProductWriteService
                 ->update(['quantity' => $qty]);
 
             if ($updatedRows < 1) {
-                throw new RuntimeException('Product stock row not found in PrestaShop database.');
+                $this->insertMissingProductLevelStockRow($stockTable, $productId, $qty);
             }
 
             DB::connection('tenant_ps')->afterCommit(function () use ($tenantId, $productId, $beforeQty, $qty): void {
@@ -307,6 +307,32 @@ class ProductWriteService
         if (! $exists) {
             throw new RuntimeException('Product not found in PrestaShop database.');
         }
+    }
+
+    private function insertMissingProductLevelStockRow(string $stockTable, int $productId, int $qty): void
+    {
+        /** @var object|null $templateRow */
+        $templateRow = DB::connection('tenant_ps')
+            ->table($stockTable)
+            ->where('id_product', $productId)
+            ->orderBy('id_stock_available')
+            ->first();
+
+        if ($templateRow === null) {
+            throw new RuntimeException('Product stock row not found in PrestaShop database.');
+        }
+
+        /** @var array<string, mixed> $row */
+        $row = (array) $templateRow;
+        unset($row['id_stock_available']);
+
+        $row['id_product'] = $productId;
+        $row['id_product_attribute'] = 0;
+        $row['quantity'] = $qty;
+
+        DB::connection('tenant_ps')
+            ->table($stockTable)
+            ->insert($row);
     }
 
     /**

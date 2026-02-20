@@ -26,6 +26,8 @@ use Throwable;
 
 class ProductResource extends Resource
 {
+    protected static bool $isScopedToTenant = false;
+
     protected static ?string $model = TenantPrestaShopProduct::class;
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cube';

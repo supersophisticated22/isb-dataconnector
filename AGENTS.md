@@ -13,6 +13,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - filament/filament (FILAMENT) - v5
 - laravel/framework (LARAVEL) - v12
 - laravel/prompts (PROMPTS) - v0
+- laravel/scout (SCOUT) - v10
 - livewire/livewire (LIVEWIRE) - v4
 - larastan/larastan (LARASTAN) - v3
 - laravel/boost (BOOST) - v2
@@ -45,25 +46,6 @@ This project has domain-specific skills available. You MUST activate the relevan
 
 - Stick to existing directory structure; don't create new base folders without approval.
 - Do not change the application's dependencies without approval.
-
-## PrestaShop DB integration (IMPORTANT)
-
-### Do NOT generate Eloquent models for PrestaShop core tables
-- Never create new Laravel Eloquent models that map 1:1 to PrestaShop tables (e.g. ps_product, ps_manufacturer, ps_specific_price, etc.).
-- Do not run scaffolding/codegen that creates models for PrestaShop tables (e.g. "make:model" equivalents) and do not introduce dozens of table-backed model classes.
-
-### Why
-- PrestaShop table structure/prefix is tenant-dependent and can vary (prefix can be customized / randomized depending on installation), so table mapping must go through our tenant-aware connection + table resolver. :contentReference[oaicite:2]{index=2}
-- Our architecture intentionally uses tenant-aware query builders/services instead of auto-generated models.
-
-### What to do instead (required)
-- Use TenantPrestaShopConnection + DB::connection('tenant_ps')->table(...) via the tenant-aware table resolver.
-- Prefer existing query builders/services (e.g. TenantPrestaShopProductQueryBuilder) and extend them when needed.
-- Keep “models” limited to our curated domain models (e.g. TenantPrestaShopProduct) and only add/modify them when explicitly requested.
-
-### If you think a new model is necessary
-- STOP and ask for confirmation in-chat before adding any new model class.
-- Provide a short justification and an alternative using query builders/services.
 
 ## Frontend Bundling
 
@@ -265,24 +247,5 @@ protected function isAccessible(User $user, ?string $path = null): bool
 - Always use existing Tailwind conventions; check project patterns before adding new ones.
 - IMPORTANT: Always use `search-docs` tool for version-specific Tailwind CSS documentation and updated code examples. Never rely on training data.
 - IMPORTANT: Activate `tailwindcss-development` every time you're working with a Tailwind CSS or styling-related task.
-
-## PrestaShop DB integration (IMPORTANT)
-
-### Do NOT generate Eloquent models for PrestaShop core tables
-- Never create new Laravel Eloquent models that map 1:1 to PrestaShop tables (e.g. ps_product, ps_manufacturer, ps_specific_price, etc.).
-- Do not run scaffolding/codegen that creates models for PrestaShop tables (e.g. "make:model" equivalents) and do not introduce dozens of table-backed model classes.
-
-### Why
-- PrestaShop table structure/prefix is tenant-dependent and can vary (prefix can be customized / randomized depending on installation), so table mapping must go through our tenant-aware connection + table resolver. :contentReference[oaicite:2]{index=2}
-- Our architecture intentionally uses tenant-aware query builders/services instead of auto-generated models.
-
-### What to do instead (required)
-- Use TenantPrestaShopConnection + DB::connection('tenant_ps')->table(...) via the tenant-aware table resolver.
-- Prefer existing query builders/services (e.g. TenantPrestaShopProductQueryBuilder) and extend them when needed.
-- Keep “models” limited to our curated domain models (e.g. TenantPrestaShopProduct) and only add/modify them when explicitly requested.
-
-### If you think a new model is necessary
-- STOP and ask for confirmation in-chat before adding any new model class.
-- Provide a short justification and an alternative using query builders/services.
 
 </laravel-boost-guidelines>

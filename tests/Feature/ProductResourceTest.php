@@ -6,8 +6,12 @@ use App\Models\TenantPrestaShopProduct;
 use App\Models\User;
 use App\Services\TenantContext;
 use App\Services\TypeSenseClient;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Schema;
 use Mockery\MockInterface;
 
 use function Pest\Laravel\actingAs;
@@ -29,6 +33,71 @@ it('fails closed when tenant context is missing', function (): void {
     $query = ProductResource::getEloquentQuery();
 
     expect(strtolower($query->toSql()))->toContain('1 = 0');
+});
+
+it('resolves product by id without ambiguous id_product columns', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+    $pdo = DB::connection('tenant_ps')->getPdo();
+
+    if (method_exists($pdo, 'sqliteCreateFunction')) {
+        $pdo->sqliteCreateFunction('GREATEST', fn (mixed ...$values): mixed => max(Arr::wrap($values)));
+    }
+
+    Schema::connection('tenant_ps')->create('ps_product', function (Blueprint $table): void {
+        $table->integer('id_product')->primary();
+        $table->integer('id_manufacturer')->default(0);
+        $table->string('reference')->nullable();
+        $table->boolean('active')->default(true);
+        $table->decimal('price', 20, 6)->default(0);
+    });
+
+    Schema::connection('tenant_ps')->create('ps_product_lang', function (Blueprint $table): void {
+        $table->integer('id_product');
+        $table->integer('id_lang')->default(1);
+        $table->string('name')->nullable();
+    });
+
+    Schema::connection('tenant_ps')->create('ps_manufacturer', function (Blueprint $table): void {
+        $table->integer('id_manufacturer')->primary();
+        $table->string('name')->nullable();
+    });
+
+    Schema::connection('tenant_ps')->create('ps_stock_available', function (Blueprint $table): void {
+        $table->integer('id_product');
+        $table->integer('id_product_attribute')->default(0);
+        $table->integer('quantity')->default(0);
+    });
+
+    Schema::connection('tenant_ps')->create('ps_specific_price', function (Blueprint $table): void {
+        $table->integer('id_product');
+        $table->integer('id_product_attribute')->default(0);
+        $table->string('reduction_type')->nullable();
+        $table->decimal('reduction', 20, 6)->default(0);
+        $table->string('from')->default('0000-00-00 00:00:00');
+        $table->string('to')->default('0000-00-00 00:00:00');
+    });
+
+    DB::connection('tenant_ps')->table('ps_product')->insert([
+        'id_product' => 19,
+        'id_manufacturer' => 0,
+        'reference' => 'SKU-19',
+        'active' => 1,
+        'price' => 12.34,
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_product_lang')->insert([
+        'id_product' => 19,
+        'id_lang' => 1,
+        'name' => 'Product 19',
+    ]);
+
+    $record = ProductResource::getEloquentQuery()
+        ->where('id_product', 19)
+        ->first();
+
+    expect($record)->not()->toBeNull()
+        ->and((int) data_get($record, 'id_product'))->toBe(19);
 });
 
 it('does not use request tenant id fallback for typesense search', function (): void {

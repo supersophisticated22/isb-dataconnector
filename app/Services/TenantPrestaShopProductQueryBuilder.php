@@ -37,7 +37,7 @@ class TenantPrestaShopProductQueryBuilder
 
         $stockSubquery = DB::connection('tenant_ps')
             ->table($stockAvailableTable.' as sa')
-            ->selectRaw('sa.id_product, COALESCE(SUM(sa.quantity), 0) as stock_qty')
+            ->selectRaw('sa.id_product as stock_product_id, COALESCE(SUM(sa.quantity), 0) as stock_qty')
             ->where('sa.id_product_attribute', 0)
             ->groupBy('sa.id_product');
 
@@ -56,7 +56,7 @@ class TenantPrestaShopProductQueryBuilder
                     });
             })
             ->selectRaw(
-                "p2.id_product, ROUND(IFNULL(MIN(CASE
+                "p2.id_product as priced_product_id, ROUND(IFNULL(MIN(CASE
                     WHEN sp.reduction_type = 'percentage' THEN GREATEST(p2.price * (1 - sp.reduction), 0)
                     WHEN sp.reduction_type = 'amount' THEN GREATEST(p2.price - sp.reduction, 0)
                     ELSE p2.price
@@ -67,8 +67,8 @@ class TenantPrestaShopProductQueryBuilder
         return $baseQuery
             ->from($productTable.' as p')
             ->leftJoin($manufacturerTable.' as m', 'm.id_manufacturer', '=', 'p.id_manufacturer')
-            ->leftJoinSub($stockSubquery, 'stock', 'stock.id_product', '=', 'p.id_product')
-            ->leftJoinSub($currentPriceSubquery, 'current_price', 'current_price.id_product', '=', 'p.id_product')
+            ->leftJoinSub($stockSubquery, 'stock', 'stock.stock_product_id', '=', 'p.id_product')
+            ->leftJoinSub($currentPriceSubquery, 'current_price', 'current_price.priced_product_id', '=', 'p.id_product')
             ->select([
                 'p.id_product',
                 'p.id_manufacturer',
