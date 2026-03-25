@@ -73,7 +73,8 @@ class ProductInfolist
                             ->state(fn (TextEntry $component): string => self::viewData($component->getRecord())->formattedPrice),
                     ]),
                 Section::make(__('saas.resources.products.view.actions.edit_content'))
-                    ->columns(2)
+                    ->columns(1)
+                    ->columnSpanFull()
                     ->schema([
                         TextEntry::make('description')
                             ->label(__('saas.resources.products.view.fields.description'))

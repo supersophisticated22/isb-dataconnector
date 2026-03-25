@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\Tenants\Schemas;
 
+use App\Models\User;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Database\Eloquent\Builder;
 
 class TenantForm
 {
@@ -50,6 +52,38 @@ class TenantForm
                     ->options([
                         'active' => 'Active',
                         'inactive' => 'Inactive',
+                    ]),
+                Select::make('users')
+                    ->relationship(
+                        name: 'users',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn (Builder $query): Builder => $query->orderBy('name'),
+                    )
+                    ->getOptionLabelFromRecordUsing(fn (User $record): string => $record->name.' ('.$record->email.')')
+                    ->multiple()
+                    ->searchable()
+                    ->preload()
+                    ->visible(fn (string $operation): bool => $operation === 'edit')
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
+                        TextInput::make('email')
+                            ->required()
+                            ->email()
+                            ->maxLength(255)
+                            ->unique(table: User::class, column: 'email'),
+                        TextInput::make('password')
+                            ->required()
+                            ->password()
+                            ->revealable(),
+                        Select::make('role')
+                            ->required()
+                            ->default('user')
+                            ->options([
+                                'admin' => 'Admin',
+                                'user' => 'User',
+                            ]),
                     ]),
             ])
             ->columns(2);

@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
+use App\Models\Tenant;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Database\Eloquent\Builder;
 
 class UserForm
 {
@@ -31,6 +33,16 @@ class UserForm
                         'admin' => 'Admin',
                         'user' => 'User',
                     ]),
+                Select::make('tenants')
+                    ->relationship(
+                        name: 'tenants',
+                        titleAttribute: 'name',
+                        modifyQueryUsing: fn (Builder $query): Builder => $query->orderBy('name'),
+                    )
+                    ->getOptionLabelFromRecordUsing(fn (Tenant $record): string => $record->name.' ('.$record->slug.')')
+                    ->multiple()
+                    ->searchable()
+                    ->preload(),
             ])
             ->columns(2);
     }

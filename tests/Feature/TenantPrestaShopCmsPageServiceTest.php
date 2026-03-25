@@ -36,6 +36,11 @@ beforeEach(function (): void {
     Schema::connection('tenant_ps')->create('ps_cms_category', function (Blueprint $table): void {
         $table->integer('id_cms_category')->primary();
         $table->integer('id_parent')->default(0);
+        $table->integer('level_depth')->default(0);
+        $table->boolean('active')->default(true);
+        $table->integer('position')->default(0);
+        $table->dateTime('date_add')->nullable();
+        $table->dateTime('date_upd')->nullable();
     });
 
     Schema::connection('tenant_ps')->create('ps_cms_category_lang', function (Blueprint $table): void {
@@ -79,8 +84,8 @@ beforeEach(function (): void {
     ]);
 
     DB::connection('tenant_ps')->table('ps_cms_category')->insert([
-        ['id_cms_category' => 1, 'id_parent' => 0],
-        ['id_cms_category' => 2, 'id_parent' => 1],
+        ['id_cms_category' => 1, 'id_parent' => 0, 'level_depth' => 0, 'active' => 1, 'position' => 0],
+        ['id_cms_category' => 2, 'id_parent' => 1, 'level_depth' => 1, 'active' => 1, 'position' => 0],
     ]);
 
     DB::connection('tenant_ps')->table('ps_cms_category_lang')->insert([
@@ -226,6 +231,112 @@ it('throws when tenant context is missing', function (): void {
     ]);
 
     expect($callback)->toThrow(RuntimeException::class, 'Tenant context is missing.');
+});
+
+it('creates cms categories with computed depth and position and fallback language names', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    $service = app(TenantPrestaShopCmsCategoryService::class);
+
+    $categoryId = $service->createCategory(1, [
+        'name' => 'Support',
+        'id_parent' => 2,
+        'active' => true,
+    ]);
+
+    $categoryRow = DB::connection('tenant_ps')
+        ->table('ps_cms_category')
+        ->where('id_cms_category', $categoryId)
+        ->first();
+
+    $langRows = DB::connection('tenant_ps')
+        ->table('ps_cms_category_lang')
+        ->where('id_cms_category', $categoryId)
+        ->orderBy('id_lang')
+        ->pluck('name', 'id_lang')
+        ->mapWithKeys(fn (mixed $name, mixed $id): array => [(int) $id => (string) $name])
+        ->all();
+
+    expect($categoryRow)->not()->toBeNull()
+        ->and((int) data_get($categoryRow, 'id_parent'))->toBe(2)
+        ->and((int) data_get($categoryRow, 'level_depth'))->toBe(2)
+        ->and((int) data_get($categoryRow, 'position'))->toBe(1)
+        ->and((int) data_get($categoryRow, 'active'))->toBe(1)
+        ->and($langRows)->toBe([
+            1 => 'Support',
+            2 => 'Support',
+        ]);
+});
+
+it('updates cms categories and cascades descendant level_depth on reparent', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    DB::connection('tenant_ps')->table('ps_cms_category')->insert([
+        ['id_cms_category' => 3, 'id_parent' => 2, 'level_depth' => 2, 'active' => 1, 'position' => 0],
+        ['id_cms_category' => 4, 'id_parent' => 3, 'level_depth' => 3, 'active' => 1, 'position' => 0],
+    ]);
+
+    DB::connection('tenant_ps')->table('ps_cms_category_lang')->insert([
+        ['id_cms_category' => 3, 'id_lang' => 1, 'name' => 'Child'],
+        ['id_cms_category' => 4, 'id_lang' => 1, 'name' => 'Grandchild'],
+    ]);
+
+    app(TenantPrestaShopCmsCategoryService::class)->updateCategory(2, 1, [
+        'name' => 'News Updated',
+        'id_parent' => 0,
+        'active' => false,
+        'position' => 7,
+    ]);
+
+    $updatedCategory = DB::connection('tenant_ps')
+        ->table('ps_cms_category')
+        ->where('id_cms_category', 2)
+        ->first();
+
+    $childDepth = (int) DB::connection('tenant_ps')
+        ->table('ps_cms_category')
+        ->where('id_cms_category', 3)
+        ->value('level_depth');
+
+    $grandchildDepth = (int) DB::connection('tenant_ps')
+        ->table('ps_cms_category')
+        ->where('id_cms_category', 4)
+        ->value('level_depth');
+
+    $updatedName = (string) DB::connection('tenant_ps')
+        ->table('ps_cms_category_lang')
+        ->where('id_cms_category', 2)
+        ->where('id_lang', 1)
+        ->value('name');
+
+    expect($updatedCategory)->not()->toBeNull()
+        ->and((int) data_get($updatedCategory, 'id_parent'))->toBe(0)
+        ->and((int) data_get($updatedCategory, 'level_depth'))->toBe(1)
+        ->and((int) data_get($updatedCategory, 'position'))->toBe(7)
+        ->and((int) data_get($updatedCategory, 'active'))->toBe(0)
+        ->and($childDepth)->toBe(2)
+        ->and($grandchildDepth)->toBe(3)
+        ->and($updatedName)->toBe('News Updated');
+});
+
+it('prevents cycles when reparenting cms categories', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    DB::connection('tenant_ps')->table('ps_cms_category')->insert([
+        ['id_cms_category' => 3, 'id_parent' => 2, 'level_depth' => 2, 'active' => 1, 'position' => 0],
+    ]);
+
+    $callback = fn () => app(TenantPrestaShopCmsCategoryService::class)->updateCategory(2, 1, [
+        'name' => 'Invalid',
+        'id_parent' => 3,
+        'active' => true,
+        'position' => 1,
+    ]);
+
+    expect($callback)->toThrow(RuntimeException::class, 'A category cannot be moved under one of its descendants.');
 });
 
 it('reorders cms pages using position', function (): void {

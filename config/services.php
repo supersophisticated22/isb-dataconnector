@@ -39,6 +39,11 @@ return [
         'url' => env('TYPESENSE_URL'),
         'key' => env('TYPESENSE_API_KEY'),
         'timeout' => env('TYPESENSE_TIMEOUT', 10),
+        'sync_schedule' => env('TYPESENSE_SYNC_SCHEDULE', '*/10 * * * *'),
+        'sync_chunk' => env('TYPESENSE_SYNC_CHUNK', 100),
+        'sync_enabled' => env('TYPESENSE_SYNC_ENABLED', true),
+        'full_sync_schedule' => env('TYPESENSE_FULL_SYNC_SCHEDULE', '0 3 * * *'),
+        'full_sync_enabled' => env('TYPESENSE_FULL_SYNC_ENABLED', true),
     ],
 
 ];

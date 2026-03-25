@@ -1,3 +1,4 @@
+
 [mcp_servers.laravel-boost]
 command = "php"
 args = ["artisan", "boost:mcp"]
@@ -10,6 +11,3 @@ cwd = "/Users/fabionbaromeo/Herd/isb-presta-manager"
 
 [mcp_servers.herd.env]
 SITE_PATH = "/Users/fabionbaromeo/Herd/isb-presta-manager"
-
-approval_policy = "on-request"
-sandbox_mode = "workspace-write"

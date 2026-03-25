@@ -82,3 +82,26 @@ it('deletes a product document from the tenant collection', function () {
             && $request->url() === 'http://typesense.test:8108/collections/products__9/documents/321';
     });
 });
+
+it('lists product document ids for a tenant collection', function () {
+    Http::fake([
+        'http://typesense.test:8108/collections/products__9/documents/search*' => Http::sequence()
+            ->push([
+                'found' => 3,
+                'hits' => [
+                    ['document' => ['id' => '1']],
+                    ['document' => ['id' => '2']],
+                ],
+            ], 200)
+            ->push([
+                'found' => 3,
+                'hits' => [
+                    ['document' => ['id' => '3']],
+                ],
+            ], 200),
+    ]);
+
+    $ids = app(TypeSenseClient::class)->listProductDocIds(9, 2);
+
+    expect($ids)->toBe(['1', '2', '3']);
+});

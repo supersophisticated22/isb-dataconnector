@@ -77,6 +77,59 @@ class TypeSenseClient
     }
 
     /**
+     * @return list<string>
+     */
+    public function listProductDocIds(int $tenantId, int $perPage = 250): array
+    {
+        $collectionName = $this->collectionName($tenantId);
+        $resolvedPerPage = max(1, min($perPage, 250));
+        $page = 1;
+        $found = null;
+        $documentIds = [];
+
+        while (true) {
+            $response = $this->http()->get("/collections/{$collectionName}/documents/search", [
+                'q' => '*',
+                'query_by' => 'id',
+                'page' => $page,
+                'per_page' => $resolvedPerPage,
+            ]);
+
+            if ($response->status() === 404) {
+                return [];
+            }
+
+            if (! $response->successful()) {
+                $this->throwUnexpectedResponse('Failed listing TypeSense product documents.', $response);
+            }
+
+            $payload = $response->json();
+            $hits = is_array($payload['hits'] ?? null) ? $payload['hits'] : [];
+            $found ??= (int) ($payload['found'] ?? 0);
+
+            foreach ($hits as $hit) {
+                if (! is_array($hit) || ! is_array($hit['document'] ?? null)) {
+                    continue;
+                }
+
+                $documentId = $hit['document']['id'] ?? null;
+
+                if (is_scalar($documentId)) {
+                    $documentIds[] = (string) $documentId;
+                }
+            }
+
+            if ($hits === [] || count($documentIds) >= $found) {
+                break;
+            }
+
+            $page++;
+        }
+
+        return array_values(array_unique($documentIds));
+    }
+
+    /**
      * @param  array<string, mixed>  $filters
      * @return array{data: array<int, array<string, mixed>>, total: int}
      */

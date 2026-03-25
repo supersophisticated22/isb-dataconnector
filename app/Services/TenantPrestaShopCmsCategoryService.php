@@ -347,7 +347,7 @@ class TenantPrestaShopCmsCategoryService
         while ($queue !== []) {
             $current = array_shift($queue);
 
-            if (! is_int($current) || $current < 1) {
+            if ($current < 1) {
                 continue;
             }
 
@@ -617,7 +617,7 @@ class TenantPrestaShopCmsCategoryService
         while ($queue !== []) {
             $current = array_shift($queue);
 
-            if (! is_int($current) || $current < 1) {
+            if ($current < 1) {
                 continue;
             }
 
@@ -651,7 +651,7 @@ class TenantPrestaShopCmsCategoryService
         while ($queue !== []) {
             $current = array_shift($queue);
 
-            if (! is_int($current) || $current < 1) {
+            if ($current < 1) {
                 continue;
             }
 
