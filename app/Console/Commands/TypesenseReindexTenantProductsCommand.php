@@ -65,7 +65,24 @@ class TypesenseReindexTenantProductsCommand extends Command
                 continue;
             }
 
-            $result = $tenantTypesenseProductBackfillService->reindexTenant($tenantId, $chunkSize, $mode);
+            $this->info("Tenant {$tenantId} sync {$mode} reindex started.");
+
+            $result = $tenantTypesenseProductBackfillService->reindexTenant(
+                $tenantId,
+                $chunkSize,
+                $mode,
+                function (array $progress) use ($tenantId): void {
+                    $this->line(
+                        sprintf(
+                            'Tenant %d progress (processed=%d, upserted=%d, failed=%d).',
+                            $tenantId,
+                            $progress['processed'],
+                            $progress['upserted'],
+                            $progress['failed'],
+                        )
+                    );
+                }
+            );
             $this->line(
                 sprintf(
                     'Tenant %d %s reindexed (processed=%d, upserted=%d, failed=%d, deleted=%d, stale_deleted=%d, inactive_deleted=%d).',

@@ -31,32 +31,66 @@ it('runs sync reindex for all tenants', function (): void {
     app()->instance(TenantTypesenseProductBackfillService::class, mock(TenantTypesenseProductBackfillService::class, function (MockInterface $mock) use ($tenantA, $tenantB): void {
         $mock->shouldReceive('reindexTenant')
             ->once()
-            ->with($tenantA->id, 20, 'incremental')
-            ->andReturn([
-                'mode' => 'incremental',
-                'processed' => 0,
-                'upserted' => 0,
-                'failed' => 0,
-                'deleted' => 0,
-                'stale_deleted' => 0,
-                'inactive_deleted' => 0,
-            ]);
+            ->withArgs(function (int $tenantId, int $chunkSize, string $mode, ?callable $onProgress) use ($tenantA): bool {
+                return $tenantId === $tenantA->id
+                    && $chunkSize === 20
+                    && $mode === 'incremental'
+                    && $onProgress !== null;
+            })
+            ->andReturnUsing(function (int $tenantId, int $chunkSize, string $mode, ?callable $onProgress): array {
+                if ($onProgress !== null) {
+                    $onProgress([
+                        'processed' => 10,
+                        'upserted' => 9,
+                        'failed' => 1,
+                    ]);
+                }
+
+                return [
+                    'mode' => 'incremental',
+                    'processed' => 10,
+                    'upserted' => 9,
+                    'failed' => 1,
+                    'deleted' => 0,
+                    'stale_deleted' => 0,
+                    'inactive_deleted' => 0,
+                ];
+            });
 
         $mock->shouldReceive('reindexTenant')
             ->once()
-            ->with($tenantB->id, 20, 'incremental')
-            ->andReturn([
-                'mode' => 'incremental',
-                'processed' => 0,
-                'upserted' => 0,
-                'failed' => 0,
-                'deleted' => 0,
-                'stale_deleted' => 0,
-                'inactive_deleted' => 0,
-            ]);
+            ->withArgs(function (int $tenantId, int $chunkSize, string $mode, ?callable $onProgress) use ($tenantB): bool {
+                return $tenantId === $tenantB->id
+                    && $chunkSize === 20
+                    && $mode === 'incremental'
+                    && $onProgress !== null;
+            })
+            ->andReturnUsing(function (int $tenantId, int $chunkSize, string $mode, ?callable $onProgress): array {
+                if ($onProgress !== null) {
+                    $onProgress([
+                        'processed' => 3,
+                        'upserted' => 3,
+                        'failed' => 0,
+                    ]);
+                }
+
+                return [
+                    'mode' => 'incremental',
+                    'processed' => 3,
+                    'upserted' => 3,
+                    'failed' => 0,
+                    'deleted' => 0,
+                    'stale_deleted' => 0,
+                    'inactive_deleted' => 0,
+                ];
+            });
     }));
 
     $this->artisan('app:typesense-reindex-tenant-products --all --sync --chunk=20')
+        ->expectsOutputToContain("Tenant {$tenantA->id} sync incremental reindex started.")
+        ->expectsOutputToContain("Tenant {$tenantA->id} progress (processed=10, upserted=9, failed=1).")
+        ->expectsOutputToContain("Tenant {$tenantB->id} sync incremental reindex started.")
+        ->expectsOutputToContain("Tenant {$tenantB->id} progress (processed=3, upserted=3, failed=0).")
         ->assertSuccessful();
 });
 

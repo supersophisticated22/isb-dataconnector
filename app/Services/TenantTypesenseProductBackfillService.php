@@ -19,6 +19,7 @@ class TenantTypesenseProductBackfillService
     ) {}
 
     /**
+     * @param  null|callable(array{processed:int,upserted:int,failed:int}):void  $onProgress
      * @return array{
      *     mode:string,
      *     processed:int,
@@ -29,7 +30,7 @@ class TenantTypesenseProductBackfillService
      *     inactive_deleted:int
      * }
      */
-    public function reindexTenant(int $tenantId, int $chunkSize = 100, string $mode = 'full'): array
+    public function reindexTenant(int $tenantId, int $chunkSize = 100, string $mode = 'full', ?callable $onProgress = null): array
     {
         if ($tenantId < 1) {
             throw new RuntimeException('Tenant id is required.');
@@ -147,6 +148,14 @@ class TenantTypesenseProductBackfillService
                         } catch (Throwable) {
                             $failed++;
                         }
+                    }
+
+                    if ($onProgress !== null) {
+                        $onProgress([
+                            'processed' => $processed,
+                            'upserted' => $upserted,
+                            'failed' => $failed,
+                        ]);
                     }
                 });
 
