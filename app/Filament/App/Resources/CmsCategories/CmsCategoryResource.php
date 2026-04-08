@@ -5,6 +5,7 @@ namespace App\Filament\App\Resources\CmsCategories;
 use App\Filament\App\Resources\CmsCategories\Pages\ManageCmsCategories;
 use App\Models\TenantPrestaShopProduct;
 use App\Models\User;
+use App\Services\CmsPerformanceProbe;
 use App\Services\TenantContext;
 use App\Services\TenantPrestaShopCmsCategoryService;
 use App\Services\TenantPrestaShopCmsPageService;
@@ -26,6 +27,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use RuntimeException;
@@ -50,6 +52,8 @@ class CmsCategoryResource extends Resource
 
     public static function table(Table $table): Table
     {
+        self::performanceProbe()->boot('cms_categories');
+
         return $table
             ->defaultSort('position', 'asc')
             ->defaultKeySort(false)
@@ -194,13 +198,17 @@ class CmsCategoryResource extends Resource
             return parent::getEloquentQuery()->whereRaw('1 = 0');
         }
 
+        $probe = self::performanceProbe();
+        $probe->boot('cms_categories');
+        $setupStartedAt = microtime(true);
+
         $langId = self::resolveTableLanguageId();
         $connection = app(TenantPrestaShopConnection::class);
 
         $categoryTable = $connection->table('cms_category');
         $categoryLangTable = $connection->table('cms_category_lang');
 
-        return parent::getEloquentQuery()
+        $query = parent::getEloquentQuery()
             ->from($categoryTable.' as c')
             ->leftJoin($categoryLangTable.' as cl', function ($join) use ($langId): void {
                 $join
@@ -225,6 +233,25 @@ class CmsCategoryResource extends Resource
                 'cl.name',
                 'pl.name as parent_name',
             ]);
+
+        $probe->logTiming('cms_categories.list_query_setup', (microtime(true) - $setupStartedAt) * 1000, [
+            'lang_id' => $langId,
+        ]);
+
+        $mainQueryStartedAt = null;
+        $query->getQuery()->beforeQuery(function () use (&$mainQueryStartedAt): void {
+            $mainQueryStartedAt = microtime(true);
+        });
+        $query->getQuery()->afterQuery(function () use (&$mainQueryStartedAt, $probe): void {
+            if (! is_float($mainQueryStartedAt)) {
+                return;
+            }
+
+            $probe->logTiming('cms_categories.main_query_execute', (microtime(true) - $mainQueryStartedAt) * 1000);
+            $mainQueryStartedAt = null;
+        });
+
+        return $query;
     }
 
     /**
@@ -257,7 +284,9 @@ class CmsCategoryResource extends Resource
 
                     try {
                         $service = app(TenantPrestaShopCmsCategoryService::class);
-                        $options = $service->getCategoryOptions($resolvedLangId);
+                        $options = self::performanceProbe()->measure('cms_categories.category_options', function () use ($service, $resolvedLangId): array {
+                            return $service->getCategoryOptions($resolvedLangId);
+                        }, ['lang_id' => $resolvedLangId]);
 
                         if ($categoryId > 0) {
                             $disallowedParentIds = $service->getDisallowedParentIds($categoryId);
@@ -312,11 +341,15 @@ class CmsCategoryResource extends Resource
             return [];
         }
 
-        try {
-            return app(TenantPrestaShopCmsPageService::class)->getLanguageOptions();
-        } catch (Throwable) {
-            return [];
-        }
+        return self::rememberInRequest('cms_categories.language_options', function (): array {
+            return self::performanceProbe()->measure('cms_categories.language_options', function (): array {
+                try {
+                    return app(TenantPrestaShopCmsPageService::class)->getLanguageOptions();
+                } catch (Throwable) {
+                    return [];
+                }
+            });
+        });
     }
 
     private static function defaultLanguageId(): int
@@ -325,11 +358,15 @@ class CmsCategoryResource extends Resource
             return 0;
         }
 
-        try {
-            return app(TenantPrestaShopCmsPageService::class)->resolveDefaultLanguageId();
-        } catch (Throwable) {
-            return 0;
-        }
+        return self::rememberInRequest('cms_categories.default_language_id', function (): int {
+            return self::performanceProbe()->measure('cms_categories.default_language_id', function (): int {
+                try {
+                    return app(TenantPrestaShopCmsPageService::class)->resolveDefaultLanguageId();
+                } catch (Throwable) {
+                    return 0;
+                }
+            });
+        });
     }
 
     private static function resolveTableLanguageId(): int
@@ -361,5 +398,42 @@ class CmsCategoryResource extends Resource
         $webUser = Auth::guard('web')->user();
 
         return $webUser instanceof User ? $webUser : null;
+    }
+
+    private static function performanceProbe(): CmsPerformanceProbe
+    {
+        return app(CmsPerformanceProbe::class);
+    }
+
+    /**
+     * @template T
+     *
+     * @param  callable():T  $resolver
+     * @return T
+     */
+    private static function rememberInRequest(string $key, callable $resolver): mixed
+    {
+        $request = self::resolveRequest();
+
+        if (! $request instanceof Request) {
+            return $resolver();
+        }
+
+        if ($request->attributes->has($key)) {
+            /** @var T */
+            return $request->attributes->get($key);
+        }
+
+        $value = $resolver();
+        $request->attributes->set($key, $value);
+
+        return $value;
+    }
+
+    private static function resolveRequest(): ?Request
+    {
+        $request = app()->bound('request') ? app('request') : null;
+
+        return $request instanceof Request ? $request : null;
     }
 }

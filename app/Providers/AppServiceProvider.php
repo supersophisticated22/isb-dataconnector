@@ -3,7 +3,10 @@
 namespace App\Providers;
 
 use App\Models\User;
+use App\Services\CmsPerformanceProbe;
 use App\Services\TenantContext;
+use App\Services\TenantPrestaShopCmsCategoryService;
+use App\Services\TenantPrestaShopCmsPageService;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(TenantContext::class);
+        $this->app->singleton(CmsPerformanceProbe::class);
+        $this->app->singleton(TenantPrestaShopCmsPageService::class);
+        $this->app->singleton(TenantPrestaShopCmsCategoryService::class);
     }
 
     /**

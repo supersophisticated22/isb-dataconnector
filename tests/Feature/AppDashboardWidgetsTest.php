@@ -30,7 +30,7 @@ beforeEach(function (): void {
 });
 
 it('registers app dashboard custom widgets and removes filament defaults', function (): void {
-    $panel = app(AppPanelProvider::class)->panel(Panel::make());
+    $panel = (new AppPanelProvider(app()))->panel(Panel::make());
     $widgets = $panel->getWidgets();
 
     expect($widgets)

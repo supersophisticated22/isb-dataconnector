@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use RuntimeException;
 
@@ -18,43 +19,50 @@ class TenantPrestaShopCmsCategoryService
      */
     public function getCategoryOptions(int $langId): array
     {
-        $this->resolveTenantId();
+        $tenantId = $this->resolveTenantId();
 
         if ($langId < 1) {
             return [];
         }
 
-        $categoryData = $this->loadCategoryTreeData($langId);
-        $categories = $categoryData['categories'];
-        $names = $categoryData['names'];
+        $cacheKey = $this->categoryOptionsCacheKey($tenantId, $langId);
 
-        $parents = [];
+        /** @var array<int, string> */
+        return Cache::rememberForever($cacheKey, function () use ($tenantId, $langId): array {
+            $categoryData = $this->loadCategoryTreeData($langId);
+            $categories = $categoryData['categories'];
+            $names = $categoryData['names'];
 
-        foreach ($categories as $category) {
-            $categoryId = $category['id'];
+            $parents = [];
 
-            if ($categoryId < 1) {
-                continue;
+            foreach ($categories as $category) {
+                $categoryId = $category['id'];
+
+                if ($categoryId < 1) {
+                    continue;
+                }
+
+                $parents[$categoryId] = $category['id_parent'];
             }
 
-            $parents[$categoryId] = $category['id_parent'];
-        }
+            $options = [];
 
-        $options = [];
+            foreach (array_keys($names) as $categoryId) {
+                $label = $this->buildPathLabel($categoryId, $parents, $names);
 
-        foreach (array_keys($names) as $categoryId) {
-            $label = $this->buildPathLabel($categoryId, $parents, $names);
+                if ($label === '') {
+                    continue;
+                }
 
-            if ($label === '') {
-                continue;
+                $options[$categoryId] = $label;
             }
 
-            $options[$categoryId] = $label;
-        }
+            asort($options, SORT_NATURAL | SORT_FLAG_CASE);
 
-        asort($options, SORT_NATURAL | SORT_FLAG_CASE);
+            $this->rememberCachedCategoryOptionsLanguage($tenantId, $langId);
 
-        return $options;
+            return $options;
+        });
     }
 
     /**
@@ -233,6 +241,8 @@ class TenantPrestaShopCmsCategoryService
                     );
             }
 
+            $this->forgetCategoryOptionsCacheForLanguages($languageIds);
+
             return $newCategoryId;
         });
     }
@@ -326,6 +336,8 @@ class TenantPrestaShopCmsCategoryService
                     ],
                 );
         });
+
+        $this->forgetCategoryOptionsCache();
     }
 
     /**
@@ -729,5 +741,85 @@ class TenantPrestaShopCmsCategoryService
         }
 
         return implode(' > ', array_reverse($parts));
+    }
+
+    private function categoryOptionsCacheKey(int $tenantId, int $langId): string
+    {
+        return "tenant:{$tenantId}:cms:category-options:{$langId}";
+    }
+
+    private function categoryOptionsLanguagesCacheKey(int $tenantId): string
+    {
+        return "tenant:{$tenantId}:cms:category-options:languages";
+    }
+
+    private function rememberCachedCategoryOptionsLanguage(int $tenantId, int $langId): void
+    {
+        $languagesKey = $this->categoryOptionsLanguagesCacheKey($tenantId);
+        /** @var list<int> $knownLanguages */
+        $knownLanguages = Cache::get($languagesKey, []);
+
+        if (in_array($langId, $knownLanguages, true)) {
+            return;
+        }
+
+        $knownLanguages[] = $langId;
+        sort($knownLanguages);
+
+        Cache::forever($languagesKey, array_values(array_unique($knownLanguages)));
+    }
+
+    /**
+     * @param  list<int>  $languageIds
+     */
+    private function forgetCategoryOptionsCacheForLanguages(array $languageIds): void
+    {
+        $tenantId = $this->resolveTenantId();
+
+        foreach ($languageIds as $languageId) {
+            if ($languageId < 1) {
+                continue;
+            }
+
+            Cache::forget($this->categoryOptionsCacheKey($tenantId, $languageId));
+        }
+
+        if ($languageIds !== []) {
+            $this->rememberKnownLanguagesForCacheIndex($tenantId, $languageIds);
+        }
+    }
+
+    private function forgetCategoryOptionsCache(): void
+    {
+        $tenantId = $this->resolveTenantId();
+        /** @var list<int> $knownLanguages */
+        $knownLanguages = Cache::get($this->categoryOptionsLanguagesCacheKey($tenantId), []);
+
+        if ($knownLanguages === []) {
+            $knownLanguages = $this->resolveLanguageIds();
+        }
+
+        foreach ($knownLanguages as $languageId) {
+            if ($languageId < 1) {
+                continue;
+            }
+
+            Cache::forget($this->categoryOptionsCacheKey($tenantId, $languageId));
+        }
+    }
+
+    /**
+     * @param  list<int>  $languageIds
+     */
+    private function rememberKnownLanguagesForCacheIndex(int $tenantId, array $languageIds): void
+    {
+        $languagesKey = $this->categoryOptionsLanguagesCacheKey($tenantId);
+        /** @var list<int> $knownLanguages */
+        $knownLanguages = Cache::get($languagesKey, []);
+        $merged = [...$knownLanguages, ...$languageIds];
+        $filtered = array_values(array_unique(array_filter($merged, fn (int $id): bool => $id > 0)));
+        sort($filtered);
+
+        Cache::forever($languagesKey, $filtered);
     }
 }

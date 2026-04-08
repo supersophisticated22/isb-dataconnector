@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Tenant;
+use App\Providers\AppServiceProvider;
 use App\Services\TenantContext;
 use App\Services\TenantPrestaShopCmsCategoryService;
 use App\Services\TenantPrestaShopCmsPageService;
@@ -134,6 +135,58 @@ it('returns localized CMS category options with tree labels', function (): void 
     ]);
 });
 
+it('caches cms category options forever per tenant and language', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    $service = app(TenantPrestaShopCmsCategoryService::class);
+    $first = $service->getCategoryOptions(1);
+
+    DB::connection('tenant_ps')->table('ps_cms_category_lang')->delete();
+
+    $second = $service->getCategoryOptions(1);
+
+    expect($second)->toBe($first);
+});
+
+it('invalidates cached cms category options after category create and update', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    $service = app(TenantPrestaShopCmsCategoryService::class);
+    $initial = $service->getCategoryOptions(1);
+
+    expect($initial)->toMatchArray([
+        1 => 'Root',
+        2 => 'Root > Nieuws',
+    ]);
+
+    $createdCategoryId = $service->createCategory(1, [
+        'name' => 'Support',
+        'id_parent' => 2,
+        'active' => true,
+    ]);
+
+    $afterCreate = $service->getCategoryOptions(1);
+
+    expect($afterCreate)->toMatchArray([
+        $createdCategoryId => 'Root > Nieuws > Support',
+    ]);
+
+    $service->updateCategory(2, 1, [
+        'name' => 'News Updated',
+        'id_parent' => 1,
+        'active' => true,
+        'position' => 0,
+    ]);
+
+    $afterUpdate = $service->getCategoryOptions(1);
+
+    expect($afterUpdate)->toMatchArray([
+        2 => 'Root > News Updated',
+    ]);
+});
+
 it('lists and fetches a cms page in the selected language', function (): void {
     $tenant = Tenant::factory()->create();
     app(TenantContext::class)->setTenant($tenant);
@@ -165,6 +218,44 @@ it('caches language options forever per tenant', function (): void {
         1 => 'Nederlands (NL)',
         2 => 'English (EN)',
     ])->and($second)->toBe($first);
+});
+
+it('resolves cms services as singleton instances', function (): void {
+    $app = app();
+
+    $provider = new AppServiceProvider($app);
+    $provider->register();
+
+    $firstPageService = $app->make(TenantPrestaShopCmsPageService::class);
+    $secondPageService = $app->make(TenantPrestaShopCmsPageService::class);
+    $firstCategoryService = $app->make(TenantPrestaShopCmsCategoryService::class);
+    $secondCategoryService = $app->make(TenantPrestaShopCmsCategoryService::class);
+
+    expect($firstPageService)
+        ->toBe($secondPageService)
+        ->and($firstCategoryService)
+        ->toBe($secondCategoryService);
+});
+
+it('keeps memoized cms schema checks stable within same service instance', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    $service = app(TenantPrestaShopCmsPageService::class);
+
+    expect($service->hasCmsColumn('indexation'))->toBeTrue()
+        ->and($service->hasCmsLangColumn('id_shop'))->toBeTrue();
+
+    Schema::connection('tenant_ps')->table('ps_cms', function (Blueprint $table): void {
+        $table->dropColumn('indexation');
+    });
+
+    Schema::connection('tenant_ps')->table('ps_cms_lang', function (Blueprint $table): void {
+        $table->dropColumn('id_shop');
+    });
+
+    expect($service->hasCmsColumn('indexation'))->toBeTrue()
+        ->and($service->hasCmsLangColumn('id_shop'))->toBeTrue();
 });
 
 it('creates a cms page and associates cms_lang and cms_shop rows', function (): void {

@@ -41,6 +41,8 @@ return [
 
     'debug' => (bool) env('APP_DEBUG', false),
 
+    'cms_perf_profiling' => (bool) env('CMS_PERF_PROFILING', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL

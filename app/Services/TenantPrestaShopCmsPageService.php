@@ -31,6 +31,7 @@ class TenantPrestaShopCmsPageService
     public function __construct(
         private TenantContext $tenantContext,
         private TenantPrestaShopConnection $tenantPrestaShopConnection,
+        private CmsPerformanceProbe $cmsPerformanceProbe,
     ) {}
 
     /**
@@ -361,14 +362,22 @@ class TenantPrestaShopCmsPageService
     {
         $this->resolveTenantId();
 
-        return $this->hasColumn($this->tenantPrestaShopConnection->table('cms'), $column);
+        return $this->cmsPerformanceProbe->measure(
+            operation: 'cms_pages.has_cms_column',
+            callback: fn (): bool => $this->hasColumn($this->tenantPrestaShopConnection->table('cms'), $column),
+            context: ['column' => $column],
+        );
     }
 
     public function hasCmsLangColumn(string $column): bool
     {
         $this->resolveTenantId();
 
-        return $this->hasColumn($this->tenantPrestaShopConnection->table('cms_lang'), $column);
+        return $this->cmsPerformanceProbe->measure(
+            operation: 'cms_pages.has_cms_lang_column',
+            callback: fn (): bool => $this->hasColumn($this->tenantPrestaShopConnection->table('cms_lang'), $column),
+            context: ['column' => $column],
+        );
     }
 
     /**
@@ -794,11 +803,17 @@ class TenantPrestaShopCmsPageService
 
     private function tableExists(string $table): bool
     {
-        if (! array_key_exists($table, $this->tablePresence)) {
-            $this->tablePresence[$table] = Schema::connection('tenant_ps')->hasTable($table);
-        }
+        return $this->cmsPerformanceProbe->measure(
+            operation: 'cms_pages.table_exists',
+            callback: function () use ($table): bool {
+                if (! array_key_exists($table, $this->tablePresence)) {
+                    $this->tablePresence[$table] = Schema::connection('tenant_ps')->hasTable($table);
+                }
 
-        return $this->tablePresence[$table];
+                return $this->tablePresence[$table];
+            },
+            context: ['table' => $table],
+        );
     }
 
     private function sanitizeSlug(string $value): string

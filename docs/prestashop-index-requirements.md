@@ -35,3 +35,53 @@ These are non-blocking but can improve filtering/sorting workloads in larger ten
 
 We do **not** manage these indexes with Laravel migrations in this repository.
 Reason: these tables belong to PrestaShop (external tenant schema), not to the SaaS app schema.
+
+## CMS pages/categories indexes
+
+These indexes are required for the CMSPages/CMSCategories list screens used by Filament.
+
+- `idx_cms_position_id` on `cms (position, id_cms)` for default list sorting.
+- `idx_cms_category_position_id` on `cms (id_cms_category, position, id_cms)` for category-filtered lists.
+- `idx_cms_category_lang_category_lang` on `cms_category_lang (id_cms_category, id_lang)` because the PK is `(id_cms_category, id_shop, id_lang)` and our joins do not constrain `id_shop`.
+- `idx_cms_category_parent_position_id` on `cms_category (id_parent, position, id_cms_category)` for parent/position operations.
+
+Notes:
+- Existing index names are fine if they cover the same columns in the same order.
+- `cms_lang` does not need extra indexes when the PK is `(id_cms, id_shop, id_lang)` and queries join by `id_cms` with `id_shop`/`id_lang`.
+- `cms_shop` does not need extra indexes beyond its PK `(id_cms, id_shop)`.
+
+## What to run (tenant Presta DB)
+
+1. Inspect current indexes:
+
+```sql
+SHOW INDEX FROM ps_cms;
+SHOW INDEX FROM ps_cms_lang;
+SHOW INDEX FROM ps_cms_category;
+SHOW INDEX FROM ps_cms_category_lang;
+SHOW INDEX FROM ps_cms_shop;
+```
+
+2. Apply only missing indexes:
+
+```sql
+ALTER TABLE ps_cms
+    ADD INDEX idx_cms_position_id (position, id_cms),
+    ADD INDEX idx_cms_category_position_id (id_cms_category, position, id_cms);
+
+ALTER TABLE ps_cms_category_lang
+    ADD INDEX idx_cms_category_lang_category_lang (id_cms_category, id_lang);
+
+ALTER TABLE ps_cms_category
+    ADD INDEX idx_cms_category_parent_position_id (id_parent, position, id_cms_category);
+```
+
+If you only want a minimal safe set first, apply just:
+
+```sql
+ALTER TABLE ps_cms
+    ADD INDEX idx_cms_position_id (position, id_cms);
+
+ALTER TABLE ps_cms_category_lang
+    ADD INDEX idx_cms_category_lang_category_lang (id_cms_category, id_lang);
+```
