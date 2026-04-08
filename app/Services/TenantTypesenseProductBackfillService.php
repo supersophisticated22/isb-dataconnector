@@ -106,7 +106,8 @@ class TenantTypesenseProductBackfillService
                     &$maxSeenDateUpd,
                     $tenantId,
                     $productLangTable,
-                    $categoryProductTable
+                    $categoryProductTable,
+                    $onProgress
                 ): void {
                     foreach ($rows as $row) {
                         $processed++;
