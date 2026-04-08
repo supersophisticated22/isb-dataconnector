@@ -25,6 +25,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use RuntimeException;
@@ -52,7 +53,7 @@ class BlogPostResource extends Resource
         return $table
             ->defaultSort('sort_order', 'asc')
             ->defaultKeySort(false)
-            ->defaultPaginationPageOption(50)
+            ->defaultPaginationPageOption(25)
             ->paginationPageOptions([25, 50, 100])
             ->columns([
                 TextColumn::make('id_post')
@@ -223,15 +224,9 @@ class BlogPostResource extends Resource
             ->select([
                 'p.id_post',
                 'p.id_post as id_product',
-                'p.id_category_default',
-                'p.is_customer',
                 'p.enabled',
                 'p.sort_order',
-                'p.date_add',
-                'p.date_upd',
                 'pl.title',
-                'pl.url_alias',
-                'pl.meta_title',
                 'cl.title as category_title',
             ]);
     }
@@ -343,11 +338,13 @@ class BlogPostResource extends Resource
             return [];
         }
 
-        try {
-            return app(TenantPrestaShopBlogCategoryService::class)->getCategoryOptions();
-        } catch (Throwable) {
-            return [];
-        }
+        return self::rememberInRequest('blog_posts.category_options', function (): array {
+            try {
+                return app(TenantPrestaShopBlogCategoryService::class)->getCategoryOptions();
+            } catch (Throwable) {
+                return [];
+            }
+        });
     }
 
     private static function defaultLanguageId(): int
@@ -356,11 +353,13 @@ class BlogPostResource extends Resource
             return 0;
         }
 
-        try {
-            return app(TenantPrestaShopBlogPostService::class)->resolveDefaultLanguageId();
-        } catch (Throwable) {
-            return 0;
-        }
+        return self::rememberInRequest('blog_posts.default_language_id', function (): int {
+            try {
+                return app(TenantPrestaShopBlogPostService::class)->resolveDefaultLanguageId();
+            } catch (Throwable) {
+                return 0;
+            }
+        });
     }
 
     private static function hasValidTenantContext(): bool
@@ -381,5 +380,37 @@ class BlogPostResource extends Resource
         $webUser = Auth::guard('web')->user();
 
         return $webUser instanceof User ? $webUser : null;
+    }
+
+    /**
+     * @template T
+     *
+     * @param  callable():T  $resolver
+     * @return T
+     */
+    private static function rememberInRequest(string $key, callable $resolver): mixed
+    {
+        $request = self::resolveRequest();
+
+        if (! $request instanceof Request) {
+            return $resolver();
+        }
+
+        if ($request->attributes->has($key)) {
+            /** @var T */
+            return $request->attributes->get($key);
+        }
+
+        $value = $resolver();
+        $request->attributes->set($key, $value);
+
+        return $value;
+    }
+
+    private static function resolveRequest(): ?Request
+    {
+        $request = app()->bound('request') ? app('request') : null;
+
+        return $request instanceof Request ? $request : null;
     }
 }
