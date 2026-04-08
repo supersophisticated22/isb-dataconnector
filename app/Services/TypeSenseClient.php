@@ -249,6 +249,18 @@ class TypeSenseClient
 
     private function throwUnexpectedResponse(string $message, Response $response): never
     {
+        $responseBody = trim((string) $response->body());
+
+        if ($responseBody !== '') {
+            $maxBodyLength = 500;
+
+            if (strlen($responseBody) > $maxBodyLength) {
+                $responseBody = substr($responseBody, 0, $maxBodyLength).'...';
+            }
+
+            throw new RuntimeException($message.' Status: '.$response->status().' Body: '.$responseBody);
+        }
+
         throw new RuntimeException($message.' Status: '.$response->status());
     }
 }

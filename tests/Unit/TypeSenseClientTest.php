@@ -105,3 +105,24 @@ it('lists product document ids for a tenant collection', function () {
 
     expect($ids)->toBe(['1', '2', '3']);
 });
+
+it('includes response body when listing document ids fails', function () {
+    Http::fake([
+        'http://typesense.test:8108/collections/products__9/documents/search*' => Http::response([
+            'message' => 'Could not find a field named `id` in the schema.',
+        ], 400),
+    ]);
+
+    try {
+        app(TypeSenseClient::class)->listProductDocIds(9, 2);
+    } catch (RuntimeException $exception) {
+        expect($exception->getMessage())
+            ->toContain('Failed listing TypeSense product documents. Status: 400')
+            ->toContain('Body:')
+            ->toContain('Could not find a field named `id` in the schema.');
+
+        return;
+    }
+
+    $this->fail('Expected RuntimeException was not thrown.');
+});
