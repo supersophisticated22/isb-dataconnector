@@ -131,6 +131,8 @@ return [
                 ],
                 'labels' => [
                     'formatted_price' => 'Formatted price',
+                    'discount_amount_tax_excl' => 'Discount amount (excl.)',
+                    'discount_percent' => 'Discount (%)',
                     'specific_price' => 'Specific price status',
                     'discounted' => 'Discounted',
                 ],

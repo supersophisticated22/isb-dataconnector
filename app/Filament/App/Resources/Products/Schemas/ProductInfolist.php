@@ -71,6 +71,20 @@ class ProductInfolist
                         TextEntry::make('current_price_tax_excl_formatted')
                             ->label(__('saas.resources.products.infolist.labels.formatted_price'))
                             ->state(fn (TextEntry $component): string => self::viewData($component->getRecord())->formattedPrice),
+                        TextEntry::make('discount_amount_tax_excl')
+                            ->label(__('saas.resources.products.infolist.labels.discount_amount_tax_excl'))
+                            ->state(fn (TextEntry $component): float => self::discountAmountTaxExcl($component->getRecord()))
+                            ->formatStateUsing(fn (mixed $state): string => Number::currency((float) $state, 'EUR'))
+                            ->badge()
+                            ->color('success')
+                            ->visible(fn (TextEntry $component): bool => self::viewData($component->getRecord())->discounted),
+                        TextEntry::make('discount_percent')
+                            ->label(__('saas.resources.products.infolist.labels.discount_percent'))
+                            ->state(fn (TextEntry $component): float => self::discountPercent($component->getRecord()))
+                            ->formatStateUsing(fn (mixed $state): string => Number::format((float) $state, precision: 2).'%')
+                            ->badge()
+                            ->color('success')
+                            ->visible(fn (TextEntry $component): bool => self::viewData($component->getRecord())->discounted),
                     ]),
                 Section::make(__('saas.resources.products.view.actions.edit_content'))
                     ->columns(1)
@@ -78,6 +92,7 @@ class ProductInfolist
                     ->schema([
                         TextEntry::make('description')
                             ->label(__('saas.resources.products.view.fields.description'))
+                            ->html()
                             ->columnSpanFull(),
                         TextEntry::make('meta_title')
                             ->label(__('saas.resources.products.view.fields.meta_title')),
@@ -109,5 +124,32 @@ class ProductInfolist
         }
 
         return ProductViewData::fromRecord([]);
+    }
+
+    /**
+     * @param  Model|array<string, mixed>|mixed  $record
+     */
+    private static function discountAmountTaxExcl(mixed $record): float
+    {
+        $originalPriceTaxExcl = (float) data_get($record, 'original_price_tax_excl', 0);
+        $currentPriceTaxExcl = (float) data_get($record, 'current_price_tax_excl', 0);
+
+        return max(0.0, round($originalPriceTaxExcl - $currentPriceTaxExcl, 6));
+    }
+
+    /**
+     * @param  Model|array<string, mixed>|mixed  $record
+     */
+    private static function discountPercent(mixed $record): float
+    {
+        $originalPriceTaxExcl = (float) data_get($record, 'original_price_tax_excl', 0);
+
+        if ($originalPriceTaxExcl <= 0) {
+            return 0.0;
+        }
+
+        $discountAmount = self::discountAmountTaxExcl($record);
+
+        return round(($discountAmount / $originalPriceTaxExcl) * 100, 2);
     }
 }

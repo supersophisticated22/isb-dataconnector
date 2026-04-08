@@ -27,6 +27,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use RuntimeException;
@@ -39,6 +40,8 @@ class CmsPageResource extends Resource
     protected static ?string $model = TenantPrestaShopProduct::class;
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+
+    protected static string|\UnitEnum|null $navigationGroup = 'CMS';
 
     protected static ?int $navigationSort = 40;
 
@@ -194,7 +197,7 @@ class CmsPageResource extends Resource
     }
 
     /**
-     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     * @return Builder<Model>
      */
     public static function getEloquentQuery(): Builder
     {
@@ -245,7 +248,7 @@ class CmsPageResource extends Resource
     }
 
     /**
-     * @return array<int, \Filament\Forms\Components\Hidden|\Filament\Forms\Components\RichEditor|\Filament\Forms\Components\Select|\Filament\Forms\Components\TextInput|\Filament\Forms\Components\Toggle>
+     * @return array<int, Hidden|RichEditor|Select|TextInput|Toggle>
      */
     public static function cmsFormSchema(bool $editing = false): array
     {

@@ -15,6 +15,18 @@ class TenantPrestaShopCmsPageService
      */
     private array $columnPresence = [];
 
+    /**
+     * @var array<string, bool>
+     */
+    private array $tablePresence = [];
+
+    /**
+     * @var list<int>|null
+     */
+    private ?array $globalShopIds = null;
+
+    private ?int $readShopId = null;
+
     public function __construct(
         private TenantContext $tenantContext,
         private TenantPrestaShopConnection $tenantPrestaShopConnection,
@@ -294,9 +306,15 @@ class TenantPrestaShopCmsPageService
 
     public function resolveReadShopId(): int
     {
+        if ($this->readShopId !== null) {
+            return $this->readShopId;
+        }
+
         $shopIds = $this->resolveShopIds();
 
-        return (int) ($shopIds[0] ?? 1);
+        $this->readShopId = (int) ($shopIds[0] ?? 1);
+
+        return $this->readShopId;
     }
 
     /**
@@ -527,6 +545,10 @@ class TenantPrestaShopCmsPageService
      */
     private function resolveShopIds(?int $cmsId = null): array
     {
+        if ($cmsId === null && $this->globalShopIds !== null) {
+            return $this->globalShopIds;
+        }
+
         $cmsShopTable = $this->tenantPrestaShopConnection->table('cms_shop');
 
         if ($this->tableExists($cmsShopTable)) {
@@ -559,6 +581,10 @@ class TenantPrestaShopCmsPageService
                 ->all();
 
             if ($shopIds !== []) {
+                if ($cmsId === null) {
+                    $this->globalShopIds = $shopIds;
+                }
+
                 return $shopIds;
             }
         }
@@ -577,8 +603,16 @@ class TenantPrestaShopCmsPageService
                 ->all();
 
             if ($shopIds !== []) {
+                if ($cmsId === null) {
+                    $this->globalShopIds = $shopIds;
+                }
+
                 return $shopIds;
             }
+        }
+
+        if ($cmsId === null) {
+            $this->globalShopIds = [1];
         }
 
         return [1];
@@ -755,7 +789,11 @@ class TenantPrestaShopCmsPageService
 
     private function tableExists(string $table): bool
     {
-        return Schema::connection('tenant_ps')->hasTable($table);
+        if (! array_key_exists($table, $this->tablePresence)) {
+            $this->tablePresence[$table] = Schema::connection('tenant_ps')->hasTable($table);
+        }
+
+        return $this->tablePresence[$table];
     }
 
     private function sanitizeSlug(string $value): string

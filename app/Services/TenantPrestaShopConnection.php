@@ -138,9 +138,7 @@ class TenantPrestaShopConnection
 
     private function resolvePassword(Tenant $tenant): string
     {
-        $password = $tenant->db_password ?? '';
-
-        return is_string($password) ? $password : '';
+        return $tenant->db_password ?? '';
     }
 
     private function sanitizePrefix(?string $prefix): string

@@ -131,6 +131,8 @@ return [
                 ],
                 'labels' => [
                     'formatted_price' => 'Geformatteerde prijs',
+                    'discount_amount_tax_excl' => 'Kortingbedrag (excl.)',
+                    'discount_percent' => 'Korting (%)',
                     'specific_price' => 'Specifieke prijsstatus',
                     'discounted' => 'Afgeprijsd',
                 ],
