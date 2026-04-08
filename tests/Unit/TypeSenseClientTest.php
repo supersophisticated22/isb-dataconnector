@@ -104,6 +104,15 @@ it('lists product document ids for a tenant collection', function () {
     $ids = app(TypeSenseClient::class)->listProductDocIds(9, 2);
 
     expect($ids)->toBe(['1', '2', '3']);
+
+    Http::assertSent(function (Request $request): bool {
+        if ($request->method() !== 'GET' || ! str_starts_with($request->url(), 'http://typesense.test:8108/collections/products__9/documents/search')) {
+            return false;
+        }
+
+        return ($request['q'] ?? null) === '*'
+            && ($request['query_by'] ?? null) === 'name';
+    });
 });
 
 it('includes response body when listing document ids fails', function () {

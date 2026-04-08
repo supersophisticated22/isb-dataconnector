@@ -90,7 +90,7 @@ class TypeSenseClient
         while (true) {
             $response = $this->http()->get("/collections/{$collectionName}/documents/search", [
                 'q' => '*',
-                'query_by' => 'id',
+                'query_by' => 'name',
                 'page' => $page,
                 'per_page' => $resolvedPerPage,
             ]);
