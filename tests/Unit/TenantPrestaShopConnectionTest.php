@@ -2,6 +2,7 @@
 
 use App\Models\Tenant;
 use App\Services\TenantPrestaShopConnection;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
@@ -34,6 +35,26 @@ it('attempts connection and fails gracefully when reconnect throws', function ()
     expect($service->connect($tenant))->toBeFalse();
 });
 
+it('uses decrypted tenant db_password when configuring tenant connection', function () {
+    $tenant = makeTenant([
+        'db_password' => Crypt::encryptString('resolved-secret'),
+    ]);
+
+    DB::shouldReceive('purge')
+        ->once()
+        ->with('tenant_ps');
+
+    DB::shouldReceive('reconnect')
+        ->once()
+        ->with('tenant_ps')
+        ->andReturnNull();
+
+    $service = app(TenantPrestaShopConnection::class);
+
+    expect($service->connect($tenant))->toBeTrue()
+        ->and(config('database.connections.tenant_ps.password'))->toBe('resolved-secret');
+});
+
 /**
  * @param  array<string, mixed>  $attributes
  */
@@ -48,7 +69,7 @@ function makeTenant(array $attributes = []): Tenant
         'db_port' => 3306,
         'db_name' => 'prestashop',
         'db_user' => 'user',
-        'db_password' => 'secret',
+        'db_password' => Crypt::encryptString('secret'),
         'db_prefix' => 'ps_',
         'base_shop_url' => 'https://tenant.example.test',
         'status' => 'active',

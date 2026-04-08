@@ -138,7 +138,7 @@ class TenantPrestaShopConnection
 
     private function resolvePassword(Tenant $tenant): string
     {
-        $password = $tenant->db_password_encrypted ?? $tenant->db_password ?? '';
+        $password = $tenant->db_password ?? '';
 
         return is_string($password) ? $password : '';
     }
