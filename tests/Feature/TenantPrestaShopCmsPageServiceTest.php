@@ -7,12 +7,15 @@ use App\Services\TenantPrestaShopCmsPageService;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 uses(RefreshDatabase::class);
 
 beforeEach(function (): void {
+    Cache::flush();
+
     config()->set('database.connections.tenant_ps', [
         'driver' => 'sqlite',
         'database' => ':memory:',
@@ -146,6 +149,22 @@ it('lists and fetches a cms page in the selected language', function (): void {
         ->and($page['meta_title'])->toBe('Welkom')
         ->and($page['category_label'])->toBe('Nieuws')
         ->and($page['shop_ids'])->toBe([1]);
+});
+
+it('caches language options forever per tenant', function (): void {
+    $tenant = Tenant::factory()->create();
+    app(TenantContext::class)->setTenant($tenant);
+
+    $first = app(TenantPrestaShopCmsPageService::class)->getLanguageOptions();
+
+    DB::connection('tenant_ps')->table('ps_lang')->delete();
+
+    $second = app(TenantPrestaShopCmsPageService::class)->getLanguageOptions();
+
+    expect($first)->toBe([
+        1 => 'Nederlands (NL)',
+        2 => 'English (EN)',
+    ])->and($second)->toBe($first);
 });
 
 it('creates a cms page and associates cms_lang and cms_shop rows', function (): void {

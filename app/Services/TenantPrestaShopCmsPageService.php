@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
@@ -272,29 +273,33 @@ class TenantPrestaShopCmsPageService
      */
     public function getLanguageOptions(): array
     {
-        $this->resolveTenantId();
+        $tenantId = $this->resolveTenantId();
+        $cacheKey = "tenant:{$tenantId}:cms:language-options";
 
-        $languageTable = $this->tenantPrestaShopConnection->table('lang');
+        /** @var array<int, string> */
+        return Cache::rememberForever($cacheKey, function (): array {
+            $languageTable = $this->tenantPrestaShopConnection->table('lang');
 
-        /** @var array<int, string> $options */
-        $options = DB::connection('tenant_ps')
-            ->table($languageTable)
-            ->orderBy('id_lang')
-            ->get(['id_lang', 'name', 'iso_code'])
-            ->mapWithKeys(function (object $language): array {
-                $idLang = (int) data_get($language, 'id_lang', 0);
-                $name = trim((string) data_get($language, 'name', ''));
-                $isoCode = strtoupper(trim((string) data_get($language, 'iso_code', '')));
+            /** @var array<int, string> $options */
+            $options = DB::connection('tenant_ps')
+                ->table($languageTable)
+                ->orderBy('id_lang')
+                ->get(['id_lang', 'name', 'iso_code'])
+                ->mapWithKeys(function (object $language): array {
+                    $idLang = (int) data_get($language, 'id_lang', 0);
+                    $name = trim((string) data_get($language, 'name', ''));
+                    $isoCode = strtoupper(trim((string) data_get($language, 'iso_code', '')));
 
-                if ($idLang < 1 || $name === '') {
-                    return [];
-                }
+                    if ($idLang < 1 || $name === '') {
+                        return [];
+                    }
 
-                return [$idLang => $isoCode !== '' ? $name.' ('.$isoCode.')' : $name];
-            })
-            ->all();
+                    return [$idLang => $isoCode !== '' ? $name.' ('.$isoCode.')' : $name];
+                })
+                ->all();
 
-        return $options;
+            return $options;
+        });
     }
 
     public function resolveDefaultLanguageId(): int
