@@ -19,6 +19,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -118,7 +119,7 @@ class ProductResource extends Resource
     }
 
     /**
-     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     * @return Builder<Model>
      */
     public static function getEloquentQuery(): Builder
     {
@@ -130,7 +131,7 @@ class ProductResource extends Resource
     }
 
     /**
-     * @param  Builder<\Illuminate\Database\Eloquent\Model>  $query
+     * @param  Builder<Model>  $query
      */
     public static function applyTypeSenseSearch(Builder $query, string $search): void
     {

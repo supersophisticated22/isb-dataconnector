@@ -177,7 +177,7 @@ it('resolves the reduced NL VAT rate and rejects unsupported rates', function ()
         ->and($service->computeTaxIncl(50.0, 9.0))->toBe(54.5);
 
     expect(fn () => $service->computeTaxIncl(50.0, 6.0))
-        ->toThrow(\RuntimeException::class);
+        ->toThrow(RuntimeException::class);
 });
 
 function seedTaxTables(float $rate): void

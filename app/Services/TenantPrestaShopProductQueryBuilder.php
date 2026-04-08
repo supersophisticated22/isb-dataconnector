@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class TenantPrestaShopProductQueryBuilder
@@ -16,8 +17,8 @@ class TenantPrestaShopProductQueryBuilder
      * - stock_available: INDEX(id_product, id_product_attribute)
      * - specific_price: INDEX(id_product, id_product_attribute), INDEX(`from`), INDEX(`to`)
      *
-     * @param  Builder<\Illuminate\Database\Eloquent\Model>  $baseQuery
-     * @return Builder<\Illuminate\Database\Eloquent\Model>
+     * @param  Builder<Model>  $baseQuery
+     * @return Builder<Model>
      */
     public function buildBaseQuery(Builder $baseQuery): Builder
     {
