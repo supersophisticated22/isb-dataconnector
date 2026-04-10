@@ -6,5 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')
     ->group(function (): void {
         Route::get('/products', [ProductController::class, 'index']);
+        Route::get('/products/search', [ProductController::class, 'search']);
         Route::get('/products/{id}', [ProductController::class, 'show'])->whereNumber('id');
     });

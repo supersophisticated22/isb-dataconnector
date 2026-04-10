@@ -4,6 +4,7 @@ use App\Models\ApiToken;
 use App\Models\Tenant;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 use function Pest\Laravel\getJson;
@@ -14,10 +15,18 @@ beforeEach(function (): void {
     config()->set('services.typesense.url', 'http://typesense.test:8108');
     config()->set('services.typesense.key', 'typesense-key');
     config()->set('services.typesense.timeout', 10);
+    Cache::flush();
 });
 
 it('requires tenant token authentication', function () {
     $response = getJson('/api/v1/products');
+
+    $response->assertUnauthorized()
+        ->assertJsonPath('message', __('saas.auth.missing_tenant_token'));
+});
+
+it('requires tenant token authentication for product search', function () {
+    $response = getJson('/api/v1/products/search');
 
     $response->assertUnauthorized()
         ->assertJsonPath('message', __('saas.auth.missing_tenant_token'));
@@ -140,4 +149,151 @@ it('supports basic search query and pagination', function () {
             && is_string($payload['filter_by'] ?? null)
             && str_contains((string) $payload['filter_by'], 'active:=true');
     });
+});
+
+it('returns search payload with facets and strict result fields', function () {
+    $tenant = Tenant::factory()->create();
+    [, $plainTextToken] = ApiToken::issue($tenant->id, 'Customer API Token');
+
+    Http::fake([
+        'http://typesense.test:8108/collections/products__'.$tenant->id.'/documents/search*' => Http::response([
+            'found' => 1,
+            'hits' => [
+                [
+                    'document' => [
+                        'id' => '4569',
+                        'doc_id' => $tenant->id.'-4569',
+                        'name' => 'AOV 580 Jodium nascent 150mcg (15ml)',
+                        'link' => '/aov-580-jodium-nascent-150mcg-15ml',
+                        'image' => '',
+                        'reference' => '564528',
+                        'ean13' => '8715687605807',
+                        'price' => 14.36,
+                        'quantity' => 37,
+                        'active' => true,
+                        'description_short' => 'Short',
+                        'description' => 'Long',
+                        'categories' => ['AOV', 'Mineralen'],
+                        'category' => 'Mineralen',
+                        'brand' => 'AOV',
+                        'contents' => '15ml',
+                        'updated_at_iso' => '2026-02-12 19:27:10',
+                        'price_original' => 19.95,
+                        'sync_run_id' => '1775786606',
+                    ],
+                ],
+            ],
+            'facet_counts' => [
+                [
+                    'field_name' => 'brand',
+                    'counts' => [
+                        ['value' => 'AOV', 'count' => 1],
+                    ],
+                ],
+                [
+                    'field_name' => 'category',
+                    'counts' => [
+                        ['value' => 'Mineralen', 'count' => 1],
+                    ],
+                ],
+            ],
+        ], 200),
+    ]);
+
+    $response = getJson('/api/v1/products/search?q=jodium&brand=AOV&history_key=user-1', [
+        'Authorization' => 'Bearer '.$plainTextToken,
+    ]);
+
+    $response->assertSuccessful()
+        ->assertJsonPath('facets.brand.AOV', 1)
+        ->assertJsonPath('facets.category.Mineralen', 1)
+        ->assertJsonPath('total', 1)
+        ->assertJsonPath('history.0', 'jodium')
+        ->assertJsonPath('results.0.doc_id', $tenant->id.'-4569')
+        ->assertJsonPath('results.0.id', 4569)
+        ->assertJsonPath('results.0.name', 'AOV 580 Jodium nascent 150mcg (15ml)')
+        ->assertJsonPath('results.0.link', '/aov-580-jodium-nascent-150mcg-15ml')
+        ->assertJsonPath('results.0.image', '')
+        ->assertJsonPath('results.0.reference', '564528')
+        ->assertJsonPath('results.0.ean13', '8715687605807')
+        ->assertJsonPath('results.0.price', 14.36)
+        ->assertJsonPath('results.0.quantity', 37)
+        ->assertJsonPath('results.0.active', true)
+        ->assertJsonPath('results.0.description_short', 'Short')
+        ->assertJsonPath('results.0.description', 'Long')
+        ->assertJsonPath('results.0.categories.0', 'AOV')
+        ->assertJsonPath('results.0.category', 'Mineralen')
+        ->assertJsonPath('results.0.brand', 'AOV')
+        ->assertJsonPath('results.0.contents', '15ml')
+        ->assertJsonPath('results.0.updated_at', '2026-02-12 19:27:10')
+        ->assertJsonPath('results.0.price_original', 19.95)
+        ->assertJsonPath('results.0.sync_run_id', '1775786606');
+
+    Http::assertSent(function (Request $request): bool {
+        if ($request->method() !== 'GET') {
+            return false;
+        }
+
+        if (! str_contains($request->url(), '/documents/search')) {
+            return false;
+        }
+
+        return ($request['facet_by'] ?? null) === 'brand,category'
+            && str_contains((string) ($request['filter_by'] ?? ''), 'brand:=');
+    });
+});
+
+it('keeps only the last 10 unique history entries per history_key', function () {
+    $tenant = Tenant::factory()->create();
+    [, $plainTextToken] = ApiToken::issue($tenant->id, 'Customer API Token');
+
+    Http::fake([
+        'http://typesense.test:8108/collections/products__'.$tenant->id.'/documents/search*' => Http::response([
+            'found' => 0,
+            'hits' => [],
+            'facet_counts' => [],
+        ], 200),
+    ]);
+
+    foreach (range(1, 11) as $index) {
+        getJson('/api/v1/products/search?q=query-'.$index.'&history_key=history-user', [
+            'Authorization' => 'Bearer '.$plainTextToken,
+        ])->assertSuccessful();
+    }
+
+    $response = getJson('/api/v1/products/search?q=query-5&history_key=history-user', [
+        'Authorization' => 'Bearer '.$plainTextToken,
+    ]);
+
+    $response->assertSuccessful()
+        ->assertJsonCount(10, 'history')
+        ->assertJsonPath('history.0', 'query-5')
+        ->assertJsonMissing(['history' => ['query-1']]);
+});
+
+it('falls back to requester ip for search history when history_key is missing', function () {
+    $tenant = Tenant::factory()->create();
+    [, $plainTextToken] = ApiToken::issue($tenant->id, 'Customer API Token');
+
+    Http::fake([
+        'http://typesense.test:8108/collections/products__'.$tenant->id.'/documents/search*' => Http::response([
+            'found' => 0,
+            'hits' => [],
+            'facet_counts' => [],
+        ], 200),
+    ]);
+
+    getJson('/api/v1/products/search?q=first', [
+        'Authorization' => 'Bearer '.$plainTextToken,
+        'REMOTE_ADDR' => '203.0.113.12',
+    ])->assertSuccessful();
+
+    $response = getJson('/api/v1/products/search?q=second', [
+        'Authorization' => 'Bearer '.$plainTextToken,
+        'REMOTE_ADDR' => '203.0.113.12',
+    ]);
+
+    $response->assertSuccessful()
+        ->assertJsonPath('history.0', 'second')
+        ->assertJsonPath('history.1', 'first');
 });

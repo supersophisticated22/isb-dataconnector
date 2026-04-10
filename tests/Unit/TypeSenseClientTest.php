@@ -41,12 +41,13 @@ it('creates a collection with the expected schema when it is missing', function 
         }
 
         $payload = $request->data();
+        $fields = collect($payload['fields'] ?? [])->keyBy('name');
 
         return ($payload['name'] ?? null) === 'products__33'
-            && ($payload['fields'][0]['name'] ?? null) === 'id'
-            && ($payload['fields'][0]['type'] ?? null) === 'string'
-            && ($payload['fields'][14]['name'] ?? null) === 'updated_at'
-            && ($payload['fields'][14]['type'] ?? null) === 'int64';
+            && data_get($fields, 'id.type') === 'string'
+            && data_get($fields, 'brand.facet') === true
+            && data_get($fields, 'category.facet') === true
+            && data_get($fields, 'updated_at.type') === 'int64';
     });
 });
 
@@ -134,4 +135,65 @@ it('includes response body when listing document ids fails', function () {
     }
 
     $this->fail('Expected RuntimeException was not thrown.');
+});
+
+it('searches product documents with facets', function () {
+    Http::fake([
+        'http://typesense.test:8108/collections/products__9/documents/search*' => Http::response([
+            'found' => 1,
+            'hits' => [
+                [
+                    'document' => [
+                        'id' => '100',
+                        'name' => 'Product',
+                    ],
+                ],
+            ],
+            'facet_counts' => [
+                [
+                    'field_name' => 'brand',
+                    'counts' => [
+                        ['value' => 'AOV', 'count' => 3],
+                    ],
+                ],
+                [
+                    'field_name' => 'category',
+                    'counts' => [
+                        ['value' => 'Mineralen', 'count' => 1],
+                    ],
+                ],
+            ],
+        ], 200),
+    ]);
+
+    $results = app(TypeSenseClient::class)->searchProductDocsWithFacets(
+        tenantId: 9,
+        query: 'aov',
+        page: 2,
+        perPage: 10,
+        filters: [
+            'category' => 'Mineralen',
+            'brand' => 'AOV',
+        ],
+    );
+
+    expect($results['total'])->toBe(1)
+        ->and($results['data'])->toHaveCount(1)
+        ->and($results['facets']['brand'])->toBe(['AOV' => 3])
+        ->and($results['facets']['category'])->toBe(['Mineralen' => 1]);
+
+    Http::assertSent(function (Request $request): bool {
+        if ($request->method() !== 'GET' || ! str_contains($request->url(), '/documents/search')) {
+            return false;
+        }
+
+        return ($request['q'] ?? null) === 'aov'
+            && ($request['facet_by'] ?? null) === 'brand,category'
+            && (int) ($request['page'] ?? 0) === 2
+            && (int) ($request['per_page'] ?? 0) === 10
+            && is_string($request['filter_by'] ?? null)
+            && str_contains((string) $request['filter_by'], 'active:=true')
+            && str_contains((string) $request['filter_by'], 'brand:=')
+            && str_contains((string) $request['filter_by'], 'category:=');
+    });
 });

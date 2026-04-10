@@ -25,8 +25,8 @@ class TenantPrestaShopProductContentService
     public function __construct(
         private TenantContext $tenantContext,
         private TenantPrestaShopConnection $tenantPrestaShopConnection,
-        private PricingService $pricingService,
         private TypeSenseClient $typeSenseClient,
+        private TypesenseProductDocumentBuilder $typesenseProductDocumentBuilder,
     ) {}
 
     /**
@@ -373,57 +373,11 @@ class TenantPrestaShopProductContentService
     private function syncTypeSenseProductDoc(int $tenantId, int $productId): void
     {
         try {
-            $pricing = $this->pricingService->computeForProduct($productId);
-            $productTable = $this->tenantPrestaShopConnection->table('product');
-            $productLangTable = $this->tenantPrestaShopConnection->table('product_lang');
-            $manufacturerTable = $this->tenantPrestaShopConnection->table('manufacturer');
-            $categoryProductTable = $this->tenantPrestaShopConnection->table('category_product');
-
-            /** @var object{reference:?string,active:int|string|bool,name:?string,manufacturer_name:?string}|null $product */
-            $product = DB::connection('tenant_ps')
-                ->table($productTable.' as p')
-                ->leftJoin($manufacturerTable.' as m', 'm.id_manufacturer', '=', 'p.id_manufacturer')
-                ->leftJoin($productLangTable.' as pl', 'pl.id_product', '=', 'p.id_product')
-                ->where('p.id_product', $productId)
-                ->orderBy('pl.id_lang')
-                ->first([
-                    'p.reference',
-                    'p.active',
-                    'pl.name',
-                    DB::raw("COALESCE(m.name, '') as manufacturer_name"),
-                ]);
-
-            if ($product === null) {
-                return;
-            }
-
-            /** @var list<string> $categoryIds */
-            $categoryIds = DB::connection('tenant_ps')
-                ->table($categoryProductTable)
-                ->where('id_product', $productId)
-                ->pluck('id_category')
-                ->map(static fn (mixed $value): string => (string) $value)
-                ->values()
-                ->all();
-
             $this->typeSenseClient->ensureCollectionExists($tenantId);
-            $this->typeSenseClient->upsertProductDoc($tenantId, [
-                'id' => (string) $productId,
-                'name' => (string) ($product->name ?? ''),
-                'reference' => (string) ($product->reference ?? ''),
-                'active' => (bool) $product->active,
-                'manufacturer_name' => (string) ($product->manufacturer_name ?? ''),
-                'category_ids' => $categoryIds,
-                'original_price_tax_excl' => $pricing['original_price_tax_excl'],
-                'current_price_tax_excl' => $pricing['current_price_tax_excl'],
-                'original_price_tax_incl' => $pricing['original_price_tax_incl'],
-                'current_price_tax_incl' => $pricing['current_price_tax_incl'],
-                'discount_amount_tax_excl' => $pricing['discount_amount_tax_excl'],
-                'discount_percent' => $pricing['discount_percent'],
-                'product_url' => '/products/'.$productId,
-                'image_url' => '',
-                'updated_at' => now()->timestamp,
-            ]);
+            $this->typeSenseClient->upsertProductDoc(
+                $tenantId,
+                $this->typesenseProductDocumentBuilder->build($tenantId, $productId),
+            );
         } catch (Throwable) {
         }
     }

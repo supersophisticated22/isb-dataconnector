@@ -444,6 +444,10 @@ return [
                     'string' => 'Categoriefilter moet een tekst zijn.',
                     'max' => 'Categoriefilter mag niet langer zijn dan 255 tekens.',
                 ],
+                'brand' => [
+                    'string' => 'Merkfilter moet een tekst zijn.',
+                    'max' => 'Merkfilter mag niet langer zijn dan 255 tekens.',
+                ],
                 'manufacturer' => [
                     'string' => 'Fabrikantfilter moet een tekst zijn.',
                     'max' => 'Fabrikantfilter mag niet langer zijn dan 255 tekens.',
@@ -458,6 +462,10 @@ return [
                 ],
                 'has_discount' => [
                     'boolean' => 'Kortingsfilter moet waar of onwaar zijn.',
+                ],
+                'history_key' => [
+                    'string' => 'History key moet een tekst zijn.',
+                    'max' => 'History key mag niet langer zijn dan 255 tekens.',
                 ],
                 'page' => [
                     'integer' => 'Pagina moet een geheel getal zijn.',

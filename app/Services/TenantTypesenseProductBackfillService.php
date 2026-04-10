@@ -14,8 +14,8 @@ class TenantTypesenseProductBackfillService
     public function __construct(
         private TenantContext $tenantContext,
         private TenantPrestaShopConnection $tenantPrestaShopConnection,
-        private PricingService $pricingService,
         private TypeSenseClient $typeSenseClient,
+        private TypesenseProductDocumentBuilder $typesenseProductDocumentBuilder,
     ) {}
 
     /**
@@ -64,9 +64,6 @@ class TenantTypesenseProductBackfillService
             }
 
             $productTable = $this->tenantPrestaShopConnection->table('product');
-            $productLangTable = $this->tenantPrestaShopConnection->table('product_lang');
-            $manufacturerTable = $this->tenantPrestaShopConnection->table('manufacturer');
-            $categoryProductTable = $this->tenantPrestaShopConnection->table('category_product');
             $hasDateUpdColumn = Schema::connection('tenant_ps')->hasColumn($productTable, 'date_upd');
             $watermarkKey = $this->watermarkCacheKey($tenantId);
             $previousWatermark = $mode === 'incremental' && $hasDateUpdColumn
@@ -83,13 +80,10 @@ class TenantTypesenseProductBackfillService
 
             $query = DB::connection('tenant_ps')
                 ->table($productTable.' as p')
-                ->leftJoin($manufacturerTable.' as m', 'm.id_manufacturer', '=', 'p.id_manufacturer')
                 ->select([
                     'p.id_product',
-                    'p.reference',
                     'p.active',
                     ...($hasDateUpdColumn ? ['p.date_upd'] : []),
-                    DB::raw("COALESCE(m.name, '') as manufacturer_name"),
                 ]);
 
             if ($runMode === 'incremental') {
@@ -105,8 +99,6 @@ class TenantTypesenseProductBackfillService
                     &$sourceInactiveIds,
                     &$maxSeenDateUpd,
                     $tenantId,
-                    $productLangTable,
-                    $categoryProductTable,
                     $onProgress
                 ): void {
                     foreach ($rows as $row) {
@@ -137,10 +129,6 @@ class TenantTypesenseProductBackfillService
                             $document = $this->buildProductDocument(
                                 tenantId: $tenantId,
                                 productId: $productId,
-                                reference: (string) ($row->reference ?? ''),
-                                manufacturerName: (string) ($row->manufacturer_name ?? ''),
-                                productLangTable: $productLangTable,
-                                categoryProductTable: $categoryProductTable,
                             );
 
                             $this->typeSenseClient->upsertProductDoc($tenantId, $document);
@@ -199,47 +187,9 @@ class TenantTypesenseProductBackfillService
     /**
      * @return array<string, mixed>
      */
-    private function buildProductDocument(
-        int $tenantId,
-        int $productId,
-        string $reference,
-        string $manufacturerName,
-        string $productLangTable,
-        string $categoryProductTable,
-    ): array {
-        $pricing = $this->pricingService->computeForProduct($productId);
-
-        $name = DB::connection('tenant_ps')
-            ->table($productLangTable)
-            ->where('id_product', $productId)
-            ->orderBy('id_lang')
-            ->value('name');
-
-        $categoryIds = DB::connection('tenant_ps')
-            ->table($categoryProductTable)
-            ->where('id_product', $productId)
-            ->pluck('id_category')
-            ->map(static fn (mixed $value): string => (string) $value)
-            ->values()
-            ->all();
-
-        return [
-            'id' => (string) $productId,
-            'name' => is_scalar($name) ? (string) $name : '',
-            'reference' => $reference,
-            'active' => true,
-            'manufacturer_name' => $manufacturerName,
-            'category_ids' => $categoryIds,
-            'original_price_tax_excl' => (float) $pricing['original_price_tax_excl'],
-            'current_price_tax_excl' => (float) $pricing['current_price_tax_excl'],
-            'original_price_tax_incl' => (float) $pricing['original_price_tax_incl'],
-            'current_price_tax_incl' => (float) $pricing['current_price_tax_incl'],
-            'discount_amount_tax_excl' => (float) $pricing['discount_amount_tax_excl'],
-            'discount_percent' => (float) $pricing['discount_percent'],
-            'product_url' => '/products/'.$productId,
-            'image_url' => '',
-            'updated_at' => now()->timestamp,
-        ];
+    private function buildProductDocument(int $tenantId, int $productId): array
+    {
+        return $this->typesenseProductDocumentBuilder->build($tenantId, $productId);
     }
 
     private function watermarkCacheKey(int $tenantId): string

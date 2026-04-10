@@ -27,11 +27,24 @@ class TypeSenseClient
             'name' => $collectionName,
             'fields' => [
                 ['name' => 'id', 'type' => 'string'],
+                ['name' => 'doc_id', 'type' => 'string'],
                 ['name' => 'name', 'type' => 'string'],
                 ['name' => 'reference', 'type' => 'string'],
+                ['name' => 'ean13', 'type' => 'string', 'optional' => true],
                 ['name' => 'active', 'type' => 'bool'],
                 ['name' => 'manufacturer_name', 'type' => 'string'],
+                ['name' => 'brand', 'type' => 'string', 'facet' => true],
                 ['name' => 'category_ids', 'type' => 'string[]'],
+                ['name' => 'categories', 'type' => 'string[]'],
+                ['name' => 'category', 'type' => 'string', 'facet' => true],
+                ['name' => 'description_short', 'type' => 'string', 'optional' => true],
+                ['name' => 'description', 'type' => 'string', 'optional' => true],
+                ['name' => 'contents', 'type' => 'string', 'optional' => true],
+                ['name' => 'quantity', 'type' => 'int32', 'optional' => true],
+                ['name' => 'price', 'type' => 'float', 'optional' => true],
+                ['name' => 'price_original', 'type' => 'float', 'optional' => true],
+                ['name' => 'link', 'type' => 'string', 'optional' => true],
+                ['name' => 'image', 'type' => 'string', 'optional' => true],
                 ['name' => 'original_price_tax_excl', 'type' => 'float'],
                 ['name' => 'current_price_tax_excl', 'type' => 'float'],
                 ['name' => 'original_price_tax_incl', 'type' => 'float'],
@@ -40,6 +53,8 @@ class TypeSenseClient
                 ['name' => 'discount_percent', 'type' => 'float'],
                 ['name' => 'product_url', 'type' => 'string'],
                 ['name' => 'image_url', 'type' => 'string'],
+                ['name' => 'sync_run_id', 'type' => 'string', 'optional' => true],
+                ['name' => 'updated_at_iso', 'type' => 'string', 'optional' => true],
                 ['name' => 'updated_at', 'type' => 'int64'],
             ],
         ]);
@@ -139,7 +154,7 @@ class TypeSenseClient
 
         $response = $this->http()->get("/collections/{$collectionName}/documents/search", [
             'q' => trim($query) !== '' ? $query : '*',
-            'query_by' => 'name,reference,manufacturer_name',
+            'query_by' => 'name,reference,manufacturer_name,brand,ean13,description_short,description',
             'page' => $page,
             'per_page' => $perPage,
             'filter_by' => $this->buildProductFilterBy($filters),
@@ -163,6 +178,50 @@ class TypeSenseClient
         return [
             'data' => $documents,
             'total' => (int) ($payload['found'] ?? count($documents)),
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $filters
+     * @return array{
+     *     data: array<int, array<string, mixed>>,
+     *     total: int,
+     *     facets: array{brand: array<string, int>, category: array<string, int>}
+     * }
+     */
+    public function searchProductDocsWithFacets(int $tenantId, string $query, int $page, int $perPage, array $filters = []): array
+    {
+        $collectionName = $this->collectionName($tenantId);
+
+        $response = $this->http()->get("/collections/{$collectionName}/documents/search", [
+            'q' => trim($query) !== '' ? $query : '*',
+            'query_by' => 'name,reference,manufacturer_name,brand,ean13,description_short,description',
+            'page' => $page,
+            'per_page' => $perPage,
+            'filter_by' => $this->buildProductFilterBy($filters),
+            'sort_by' => 'updated_at:desc',
+            'facet_by' => 'brand,category',
+            'max_facet_values' => 100,
+        ]);
+
+        if (! $response->successful()) {
+            $this->throwUnexpectedResponse('Failed searching TypeSense products with facets.', $response);
+        }
+
+        $payload = $response->json();
+        $hits = is_array($payload['hits'] ?? null) ? $payload['hits'] : [];
+        $documents = [];
+
+        foreach ($hits as $hit) {
+            if (is_array($hit) && is_array($hit['document'] ?? null)) {
+                $documents[] = $hit['document'];
+            }
+        }
+
+        return [
+            'data' => $documents,
+            'total' => (int) ($payload['found'] ?? count($documents)),
+            'facets' => $this->parseFacetCounts($payload['facet_counts'] ?? null),
         ];
     }
 
@@ -203,11 +262,21 @@ class TypeSenseClient
         $segments = ['active:=true'];
 
         if (isset($filters['category']) && is_string($filters['category']) && $filters['category'] !== '') {
-            $segments[] = 'category_ids:='.$this->escapeFilterValue($filters['category']);
+            $escapedCategory = $this->escapeFilterValue($filters['category']);
+            $segments[] = "(category:={$escapedCategory} || category_ids:={$escapedCategory})";
         }
 
-        if (isset($filters['manufacturer']) && is_string($filters['manufacturer']) && $filters['manufacturer'] !== '') {
-            $segments[] = 'manufacturer_name:='.$this->escapeFilterValue($filters['manufacturer']);
+        $brand = null;
+
+        if (isset($filters['brand']) && is_string($filters['brand']) && $filters['brand'] !== '') {
+            $brand = $filters['brand'];
+        } elseif (isset($filters['manufacturer']) && is_string($filters['manufacturer']) && $filters['manufacturer'] !== '') {
+            $brand = $filters['manufacturer'];
+        }
+
+        if ($brand !== null) {
+            $escapedBrand = $this->escapeFilterValue($brand);
+            $segments[] = "(brand:={$escapedBrand} || manufacturer_name:={$escapedBrand})";
         }
 
         if (isset($filters['min_price']) && is_numeric($filters['min_price'])) {
@@ -225,6 +294,51 @@ class TypeSenseClient
         }
 
         return implode(' && ', $segments);
+    }
+
+    /**
+     * @return array{brand: array<string, int>, category: array<string, int>}
+     */
+    private function parseFacetCounts(mixed $facetCounts): array
+    {
+        $facets = [
+            'brand' => [],
+            'category' => [],
+        ];
+
+        if (! is_array($facetCounts)) {
+            return $facets;
+        }
+
+        foreach ($facetCounts as $facet) {
+            if (! is_array($facet)) {
+                continue;
+            }
+
+            $fieldName = (string) ($facet['field_name'] ?? '');
+
+            if (! array_key_exists($fieldName, $facets)) {
+                continue;
+            }
+
+            $counts = is_array($facet['counts'] ?? null) ? $facet['counts'] : [];
+
+            foreach ($counts as $countData) {
+                if (! is_array($countData)) {
+                    continue;
+                }
+
+                $value = trim((string) ($countData['value'] ?? ''));
+
+                if ($value === '') {
+                    continue;
+                }
+
+                $facets[$fieldName][$value] = (int) ($countData['count'] ?? 0);
+            }
+        }
+
+        return $facets;
     }
 
     private function escapeFilterValue(string $value): string

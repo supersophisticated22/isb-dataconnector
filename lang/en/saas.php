@@ -444,6 +444,10 @@ return [
                     'string' => 'Category filter must be a string.',
                     'max' => 'Category filter may not be greater than 255 characters.',
                 ],
+                'brand' => [
+                    'string' => 'Brand filter must be a string.',
+                    'max' => 'Brand filter may not be greater than 255 characters.',
+                ],
                 'manufacturer' => [
                     'string' => 'Manufacturer filter must be a string.',
                     'max' => 'Manufacturer filter may not be greater than 255 characters.',
@@ -458,6 +462,10 @@ return [
                 ],
                 'has_discount' => [
                     'boolean' => 'Discount filter must be true or false.',
+                ],
+                'history_key' => [
+                    'string' => 'History key must be a string.',
+                    'max' => 'History key may not be greater than 255 characters.',
                 ],
                 'page' => [
                     'integer' => 'Page must be an integer.',
